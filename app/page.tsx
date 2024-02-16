@@ -1,3 +1,5 @@
+import DropDownOptions from "@/components/DropDownOptions";
+
 async function Home() {
   return (
     <section className="flex flex-col justify-center items-center my-10">
@@ -22,6 +24,7 @@ async function Home() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md w-full p-2"
           />
         </div>
+        <DropDownOptions />
       </section>
     </section>
   );
