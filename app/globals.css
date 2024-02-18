@@ -12,10 +12,22 @@
   }
 }
 
-body {
-  background: rgb(17 24 39 / var(--tw-bg-opacity));
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
+@layer components {
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+body {
+  background-color: #f0f0f0;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
