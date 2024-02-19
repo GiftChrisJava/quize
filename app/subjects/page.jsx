@@ -40,12 +40,12 @@ function Subjects() {
         </article>
       </section>
 
+      {/* form 4 subjects  */}
       <section className="max-container">
         <article className="sm:4 p-1 mt-4">
           <h4 className="text-center md:text-left font-bold text-lg mt-4 text-red-600">
             Form 4 Subjects
           </h4>
-          {/* form 4 subjects  */}
 
           <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
             {data.map((subject) => (
