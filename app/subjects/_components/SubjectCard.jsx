@@ -3,7 +3,7 @@ import React from "react";
 
 function SubjectCard({ name, image, id }) {
   return (
-    <div className="mt-6 shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[200px] ">
+    <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[200px] ">
       <div>
         <Image
           src={image}

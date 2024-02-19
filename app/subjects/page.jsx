@@ -3,8 +3,9 @@ import Image from "next/image";
 import image1 from "../../public/img2.jpg";
 import cool from "../../public/cool.jpg";
 import SubjectCard from "./_components/SubjectCard";
-import { data } from "../_data";
+import { data, tutors } from "../_data";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
+import TutorCard from "./_components/TutorCard";
 
 function Subjects() {
   return (
@@ -40,7 +41,7 @@ function Subjects() {
       </section>
 
       <section className="max-container">
-        <article className="sm:4 p-1 mt-8">
+        <article className="sm:4 p-1 mt-4">
           <h4 className="text-center md:text-left font-bold text-lg mt-4 text-red-600">
             Form 4 Subjects
           </h4>
@@ -50,7 +51,7 @@ function Subjects() {
             {data.map((subject) => (
               <div key={subject.id}>
                 <FormFourSubjectCard
-                  className="flex"
+                  className="flex "
                   name={subject.name}
                   image={subject.image}
                   id={subject.id}
@@ -60,7 +61,9 @@ function Subjects() {
           </div>
         </article>
 
-        <article className="sm:4 p-1 mt-10">
+        <hr className="mt-12" />
+
+        <article className="sm:4 p-1 mt-6">
           <h4 className="text-center md:text-left font-bold text-lg mt-4 text-green-700">
             Form 3 Subjects
           </h4>
@@ -81,43 +84,30 @@ function Subjects() {
         </article>
       </section>
 
+      {/* Tutors  */}
       <section className="bg-green-600 mt-10 pb-5">
         <article className="max-container">
-          <h4 className="font-bold text-2xl text-white">Find a Tutor</h4>
-          <small className="font-bold text-gray-900">
+          <h4 className="font-bold text-3xl text-white text-center pt-3">
+            Find a Tutor
+          </h4>
+          <small className="block font-bold text-gray-900 text-center">
             Here is a list of tutors to you can hire for further help
           </small>
         </article>
 
-        <article className="py-3 px-1 shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[220px]">
-          <div className="flex flex-col items-center justify-center">
-            <Image
-              src={cool}
-              height={100}
-              width={100}
-              alt="tutor"
-              className="rounded-full object-contain h-34 w-30"
-            />
-          </div>
-
-          <div>
-            <h3 className="text-center mt-2 font-bold text-gray-900 text-lg">
-              Patrick Chemusa
-            </h3>
-            <p className="text-center text-sm text-gray-700">
-              Am a teacher with specialization in{" "}
-              <span className="font-bold">Maths</span> and{" "}
-              <span className="font-bold"> Physis</span>
-            </p>
-
-            <p className="text-center mt-2 text-gray-700 text-sm">
-              Based in Lilongwe
-            </p>
-
-            <div className="flex flex-col mt-3 items-center justify-center">
-              <small className="text-red-600 font-bold">Find out more</small>
+        <article className="min-container mt-10 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
+          {tutors.map((tutor) => (
+            <div key={tutor.id}>
+              <TutorCard
+                className="flex"
+                name={tutor.name}
+                image={tutor.image}
+                id={tutor.id}
+                desc={tutor.desc}
+                location={tutor.location}
+              />
             </div>
-          </div>
+          ))}
         </article>
       </section>
     </container>
