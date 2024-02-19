@@ -1,5 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
 import image1 from "../../public/img2.jpg";
+import image3 from "../../public/img3.jpeg";
+import SubjectCard from "./_components/SubjectCard";
+import { data } from "../_data";
 
 function Subjects() {
   return (
@@ -31,8 +35,24 @@ function Subjects() {
         </section>
       </article>
 
-      <article className="">
-        <h4 className=" font-bold text-lg mt-4 text-green-700">Form 3</h4>
+      <article className="sm:4 p-1">
+        <h4 className="text-center md:text-left font-bold text-lg mt-4 text-green-700">
+          Form 3 Subjects
+        </h4>
+        {/* form 3 subjects  */}
+
+        <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+          {data.map((subject) => (
+            <div key={subject.id}>
+              <SubjectCard
+                className="flex"
+                name={subject.name}
+                image={subject.image}
+                id={subject.id}
+              />
+            </div>
+          ))}
+        </div>
       </article>
     </div>
   );
