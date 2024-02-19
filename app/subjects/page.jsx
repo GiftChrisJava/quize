@@ -4,10 +4,11 @@ import image1 from "../../public/img2.jpg";
 function Subjects() {
   return (
     <div className="max-container ">
-      <article className="p-3 flex flex-row sm:gap-8 items-center justify-center">
+      <article className="flex flex-row sm:gap-8 items-center justify-center">
         <section className="flex flex-2 sm:flex-1 flex-col p-4">
           <h2 className="font-extrabold flex-start sm:text-2xl md:text-4xl text-gray-900 ">
-            MALAWI EDUCATION ENHANCEMENT PLATFORM
+            <span className="text-green-600">MALAWI</span> EDUCATION ENHANCEMENT
+            <span className="text-red-600"> PLATFORM</span>
           </h2>
           <h4 className=" font-bold text-sm text-gray-600 mt-4">
             A solution to help you understand the most challenging and complex
@@ -19,15 +20,19 @@ function Subjects() {
             class
           </h2>
         </section>
-        <section className="flex-1">
+        <section className="flex-1 ml-10">
           <Image
             src={image1}
             width={280}
             height={235}
             alt="student"
-            className="rounded-lg cover hidden sm:flex"
+            className="rounded-lg hidden object-contain sm:flex"
           />
         </section>
+      </article>
+
+      <article className="">
+        <h4 className=" font-bold text-lg mt-4 text-green-700">Form 3</h4>
       </article>
     </div>
   );
