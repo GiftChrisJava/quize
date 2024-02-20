@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function TutorCard({ name, image, id, desc, location }) {
   return (
-    <article className="py-3 px-1 shadow-xl bg-white rounded-md mx-auto max-w-[250px]">
+    <article className="py-3 mb-4 px-1 shadow-xl bg-white rounded-md mx-auto max-w-[250px]">
       <div className="flex flex-col items-center justify-center">
         <Image
           src={image}

@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
-import image1 from "../../public/img2.jpg";
+import image1 from "../../public/e.jpg";
+import imaged from "../../public/g.jpg";
+
 import cool from "../../public/cool.jpg";
 import SubjectCard from "./_components/SubjectCard";
 import { data, tutors } from "../_data";
@@ -11,7 +13,7 @@ function Subjects() {
   return (
     <container className=" ">
       <section className="bg-white">
-        <article className="max-container pb-10 flex flex-row sm:gap-8 items-center justify-center">
+        <article className="max-container  flex flex-row sm:gap-8 items-center justify-center">
           <section className="flex flex-2 sm:flex-1 flex-col p-4">
             <h2 className="font-extrabold flex-start sm:text-2xl md:text-4xl text-gray-900 ">
               <span className="text-green-600">MALAWI</span> EDUCATION
@@ -31,11 +33,33 @@ function Subjects() {
           <section className="flex-1 ml-10">
             <Image
               src={image1}
-              width={280}
-              height={235}
+              width={380}
+              height={335}
               alt="student"
               className="rounded-lg hidden object-contain sm:flex"
             />
+          </section>
+        </article>
+
+        <article className="md:min-container max-container pb-10 flex flex-row sm:gap-8 items-center justify-center">
+          <section className="flex-1 md:ml-10">
+            <Image
+              src={imaged}
+              width={260}
+              height={215}
+              alt="student"
+              className="rounded-lg hidden object-contain sm:flex"
+            />
+          </section>
+          <section className="flex flex-2 sm:flex-1 flex-col p-4">
+            <h4 className=" font-bold text-md text-gray-600 mt-0 text-left md:items-center md:justify-center">
+              Online learning you can access anywhere easily
+            </h4>
+
+            <h4 className=" font-bold text-sm text-gray-800 mt-2 md:items-center md:justify-center">
+              Begin your journey of of learning by just clicking on the subject
+              below depending on your secondary school level
+            </h4>
           </section>
         </article>
       </section>

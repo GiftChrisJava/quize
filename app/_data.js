@@ -14,7 +14,7 @@ export const data = [
 
   {
     id: "1",
-    name: "Life Skills",
+    name: "English",
     image: image5,
   },
 
