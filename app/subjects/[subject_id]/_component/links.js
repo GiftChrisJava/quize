@@ -1,5 +1,4 @@
 export const navLinks = [
-  { href: "/topics", label: "Topics" },
   { href: "/quizes", label: "Quizes" },
   { href: "/tutors", label: "Tutors" },
   { href: "/subjects", label: "Subjects" },
