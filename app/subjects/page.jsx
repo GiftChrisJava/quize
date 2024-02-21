@@ -3,15 +3,14 @@ import Image from "next/image";
 import image1 from "../../public/e.jpg";
 import imaged from "../../public/g.jpg";
 
-import cool from "../../public/cool.jpg";
 import SubjectCard from "./_components/SubjectCard";
-import { data, tutors } from "../_data";
+import { formThree, formFour, tutors } from "../_data";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
-import TutorCard from "./_components/TutorCard";
+import TutorCard from "../tutors/_components/TutorCard";
 
 function Subjects() {
   return (
-    <container className=" ">
+    <container className="mt-4">
       <section className="bg-white">
         <article className="max-container  flex flex-row sm:gap-8 items-center justify-center">
           <section className="flex flex-2 sm:flex-1 flex-col p-4">
@@ -52,7 +51,7 @@ function Subjects() {
             />
           </section>
           <section className="flex flex-2 sm:flex-1 flex-col p-4">
-            <h4 className=" font-bold text-md text-gray-600 mt-0 text-left md:items-center md:justify-center">
+            <h4 className=" font-semibold text-md text-gray-500 mt-0 text-left md:items-center md:justify-center">
               Online learning you can access anywhere easily
             </h4>
 
@@ -72,13 +71,13 @@ function Subjects() {
           </h4>
 
           <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
-            {data.map((subject) => (
+            {formFour.map((subject) => (
               <div key={subject.id}>
                 <FormFourSubjectCard
                   className="flex "
                   name={subject.name}
                   image={subject.image}
-                  id={subject.id}
+                  subject_id={subject.id}
                 />
               </div>
             ))}
@@ -94,13 +93,13 @@ function Subjects() {
           {/* form 3 subjects  */}
 
           <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
-            {data.map((subject) => (
+            {formThree.map((subject) => (
               <div key={subject.id}>
                 <SubjectCard
                   className="flex"
                   name={subject.name}
                   image={subject.image}
-                  id={subject.id}
+                  subject_id={subject.id}
                 />
               </div>
             ))}
@@ -119,14 +118,14 @@ function Subjects() {
           </small>
         </article>
 
-        <article className="min-container mt-10 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
+        <article className="min-container sm:px-9 md:px-1 mt-10 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
           {tutors.map((tutor) => (
             <div key={tutor.id}>
               <TutorCard
                 className="flex"
                 name={tutor.name}
                 image={tutor.image}
-                id={tutor.id}
+                tutor_id={tutor.id}
                 desc={tutor.desc}
                 location={tutor.location}
               />

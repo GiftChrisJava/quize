@@ -5,7 +5,7 @@ import image5 from "../public/img5.jpeg";
 import image6 from "../public/img6.jpeg";
 import image7 from "../public/img7.jpeg";
 
-export const data = [
+export const formFour = [
   {
     id: "7",
     name: "Mathematics",
@@ -37,6 +37,43 @@ export const data = [
   },
   {
     id: "2",
+    name: "Biology",
+    image: image6,
+  },
+];
+
+export const formThree = [
+  {
+    id: "10",
+    name: "Mathematics",
+    image: image7,
+  },
+
+  {
+    id: "11",
+    name: "English",
+    image: image5,
+  },
+
+  {
+    id: "12",
+    name: "Chemistry",
+    image: image6,
+  },
+
+  {
+    id: "13",
+    name: "Geography",
+    image: image5,
+  },
+
+  {
+    id: "14",
+    name: "Computer Studies",
+    image: image3,
+  },
+  {
+    id: "15",
     name: "Biology",
     image: image6,
   },
