@@ -1,10 +1,11 @@
+"use client";
 import SideNav from "./_component/SideNav";
 import TopicCard from "./_component/TopicCard";
 import { topics } from "./_component/constants/topics";
 
 function Subject({ params }) {
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between pb-6">
       <section className="flex-3 max-container">
         <article>
           <h4 className="font-semibold text-3xl text-gray-500 text-center pt-3">
@@ -24,6 +25,8 @@ function Subject({ params }) {
                   className="flex"
                   name={topic.name}
                   image={topic.image}
+                  topic_id={topic.id}
+                  subject_id={params.subject_id}
                 />
               </div>
             ))}
