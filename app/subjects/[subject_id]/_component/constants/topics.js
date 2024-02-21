@@ -1,6 +1,11 @@
+import img from "../../../../../public/img3.jpeg";
+import img5 from "../../../../../public/img5.jpeg";
+import img6 from "../../../../../public/img6.jpeg";
+
 export const topics = [
   {
     id: 1,
+    image: img5,
     name: "Using Spreadsheets",
     subtopics: [
       {
@@ -18,6 +23,7 @@ export const topics = [
 
   {
     id: 2,
+    image: img6,
     name: "Desktop publishing software",
     subtopics: [
       {
@@ -35,6 +41,7 @@ export const topics = [
 
   {
     id: 3,
+    image: img5,
     name: "Software installation",
     subtopics: [
       {
@@ -52,6 +59,7 @@ export const topics = [
 
   {
     id: 3,
+    image: img6,
     name: "Communication technologies",
     subtopics: [
       {
@@ -76,6 +84,7 @@ export const topics = [
 
   {
     id: 4,
+    image: img,
     name: "Programming fundamentals",
     subtopics: [
       {

@@ -1,6 +1,6 @@
 import { Search } from "lucide-react";
 import React from "react";
-import { navLinks } from "./links";
+import { navLinks } from "./constants/links";
 import Link from "next/link";
 
 function Header() {

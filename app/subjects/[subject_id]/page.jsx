@@ -1,5 +1,42 @@
+import SideNav from "./_component/SideNav";
+import TopicCard from "./_component/TopicCard";
+import { topics } from "./_component/constants/topics";
+
 function Subject({ params }) {
-  return <div>{params.subject_id}</div>;
+  return (
+    <div className="flex flex-row justify-between">
+      <section className="flex-3 max-container">
+        <article>
+          <h4 className="font-semibold text-3xl text-gray-500 text-center pt-3">
+            COMPUTER STUDIES
+          </h4>
+          <small className="block font-bold text-green-600 text-center">
+            Select on a topic to watch videos, take a quiez and see exam
+            questions
+          </small>
+        </article>
+
+        <article className="px-2">
+          <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+            {topics.map((topic) => (
+              <div key={topic.id}>
+                <TopicCard
+                  className="flex"
+                  name={topic.name}
+                  image={topic.image}
+                />
+              </div>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      {/* side bar  */}
+      <section className="md:block hidden">
+        <SideNav />
+      </section>
+    </div>
+  );
 }
 
 export default Subject;
