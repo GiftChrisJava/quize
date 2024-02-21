@@ -108,9 +108,9 @@ function Subjects() {
       </section>
 
       {/* Tutors  */}
-      <section className="bg-green-600 mt-10 pb-5">
+      <section className="bg-white mt-10 pb-5">
         <article className="max-container">
-          <h4 className="font-bold text-3xl text-white text-center pt-3">
+          <h4 className="font-bold text-3xl text-red-600 text-center pt-3">
             Find a Tutor
           </h4>
           <small className="block font-bold text-gray-900 text-center">
