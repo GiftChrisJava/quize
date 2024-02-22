@@ -3,7 +3,8 @@ import Header from "./_component/Header";
 function layout({ children }) {
   return (
     <div>
-      <Header />
+      <Header className="sticky" />
+
       {children}
     </div>
   );

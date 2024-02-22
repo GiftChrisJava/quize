@@ -7,10 +7,13 @@ import { PlaySquareIcon } from "lucide-react";
 
 function Videos({ params }) {
   console.log(params.topic_id);
-  const [topic, settopic] = useState(topics[params.topic_id - 1]);
-  console.log(topic);
+  const subject_id = params.subject_id;
+  const topic_id = params.topic_id;
+
+  const [topic, settopic] = useState(topics[topic_id - 1]);
+
   return (
-    <main className="bg-white h-full">
+    <main className=" h-full">
       <hr />
       <div className="max-container p-4 flex flex-col justify-center items-center">
         <article className="mb-8">
@@ -20,7 +23,7 @@ function Videos({ params }) {
               alt="image"
               className="w-[850px] h-[220px] rounded-xl"
             />
-            <p className="font-bold text-4xl text-white -mt-10 ml-3">{`${topic.name}`}</p>
+            <p className="font-bold text-4xl text-white -mt-11 ml-3">{`${topic.name}`}</p>
           </div>
         </article>
 
@@ -39,6 +42,8 @@ function Videos({ params }) {
                 name={subtopic.name}
                 desc={subtopic.description}
                 image={subtopic.image}
+                subject_id={subject_id}
+                topic_id={topic_id}
               />
             </div>
           ))}

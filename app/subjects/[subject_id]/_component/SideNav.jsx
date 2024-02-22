@@ -6,7 +6,7 @@ import { useState } from "react";
 function SideNav() {
   const [showModel, setshowModel] = useState(false);
   return (
-    <div className="p-4 bg-white shadow-lg border rounded-md mr-3 mt-2">
+    <div className="p-4 sticky bg-white shadow-lg border rounded-md mr-3 mt-2">
       <p className="font-semibold text-gray-800 text-xl">Available Topics</p>
       <hr className="mt-3" />
       {/* Topic list  */}

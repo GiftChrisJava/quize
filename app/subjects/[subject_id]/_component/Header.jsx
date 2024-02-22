@@ -5,7 +5,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <div className="bg-white">
+    <div className="bg-white sticky">
       <div className="px-2 py-4 max-container flex justify-between">
         {/* logo */}
         <p className="font-bold text-3xl text-green-600 hidden sm:block">
