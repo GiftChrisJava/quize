@@ -4,12 +4,19 @@ import img6 from "../../../../../public/img6.jpeg";
 
 // for subtopics
 import img1 from "../../../../../public/img1.jpeg";
-import img7 from "../../../../../public/img7.jpeg";
+import img4 from "../../../../../public/img4.jpeg";
+
+import banner1 from "../../../../../public/banner1.jpg";
+import banner2 from "../../../../../public/banner2.jpg";
+import banner3 from "../../../../../public/banner3.jpg";
+import banner4 from "../../../../../public/banner4.jpg";
+import banner5 from "../../../../../public/banner5.jpg";
 
 export const topics = [
   {
     id: 1,
     image: img5,
+    banner: banner1,
     name: "Using Spreadsheets",
     subtopics: [
       {
@@ -20,7 +27,7 @@ export const topics = [
       },
       {
         id: 2,
-        image: img7,
+        image: img4,
         name: "Formulae and functions",
         description: "",
       },
@@ -29,6 +36,7 @@ export const topics = [
 
   {
     id: 2,
+    banner: banner2,
     image: img6,
     name: "Desktop publishing software",
     subtopics: [
@@ -40,7 +48,7 @@ export const topics = [
       },
       {
         id: 2,
-        image: img7,
+        image: img4,
         name: "Designing publications",
         description: "Types, orientation, layout, margins, text boxes, etc",
       },
@@ -49,12 +57,13 @@ export const topics = [
 
   {
     id: 3,
+    banner: banner3,
     image: img5,
     name: "Software installation",
     subtopics: [
       {
         id: 1,
-        image: img7,
+        image: img4,
         name: "Operating system (OS)",
         description: "Have a good understand of the OS",
       },
@@ -69,6 +78,7 @@ export const topics = [
 
   {
     id: 4,
+    banner: banner4,
     image: img6,
     name: "Communication technologies",
     subtopics: [
@@ -81,7 +91,7 @@ export const topics = [
       },
       {
         id: 2,
-        image: img7,
+        image: img4,
         name: "Communication systems network devices",
         description:
           "Modems, routers, transmitters, receivers, switches, repeaters, etc",
@@ -97,6 +107,7 @@ export const topics = [
 
   {
     id: 5,
+    banner: banner5,
     image: img,
     name: "Programming fundamentals",
     subtopics: [
@@ -109,7 +120,7 @@ export const topics = [
       },
       {
         id: 2,
-        image: img7,
+        image: img4,
         name: "Programming basics",
         description: "Structure, variables, compiling and running",
       },
@@ -121,7 +132,7 @@ export const topics = [
       },
       {
         id: 4,
-        image: img7,
+        image: img4,
         name: "Control structures",
         description: "Sequence, selection, loops",
       },

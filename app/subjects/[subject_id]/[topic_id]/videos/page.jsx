@@ -19,9 +19,9 @@ function Videos({ params }) {
         <article className="mb-8">
           <div>
             <Image
-              src={topic.image}
+              src={topic.banner}
               alt="image"
-              className="w-[850px] h-[220px] rounded-xl"
+              className="w-[850px] h-[250px] rounded"
             />
             <p className="font-bold text-4xl text-white -mt-11 ml-3">{`${topic.name}`}</p>
           </div>
