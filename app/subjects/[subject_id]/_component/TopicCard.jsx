@@ -3,16 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 function TopicCard({ name, image, topic_id, subject_id }) {
-  // topic_video_id will used to find all videos under this topic_id
-  const topic_videos_id = topic_id;
-
-  // topic_video_id will used to find all videos under this topic_id
-  const topic_quiz_id = topic_id;
-
-  // topic_questions_id will used to find all exam questions under this topic_id
-  const topic_questions_id = topic_id;
   return (
-    <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[240px] md:max-w-[220px] ">
+    <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[250px] md:max-w-[230px] ">
       <div>
         <Image
           src={image}
@@ -25,36 +17,35 @@ function TopicCard({ name, image, topic_id, subject_id }) {
 
       <div className="mt-2  px-1">
         <div className="flex flex-col hover:cursor-pointer">
-          <p className="font-semibold text-red-600 text-sm mb-2">{name}</p>
+          <p className="text-red-600 text-sm mb-2">{name}</p>
           <hr />
 
           <div className="mt-2">
             <Link
-              href={`/resources/${topic_videos_id}`}
-              // href={`/${subject_id}/${topic_id}`}
+              href={`/subjects/${subject_id}/${topic_id}/videos`}
               className="group flex gap-3 leading-normal items-center"
             >
-              <p className="text-lg font-bold text-gray-800 hover:text-green-600">
+              <p className="text-lg text-gray-900 hover:text-green-600">
                 Watch Videos
               </p>
               <PlayCircleIcon className="text-gray-700 group-hover:animate-bounce group-hover:text-red-600" />
             </Link>
 
             <Link
-              href="/"
+              href={`/subjects/${subject_id}/${topic_id}/quizes`}
               className="group flex gap-3 leading-normal items-center mt-2 "
             >
-              <p className="text-lg font-semibold text-gray-700 hover:text-green-600">
+              <p className="text-lg text-gray-700 hover:text-green-600">
                 Attemp a Quiz
               </p>
               <PencilLine className="text-gray-600 group-hover:animate-bounce group-hover:text-green-600" />
             </Link>
 
             <Link
-              href="/"
+              href={`/subjects/${subject_id}/${topic_id}/questions`}
               className="group flex gap-3 leading-normal items-center mt-2"
             >
-              <p className=" text-lg font-semibold text-gray-500 hover:text-green-600">
+              <p className=" text-lg text-gray-500 hover:text-green-600">
                 Exam Questions
               </p>
               <BookOpenText className="text-gray-500 group-hover:animate-bounce group-hover:text-green-600" />

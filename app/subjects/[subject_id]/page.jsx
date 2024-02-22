@@ -11,7 +11,7 @@ function Subject({ params }) {
           <h4 className="font-semibold text-3xl text-gray-500 text-center pt-3">
             COMPUTER STUDIES
           </h4>
-          <small className="block font-bold text-green-600 text-center">
+          <small className="block font-bold text-gray-900 text-center">
             Select on a topic to watch videos, take a quiez and see exam
             questions
           </small>
