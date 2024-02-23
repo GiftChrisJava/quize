@@ -5,16 +5,12 @@ import React from "react";
 
 function Model({ subject_id, image, name, topic_id, isVisible, onClose }) {
   if (!isVisible) return null;
-  //   const handleClose = (e) => {
-  //     if (e.target.id === "wrapper") onClose();
-  //   };
 
   return (
     <main>
       <div
         id="wrapper"
-        // onClick={handleClose}
-        className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center"
+        className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full"
       >
         <div className="w-[300px] flex flex-col rounded">
           <XIcon
