@@ -31,7 +31,7 @@ function VideoPlayer({ params }) {
           <h4 className="text-sm text-gray-700">{subtopic.description}</h4>
         </div>
 
-        <div className="flex flex-row gap-8 justify-center items-center mt-12">
+        <div className="flex flex-row gap-8 pt-2 justify-center items-center mt-12">
           <Button name={"Attemp Quize"} />
           <Button name={"Practice"} />
           <Button name={"Comment"} />

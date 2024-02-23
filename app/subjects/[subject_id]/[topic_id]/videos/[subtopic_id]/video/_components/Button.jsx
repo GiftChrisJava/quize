@@ -1,6 +1,6 @@
 function Button({ name }) {
   return (
-    <button className="bg-white w-38 px-2 py-1 shadow-lg text-gray-800 hover:text-green-600 text-sm border border-slate-400 text-center font-bold rounded-md">
+    <button className="bg-white w-40 px-1 py-2 shadow-xl text-gray-800 hover:text-green-600 text-sm text-center font-bold rounded-xl">
       {name}
     </button>
   );

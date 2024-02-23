@@ -4,6 +4,7 @@ import TopicCard from "./_component/TopicCard";
 import { topics } from "./_component/constants/topics";
 
 function Subject({ params }) {
+  const subject_id = params.subject_id;
   return (
     <div className="flex flex-row justify-between pb-6">
       <section className="flex-3 max-container">
@@ -36,7 +37,7 @@ function Subject({ params }) {
 
       {/* side bar  */}
       <section className="md:block hidden">
-        <SideNav />
+        <SideNav subject_id={subject_id} />
       </section>
     </div>
   );

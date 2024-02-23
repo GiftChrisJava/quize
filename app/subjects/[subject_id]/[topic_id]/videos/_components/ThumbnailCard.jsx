@@ -1,4 +1,4 @@
-import { MoveRightIcon, MoveUpRightIcon } from "lucide-react";
+import { MoveUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,11 +20,13 @@ function ThumbnailCard({ id, name, desc, image, subject_id, topic_id }) {
         <h3 className="mt-2 font-bold text-gray-800 text-sm">{name}</h3>
         <p className="text-sm text-gray-900 mt-2">{desc}</p>
 
+        <hr className="mt-1" />
+
         <Link
           // href={`/subjects`}
           href={`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/video`}
         >
-          <div className="flex flex-row mt-3 justify-center items-center">
+          <div className="flex flex-row mt-1 justify-center items-center">
             <small className="text-green-600 font-bold hover:cursor-pointer hover:text-red-600">
               Watch Now
             </small>
