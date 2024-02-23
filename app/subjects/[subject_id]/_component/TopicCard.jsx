@@ -31,7 +31,7 @@ function TopicCard({ name, image, topic_id, subject_id }) {
             </Link>
 
             <Link
-              href={`/subjects/${subject_id}/${topic_id}/quizes`}
+              href={`/subjects/${subject_id}/${topic_id}/quiz`}
               className="group justify-center flex gap-3 leading-normal items-center mt-2 "
             >
               <p className="text-lg text-gray-700 hover:text-green-600">

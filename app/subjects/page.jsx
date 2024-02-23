@@ -19,12 +19,12 @@ function Subjects() {
               ENHANCEMENT
               <span className="text-red-600"> PLATFORM</span>
             </h2>
-            <h4 className=" font-bold text-sm text-gray-600 mt-4">
+            <h4 className="text-md text-gray-600 mt-4">
               A solution to help you understand the most challenging and complex
               topics in MSCE level classes and find tutors for further help
             </h4>
 
-            <h2 className=" font-bold text-gray-800 py-4 mt-5 sm:text-md text-sm">
+            <h2 className="text-gray-600 py-4 mt-5 sm:text-md text-md">
               Select a subject below begin your learning based on your current
               class
             </h2>
@@ -51,11 +51,11 @@ function Subjects() {
             />
           </section>
           <section className="flex flex-2 sm:flex-1 flex-col p-4">
-            <h4 className=" font-semibold text-md text-gray-500 mt-0 text-left md:items-center md:justify-center">
+            <h4 className="text-md text-gray-500 mt-0 text-left md:items-center md:justify-center">
               Online learning you can access anywhere easily
             </h4>
 
-            <h4 className=" font-bold text-sm text-gray-800 mt-2 md:items-center md:justify-center">
+            <h4 className="text-md text-gray-800 mt-2 md:items-center md:justify-center">
               Begin your journey of of learning by just clicking on the subject
               below depending on your secondary school level
             </h4>

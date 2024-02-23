@@ -35,7 +35,7 @@ function Model({ subject_id, image, name, topic_id, isVisible, onClose }) {
                   Watch Videos
                 </p>
               </Link>
-              <Link href={`/subjects/${subject_id}/${topic_id}/quizes`}>
+              <Link href={`/subjects/${subject_id}/${topic_id}/quiz`}>
                 <p className="text-gray-700 text-lg cursor-pointer hover:text-green-700">
                   Attemp Quiz
                 </p>
