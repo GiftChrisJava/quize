@@ -4,20 +4,20 @@ import React from "react";
 
 function Model({ subject_id, image, name, topic_id, isVisible, onClose }) {
   if (!isVisible) return null;
-  const handleClose = (e) => {
-    if (e.target.id === "wrapper") onClose();
-  };
+  //   const handleClose = (e) => {
+  //     if (e.target.id === "wrapper") onClose();
+  //   };
 
   return (
     <main>
       <div
         id="wrapper"
-        onClick={handleClose}
+        // onClick={handleClose}
         className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center"
       >
         <div className="w-[300px] flex flex-col rounded-lg">
           <XIcon
-            className="bg-transparent text-gray-200 text-xl place-self-end "
+            className="bg-transparent text-gray-100 text-xl place-self-end "
             onClick={() => onClose()}
           />
           <div className="bg-gray-200 rounded-sm">
