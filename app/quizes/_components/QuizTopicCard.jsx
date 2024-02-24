@@ -19,7 +19,9 @@ function QuizTopicCard({ name, image, form, subject }) {
         <div className="mt-2  px-1">
           <div className="flex flex-col hover:cursor-pointer">
             <Link href={`/quizes`}>
-              <p className="text-red-600 text-sm mb-2 text-center">{name}</p>
+              <p className="text-gray-800 font-semibold text-sm mb-2 text-center">
+                {name}
+              </p>
             </Link>
           </div>
         </div>

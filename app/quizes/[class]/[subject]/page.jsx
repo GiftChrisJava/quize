@@ -3,17 +3,27 @@ import React from "react";
 import QuizTopicCard from "../../_components/QuizTopicCard";
 
 function QuizList({ params }) {
+  let slate = "";
+
+  let userClass = "class";
+  if (params.class.endsWith("e")) {
+    slate = "text-green-600";
+  } else {
+    slate = "text-red-600";
+  }
   return (
     <div className="max-container">
       <section>
-        <p>{params.subject}</p>
+        <p className={`${slate} font-bold text-center text-xl`}>
+          {params.subject} Quizzes
+        </p>
       </section>
       <section>
         <div>
           {topics.map((topic) => (
             <article key={topic.id} className="mb-4">
               {/* display topic  */}
-              <p>{topic.name}</p>
+              <p className={`font-bold text-gray-800 text-lg`}>{topic.name}</p>
 
               {/* render the quize card  */}
               <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
