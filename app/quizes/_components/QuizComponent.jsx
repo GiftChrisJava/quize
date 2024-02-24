@@ -1,3 +1,7 @@
+"use client";
+import { useState } from "react";
+import { questions } from "../constants/questions";
+
 const QuizComponent = ({ onFinish }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -5,11 +9,6 @@ const QuizComponent = ({ onFinish }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showResult, setShowResult] = useState(false);
-
-  // Sample questions with true/false and multiple choice options, including multiple correct answers
-  const questions = [
-    // ... your 20 questions here, varying types and answers, including 'answers' as an array for multiple correct answers
-  ];
 
   // Function to handle option selection for multiple correct answers
   const handleOptionSelect = (option) => {

@@ -22,7 +22,7 @@ export const topics = [
       {
         id: 1,
         image: img1,
-        name: "working with a spreadsheet",
+        name: "Spreadsheet basics",
         description: "Data entry, editing, formating and printing a worksheet",
       },
       {
@@ -43,7 +43,7 @@ export const topics = [
       {
         id: 1,
         image: img1,
-        name: "working desktop publishing software",
+        name: "Learning the basics",
         description: "Creating, formating, editing, saving, printing, etc",
       },
       {
