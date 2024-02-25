@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function QuizTopicCard({ name, image, form, subject }) {
+function QuizTopicCard({ name, image, form, subject, quiz_id, klass }) {
   return (
     <div>
       <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[230px]">
@@ -18,7 +18,7 @@ function QuizTopicCard({ name, image, form, subject }) {
 
         <div className="mt-2  px-1">
           <div className="flex flex-col hover:cursor-pointer">
-            <Link href={`/quizes`}>
+            <Link href={`/quizes/${klass}/${subject}/${quiz_id}`}>
               <p className="text-gray-800 font-semibold text-sm mb-2 text-center">
                 {name}
               </p>

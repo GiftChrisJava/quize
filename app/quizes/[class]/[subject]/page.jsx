@@ -8,14 +8,16 @@ function QuizList({ params }) {
   let userClass = "class";
   if (params.class.endsWith("e")) {
     slate = "text-green-600";
+    userClass = "Form_three";
   } else {
     slate = "text-red-600";
+    userClass = "Form_four";
   }
   return (
     <div className="max-container">
       <section>
         <p className={`${slate} font-bold text-center text-xl`}>
-          {params.subject} Quizzes
+          {params.subject} Quiz
         </p>
       </section>
       <section>
@@ -34,6 +36,8 @@ function QuizList({ params }) {
                       image={subtopic.image}
                       form={params.class}
                       subject={params.subject}
+                      quiz_id={subtopic.id}
+                      klass={userClass}
                     />
                   </div>
                 ))}
