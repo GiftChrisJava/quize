@@ -10,12 +10,9 @@ const QuizComponent = ({ onFinish }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const [isOptionSelected, setIsOptionSelected] = useState(false);
   const [flag, setFlag] = useState(true);
-
-  // flag chna
-  const changeFlag = () => {
-    setFlag(false);
-  };
+  const [halfwayAcknowledged, setHalfwayAcknowledged] = useState(false);
 
   // Function to handle option selection for multiple correct answers
   const handleOptionSelect = (option) => {
@@ -31,6 +28,7 @@ const QuizComponent = ({ onFinish }) => {
       // If only one answer is allowed, set the selected option directly
       setSelectedOptions([option]);
     }
+    setIsOptionSelected(true);
   };
 
   // Function to handle answer submission for multiple correct answers
@@ -59,6 +57,8 @@ const QuizComponent = ({ onFinish }) => {
         }, 1000); // Delay to show the red cross before moving to the next question
       }
     }
+
+    setIsOptionSelected(false);
   };
 
   // Function to render the progress bar
@@ -82,8 +82,13 @@ const QuizComponent = ({ onFinish }) => {
   };
 
   // Function to handle the "Continue" button
-  const handleContinue = () => {
-    setCurrentQuestion(Math.ceil(questions.length / 2));
+  // const handleContinue = () => {
+  //   setCurrentQuestion(Math.ceil(questions.length / 2));
+  // };
+
+  const removeProgressBard = () => {
+    setFlag(false);
+    setShowResult(true);
   };
 
   // Function to handle the "Retry" button
@@ -112,8 +117,9 @@ const QuizComponent = ({ onFinish }) => {
     );
   };
 
-  // Check if the user has reached half of the questions
-  const isHalfwayThrough = currentQuestion === Math.ceil(questions.length / 2);
+  // Check if the user has reached half of the questions and if the halfway point has been acknowledged
+  const isHalfwayThrough =
+    currentQuestion === Math.ceil(questions.length / 2) && !halfwayAcknowledged;
 
   // Function to render the encouraging message and continue button
   const renderEncouragement = () => (
@@ -126,7 +132,7 @@ const QuizComponent = ({ onFinish }) => {
       </p>
       <button
         className="btn btn-continue mt-4 bg-blue-500 text-white font-medium py-2 px-4 rounded-md"
-        onClick={handleContinue}
+        onClick={() => setHalfwayAcknowledged(true)}
       >
         Continue Quiz
       </button>
@@ -153,58 +159,64 @@ const QuizComponent = ({ onFinish }) => {
           </div>
         )}
 
-        {/* Render encouragement message if halfway through */}
-        {isHalfwayThrough ? renderEncouragement() : null}
+        {/* Render encouragement message if halfway through and not acknowledged */}
+        {isHalfwayThrough && renderEncouragement()}
 
-        {/* Render the question and answer options */}
-        {!showResult && currentQuestion < questions.length && (
-          <div className="p-4">
-            <div className="flex gap-2 justify-center">
-              <small className="text-xl font-semibold text-gray-700 ">
-                {questions[currentQuestion].number}
-                {"."}
-              </small>
+        {/* Render the next question only if halfwayAcknowledged is true */}
+        {!isHalfwayThrough &&
+          !showResult &&
+          currentQuestion < questions.length && (
+            <div className="p-4">
+              <div className="flex gap-2 justify-center">
+                <small className="text-xl font-semibold text-gray-700 ">
+                  {questions[currentQuestion].number}
+                  {"."}
+                </small>
 
-              <h2 className="text-2xl font-normal text-gray-700">
-                {questions[currentQuestion].question}
-              </h2>
-            </div>
+                <h2 className="text-2xl font-normal text-gray-700">
+                  {questions[currentQuestion].question}
+                </h2>
+              </div>
 
-            <div className="mt-10 grid grid-flow-col gap-1">
-              {questions[currentQuestion].options.map((option, index) => (
-                <button
-                  key={option}
-                  className={`text-left max-w-[200px] text-blue-900 border border-blue-400 text-[12px] bg-opacity-20 bg-gray-800 m-2 p-2 rounded-sm font-semibold ${
-                    selectedOptions.includes(option) && `bg-green-500`
-                  }`}
-                  onClick={() => handleOptionSelect(option)}
-                >
-                  <p className="grid grid-flow-col">
-                    <p className="fixed border border-blue-400 text-gray-600 bg-yellow-300 px-1 w-[20px]">
-                      {String.fromCharCode(65 + index)}
+              <div className="mt-10 grid grid-flow-col gap-1">
+                {questions[currentQuestion].options.map((option, index) => (
+                  <button
+                    key={option}
+                    className={`text-left max-w-[200px] text-blue-900 border border-blue-400 text-[12px] bg-opacity-20 bg-gray-800 m-2 p-2 rounded-sm font-semibold flex justify-between items-center ${
+                      selectedOptions.includes(option) ? "bg-green-500" : ""
+                    }`}
+                    onClick={() => handleOptionSelect(option)}
+                  >
+                    <p className="grid grid-flow-col">
+                      <p className="fixed border border-blue-400 text-gray-600 bg-yellow-300 px-1 w-[20px]">
+                        {String.fromCharCode(65 + index)}
+                      </p>
+                      <p className="ml-6 text-gray-700">{option}</p>
                     </p>
-                    <p className="ml-6 text-gray-700">{option}</p>
-                  </p>
-                </button>
-              ))}
+                    {selectedOptions.includes(option) &&
+                      questions[currentQuestion].correctAnswer === option && (
+                        <span className="text-green-500 ml-2">✓</span>
+                      )}
+                  </button>
+                ))}
+              </div>
+              <button
+                className={`mt-8 ml-2 p-2 border border-slate-600 ${
+                  isOptionSelected
+                    ? "bg-gray-800 text-gray-100"
+                    : "bg-gray-400 text-gray-500 cursor-not-allowed"
+                } text-sm rounded-md font-bold`}
+                onClick={handleAnswerSubmit}
+                disabled={!isOptionSelected}
+              >
+                Submit Answer
+              </button>
             </div>
-            <button
-              className="mt-8 ml-2 p-2 border border-slate-600 bg-gray-800 text-gray-300 text-sm rounded-md font-bold"
-              onClick={handleAnswerSubmit}
-            >
-              Submit Answer
-            </button>
-          </div>
-        )}
+          )}
 
-        {/* Show result screen at the end */}
+        {/* show result screen at the end  */}
         {currentQuestion === questions.length && !showResult && (
-          <button
-            className="justify-center items-center p-2 border border-slate-600 bg-gray-800 text-gray-100 text-sm rounded-md font-bold"
-            onClick={() => setShowResult(true)}
-          >
-            See Results
-          </button>
+          <button onClick={() => setShowResult(true)}>See Results</button>
         )}
 
         {showResult && renderResult()}
