@@ -1,8 +1,12 @@
 "use client";
 import { useState } from "react";
 import { questions } from "../constants/questions";
-import { MoveRightIcon } from "lucide-react";
+import award from "../../../public/award.gif";
+import trophy from "../../../public/trophy.gif";
+import origami from "../../../public/origami.gif";
+import sad from "../../../public/sad.gif";
 
+import Image from "next/image";
 const QuizComponent = ({ onFinish }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -86,7 +90,7 @@ const QuizComponent = ({ onFinish }) => {
   //   setCurrentQuestion(Math.ceil(questions.length / 2));
   // };
 
-  const removeProgressBard = () => {
+  const removeProgressBar = () => {
     setFlag(false);
     setShowResult(true);
   };
@@ -105,14 +109,87 @@ const QuizComponent = ({ onFinish }) => {
   const renderResult = () => {
     const percentage = (score / questions.length) * 100;
     return (
-      <div>
-        <p>
-          Your score: {score}/{questions.length}
+      <div className="bg-white shadow-xl p-4 rounded-md">
+        {percentage > 79 ? (
+          <div>
+            <Image
+              src={award}
+              alt="trophy"
+              height={200}
+              width={200}
+              className="flex flex-col justify-center items-center max-w-sm mx-auto"
+            />
+
+            <p className="text-center font-bold text-green-700">
+              Excellent!! You Killed it
+            </p>
+          </div>
+        ) : percentage > 64 ? (
+          <div>
+            <Image
+              src={trophy}
+              alt="trophy"
+              height={200}
+              width={200}
+              className="flex flex-col justify-center items-center max-w-sm mx-auto"
+            />
+
+            <p className="text-center font-bold text-green-700">
+              Congratulations!
+            </p>
+          </div>
+        ) : percentage > 49 ? (
+          <div>
+            <Image
+              src={origami}
+              alt="trophy"
+              height={200}
+              width={200}
+              className="flex flex-col justify-center items-center max-w-sm mx-auto"
+            />
+
+            <p className="text-center font-bold text-green-700">
+              Good work! Keep On Practicing for Improve
+            </p>
+          </div>
+        ) : (
+          <div>
+            <Image
+              src={sad}
+              alt="trophy"
+              height={200}
+              width={200}
+              className="flex flex-col justify-center items-center max-w-sm mx-auto"
+            />
+
+            <p className="text-center font-bold text-green-700">
+              Oops!! That was not so great. Do not loose heart, Keep on
+              Practicing
+            </p>
+          </div>
+        )}
+
+        <p className="text-center font-bold text-green-700 text-xl">
+          {percentage}%
         </p>
-        <p>Percentage: {percentage.toFixed(2)}%</p>
-        <p>Great job! Keep practicing to improve your score.</p>
-        <button onClick={() => handleRetry()}>Retry Quiz</button>
-        <button onClick={() => onFinish()}>Take Another Quiz</button>
+
+        <p className="text-center font-bold text-gray-700 mt-2 mb-5">
+          {score}/{questions.length}
+        </p>
+        <div className="flex flex-col justify-center items-center">
+          <button
+            className="p-2 rounded mt-3 border border-slate-600 bg-gray-700 text-gray-200"
+            onClick={() => handleRetry()}
+          >
+            Retry Quiz
+          </button>
+          <button
+            className="p-2 rounded mt-3 border border-slate-600 bg-gray-700 text-gray-200"
+            onClick={() => onFinish()}
+          >
+            Exit Quiz
+          </button>
+        </div>
       </div>
     );
   };
@@ -215,9 +292,16 @@ const QuizComponent = ({ onFinish }) => {
           )}
 
         {/* show result screen at the end  */}
-        {currentQuestion === questions.length && !showResult && (
-          <button onClick={() => setShowResult(true)}>See Results</button>
-        )}
+        <div className="bg-[#f0f0f0f0]">
+          {currentQuestion === questions.length && !showResult && (
+            <button
+              className="mt-10 ml-8 text-red-600 hover:text-gray-800"
+              onClick={() => removeProgressBar()}
+            >
+              Click Me To ESee Results
+            </button>
+          )}
+        </div>
 
         {showResult && renderResult()}
       </div>
