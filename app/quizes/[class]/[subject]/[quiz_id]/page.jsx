@@ -1,10 +1,12 @@
 import QuizComponent from "@/app/quizes/_components/QuizComponent";
 import React from "react";
 
-function Quiz() {
+function Quiz({ params }) {
+  const path = `/quizes/${params.class}/${params.subject}`;
+
   return (
-    <div className="">
-      <QuizComponent />
+    <div className="" data-aos="slide-down">
+      <QuizComponent path={path} />
     </div>
   );
 }

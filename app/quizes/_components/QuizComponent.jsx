@@ -7,7 +7,8 @@ import origami from "../../../public/origami.gif";
 import sad from "../../../public/sad.gif";
 
 import Image from "next/image";
-const QuizComponent = ({ onFinish }) => {
+import { useRouter } from "next/navigation";
+const QuizComponent = ({ path }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [attempts, setAttempts] = useState(0);
@@ -33,6 +34,13 @@ const QuizComponent = ({ onFinish }) => {
       setSelectedOptions([option]);
     }
     setIsOptionSelected(true);
+  };
+
+  const router = useRouter();
+
+  const onFinish = () => {
+    // Redirect the user to the desired URL
+    router.push(`${path}`);
   };
 
   // Function to handle answer submission for multiple correct answers
@@ -84,11 +92,6 @@ const QuizComponent = ({ onFinish }) => {
       </div>
     );
   };
-
-  // Function to handle the "Continue" button
-  // const handleContinue = () => {
-  //   setCurrentQuestion(Math.ceil(questions.length / 2));
-  // };
 
   const removeProgressBar = () => {
     setFlag(false);
@@ -149,7 +152,7 @@ const QuizComponent = ({ onFinish }) => {
             />
 
             <p className="text-center font-bold text-green-700">
-              Good work! Keep On Practicing for Improve
+              Good work! Keep On Practicing for Improvement
             </p>
           </div>
         ) : (
@@ -176,7 +179,10 @@ const QuizComponent = ({ onFinish }) => {
         <p className="text-center font-bold text-gray-700 mt-2 mb-5">
           {score}/{questions.length}
         </p>
-        <div className="flex flex-col justify-center items-center">
+        <div
+          data-aos="zoom-in"
+          className="flex flex-col justify-center items-center"
+        >
           <button
             className="p-2 rounded mt-3 border border-slate-600 bg-gray-700 text-gray-200"
             onClick={() => handleRetry()}
@@ -200,7 +206,7 @@ const QuizComponent = ({ onFinish }) => {
 
   // Function to render the encouraging message and continue button
   const renderEncouragement = () => (
-    <div className="encouragement-message text-center p-4">
+    <div data-aos="fade-top" className="encouragement-message text-center p-4">
       <h2 className="text-2xl font-semibold text-green-600">
         Great job so far!
       </h2>
@@ -243,12 +249,15 @@ const QuizComponent = ({ onFinish }) => {
         {!isHalfwayThrough &&
           !showResult &&
           currentQuestion < questions.length && (
-            <div className="p-4">
+            <div data-aos="zoom-in" className="p-4">
               <div className="flex gap-2 justify-center">
-                <small className="text-xl font-semibold text-gray-700 ">
+                <p
+                  data-aos="zoom-in"
+                  className="text-xl font-semibold text-gray-700 "
+                >
                   {questions[currentQuestion].number}
                   {"."}
-                </small>
+                </p>
 
                 <h2 className="text-2xl font-normal text-gray-700">
                   {questions[currentQuestion].question}
@@ -257,24 +266,24 @@ const QuizComponent = ({ onFinish }) => {
 
               <div className="mt-10 grid grid-flow-col gap-1">
                 {questions[currentQuestion].options.map((option, index) => (
-                  <button
+                  <div
                     key={option}
                     className={`text-left max-w-[200px] text-blue-900 border border-blue-400 text-[12px] bg-opacity-20 bg-gray-800 m-2 p-2 rounded-sm font-semibold flex justify-between items-center ${
                       selectedOptions.includes(option) ? "bg-green-500" : ""
                     }`}
                     onClick={() => handleOptionSelect(option)}
                   >
-                    <p className="grid grid-flow-col">
+                    <div className="grid grid-flow-col">
                       <p className="fixed border border-blue-400 text-gray-600 bg-yellow-300 px-1 w-[20px]">
                         {String.fromCharCode(65 + index)}
                       </p>
                       <p className="ml-6 text-gray-700">{option}</p>
-                    </p>
+                    </div>
                     {selectedOptions.includes(option) &&
                       questions[currentQuestion].correctAnswer === option && (
                         <span className="text-green-500 ml-2">✓</span>
                       )}
-                  </button>
+                  </div>
                 ))}
               </div>
               <button
@@ -298,7 +307,7 @@ const QuizComponent = ({ onFinish }) => {
               className="mt-10 ml-8 text-red-600 hover:text-gray-800"
               onClick={() => removeProgressBar()}
             >
-              Click Me To ESee Results
+              Click Me To See Results
             </button>
           )}
         </div>
