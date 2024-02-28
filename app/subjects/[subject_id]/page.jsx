@@ -8,7 +8,7 @@ function Subject({ params }) {
   return (
     <div className="flex flex-row justify-between pb-6">
       <section className="flex-3 max-container">
-        <article>
+        <article data-aos="slide-up">
           <h4 className="font-semibold text-3xl text-gray-500 text-center pt-3">
             COMPUTER STUDIES
           </h4>
@@ -19,7 +19,10 @@ function Subject({ params }) {
         </article>
 
         <article className="px-2">
-          <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+          <div
+            data-aos="zoom-in"
+            className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
+          >
             {topics.map((topic) => (
               <div key={topic.id}>
                 <TopicCard

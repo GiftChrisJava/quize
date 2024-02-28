@@ -70,7 +70,10 @@ function Subjects() {
             Form 4 Subjects
           </h4>
 
-          <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+          <div
+            data-aos="slide-right"
+            className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
+          >
             {formFour.map((subject) => (
               <div key={subject.id}>
                 <FormFourSubjectCard
@@ -92,7 +95,10 @@ function Subjects() {
           </h4>
           {/* form 3 subjects  */}
 
-          <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+          <div
+            data-aos="slide-right"
+            className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
+          >
             {formThree.map((subject) => (
               <div key={subject.id}>
                 <SubjectCard
@@ -118,7 +124,10 @@ function Subjects() {
           </small>
         </article>
 
-        <article className="min-container sm:px-9 md:px-1 mt-10 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
+        <article
+          data-aos="zoom-in"
+          className="min-container sm:px-9 md:px-1 mt-10 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1"
+        >
           {tutors.map((tutor) => (
             <div key={tutor.id}>
               <TutorCard

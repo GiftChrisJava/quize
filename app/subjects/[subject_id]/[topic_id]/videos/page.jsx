@@ -34,7 +34,10 @@ function Videos({ params }) {
           Available Videos
         </small>
 
-        <article className="max-container mt-4 sm:px-9 md:px-1 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-10 grid-cols-1">
+        <article
+          data-aos="slide-right"
+          className="max-container mt-4 sm:px-9 md:px-1 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-10 grid-cols-1"
+        >
           {topic.subtopics.map((subtopic) => (
             <div key={subtopic.id}>
               <ThumbnailCard
