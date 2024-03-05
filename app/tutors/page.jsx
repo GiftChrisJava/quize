@@ -1,8 +1,9 @@
 import Image from "next/image";
 
 import tutoring1 from "../../public/tutoring 1.jpg";
-import tutoring2 from "../../public/tutoring 2.jpg";
 import { Badge, BadgeCheck, Building2, Medal } from "lucide-react";
+import { tutors } from "./constants/tutors";
+import Tutorz from "./_components/Tutorz";
 
 function Tutors() {
   return (
@@ -45,7 +46,7 @@ function Tutors() {
           <article className="flex gap-3 flex-row justify-center items-center mb-5">
             <div className=" border-slate-300 shadow-xl bg-gray-200 p-3 w-[250px] rounded">
               <div className="flex gap-2 items-center mb-2">
-                <BadgeCheck />
+                <BadgeCheck className="text-green-600" />
                 <h4 className="font-bold text-gray-800">
                   Professional Teachers
                 </h4>
@@ -58,7 +59,7 @@ function Tutors() {
 
             <div className=" border-slate-300 shadow-xl bg-gray-200 p-3 w-[250px] rounded">
               <div className="flex gap-2 items-center mb-2">
-                <Medal />
+                <Medal className="text-green-600" />
                 <h4 className="font-bold text-gray-800">Certified Mentor</h4>
               </div>
               <small className="text-gray-700">
@@ -69,7 +70,7 @@ function Tutors() {
 
             <div className=" border-slate-300 shadow-xl bg-gray-200 p-3 w-[250px] rounded">
               <div className="flex gap-2 items-center mb-2">
-                <Building2 />
+                <Building2 className="text-green-600" />
                 <h4 className="font-bold text-gray-800">Tutorship Companies</h4>
               </div>
               <small className="text-gray-700">
@@ -78,6 +79,24 @@ function Tutors() {
               </small>
             </div>
           </article>
+        </container>
+
+        <container className="">
+          <h2 className="text-center mt-[80px] font-bold text-gray-900 text-2xl ">
+            The Experts In Their Own Field
+          </h2>
+
+          <div className="mb-10 min-container sm:px-9 md:px-1 mt-10 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
+            {tutors.map((tutor) => (
+              <div key={tutor.id}>
+                <Tutorz
+                  name={tutor.name}
+                  image={tutor.image}
+                  masteredSubject={tutor.masteredSubject}
+                />
+              </div>
+            ))}
+          </div>
         </container>
       </section>
     </main>
