@@ -3,13 +3,16 @@ import Image from "next/image";
 function Tutorz({ name, image, masteredSubject }) {
   return (
     <div>
-      <div className="flex flex-col justify-center items-center">
+      <div
+        data-aos="zoom-in"
+        className="flex flex-col justify-center items-center "
+      >
         <Image
           src={image}
           alt="tutor"
           height={450}
-          width={250}
-          className="rounded-md"
+          width={200}
+          className="rounded-md cursor-pointer hover:opacity-55"
         />
 
         <div className="-mt-14 border-slate-300 shadow-xl bg-white bg-opacity-90 p-1 w-[180px] rounded">

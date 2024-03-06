@@ -43,7 +43,10 @@ function Tutors() {
             What You Will Find
           </h2>
 
-          <article className="flex gap-3 flex-row justify-center items-center mb-5">
+          <article
+            data-aos="zoom-in"
+            className="flex gap-3 flex-row justify-center items-center mb-5"
+          >
             <div className=" border-slate-300 shadow-xl bg-gray-200 p-3 w-[250px] rounded">
               <div className="flex gap-2 items-center mb-2">
                 <BadgeCheck className="text-green-600" />
@@ -86,7 +89,7 @@ function Tutors() {
             The Experts In Their Own Field
           </h2>
 
-          <div className="mb-10 min-container sm:px-9 md:px-1 mt-10 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
+          <div className="mb-10 sm:px-9 md:px-1 mt-10 grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
             {tutors.map((tutor) => (
               <div key={tutor.id}>
                 <Tutorz
@@ -97,7 +100,13 @@ function Tutors() {
               </div>
             ))}
           </div>
+
+          <button className="flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded mt-2 border border-slate-600 bg-gray-700 text-gray-300">
+            See More
+          </button>
         </container>
+
+        <container></container>
       </section>
     </main>
   );
