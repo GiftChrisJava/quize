@@ -1,3 +1,4 @@
+import TutorFooter from "./_components/TutorFooter";
 import TutorNav from "./_components/TutorNav";
 
 function layout({ children }) {
@@ -5,6 +6,7 @@ function layout({ children }) {
     <div>
       <TutorNav />
       {children}
+      <TutorFooter />
     </div>
   );
 }

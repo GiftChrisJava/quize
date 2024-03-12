@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import tutoring1 from "../../public/tutoring 1.jpg";
-import { Badge, BadgeCheck, Building2, Medal } from "lucide-react";
+import { BadgeCheck, Building2, Medal } from "lucide-react";
 import { tutors } from "./constants/tutors";
 import Tutorz from "./_components/Tutorz";
 
@@ -22,12 +22,12 @@ function Tutors() {
               solve problems creatively.
             </small>
 
-            <button className="p-2 w-[200px] hover:text-gray-50 rounded mt-3 border border-slate-600 bg-gray-700 text-gray-300">
+            <button className="p-2 w-[200px] hover:text-gray-50 rounded mt-3 border border-slate-600 bg-gray-700 text-gray-300 mx-auto max-w-sm md:left md:mx-0">
               Get Started
             </button>
           </article>
 
-          <article className="flex-1">
+          <article className="flex-1 hidden md:block">
             <Image
               className="rounded"
               src={tutoring1}
@@ -45,7 +45,7 @@ function Tutors() {
 
           <article
             data-aos="zoom-in"
-            className="flex gap-3 flex-row justify-center items-center mb-5"
+            className="flex gap-3 sm:flex-row flex-col mb-3 justify-center items-center sm:mb-5 "
           >
             <div className=" border-slate-300 shadow-xl bg-gray-200 p-3 w-[250px] rounded">
               <div className="flex gap-2 items-center mb-2">
@@ -84,7 +84,7 @@ function Tutors() {
           </article>
         </container>
 
-        <container className="">
+        <container>
           <h2 className="text-center mt-[80px] font-bold text-gray-900 text-2xl ">
             The Experts In Their Own Field
           </h2>
@@ -101,12 +101,12 @@ function Tutors() {
             ))}
           </div>
 
-          <button className="flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded mt-2 border border-slate-600 bg-gray-700 text-gray-300">
+          <button className="mb-12 flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded mt-2 border border-slate-600 bg-gray-700 text-gray-300">
             See More
           </button>
         </container>
 
-        <container></container>
+        <container className="pb-8"></container>
       </section>
     </main>
   );
