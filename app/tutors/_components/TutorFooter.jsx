@@ -16,24 +16,6 @@ function TutorFooter() {
 
           {/* links  */}
           <ul className="flex-1 flex justify-center items-center sm:gap-6 gap-2 mr-6 sm:mr-0">
-            <li>
-              <Link
-                href="#"
-                className=" leading-normal text-md font-bold text-gray-600"
-              >
-                All Tutors
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="#"
-                className=" leading-normal text-md font-bold text-gray-600"
-              >
-                Tutorship companies
-              </Link>
-            </li>
-
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
@@ -44,6 +26,15 @@ function TutorFooter() {
                 </Link>
               </li>
             ))}
+
+            <li>
+              <Link
+                href="#"
+                className=" leading-normal text-md font-bold text-gray-600"
+              >
+                Tutorship Companies
+              </Link>
+            </li>
           </ul>
 
           {/* logo */}
