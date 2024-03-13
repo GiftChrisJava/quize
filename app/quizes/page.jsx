@@ -11,8 +11,8 @@ function Quizes() {
       <h1 className="font-bold text-3xl text-center text-gray-800">
         Select Class
       </h1>
-      <div className=" mt-10 flex flex-row align-middle justify-center items-center">
-        <article>
+      <div className=" mt-10 md:flex flex-col md:flex-row align-middle justify-center items-center">
+        <article className="mb-2 mx-auto max-w-sm md:mb-0">
           <Link href={`/quizes/${formFour}`}>
             <Image
               src={imageb}
@@ -26,7 +26,7 @@ function Quizes() {
             </p>
           </Link>
         </article>
-        <article className="px-1">
+        <article className="md:px-1 mb-2 mx-auto max-w-sm md:mb-0 md:max-w-full">
           <Link href={`/quizes/${formThree}`}>
             <Image
               src={imaged}
@@ -40,7 +40,7 @@ function Quizes() {
             </p>
           </Link>
 
-          <p className="text-lg text-gray-900 mt-3 w-[520px]">
+          <p className="md:text-lg text-sm text-gray-900 mt-3 md:w-[520px] w-[400px]">
             Click on the image to find and attemp a quiz available under each
             topic for the selected class
           </p>
