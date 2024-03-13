@@ -25,7 +25,11 @@ function QuizList({ params }) {
           {topics.map((topic) => (
             <article key={topic.id} className="mb-4">
               {/* display topic  */}
-              <p className={`font-bold text-gray-800 text-lg`}>{topic.name}</p>
+              <p
+                className={`font-bold text-gray-800 text-lg text-center md:text-left`}
+              >
+                {topic.name}
+              </p>
 
               {/* render the quize card  */}
               <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
