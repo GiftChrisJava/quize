@@ -24,8 +24,8 @@ function Form({ params }) {
         {userClass}
       </h2>
 
-      <article className="max-container mt-12 grid grid-cols-2 gap-10">
-        <section className="flex flex-col gap-5 justify-center">
+      <article className="max-container mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <section className="flex flex-col gap-5 justify-center px-2">
           <p className="text-3xl font-bold text-gray-800 ">
             Unleash Your Inner Wizard Of Wisdom
           </p>
@@ -37,12 +37,12 @@ function Form({ params }) {
 
           <div className="flex flex-row gap-2 items-center justify-center p-2 w-40 rounded-md bg-gray-900">
             <p className="text-gray-200 text-md">Make Selection</p>
-            <MoveRight className="text-gray-400" />
+            <MoveRight className="md:text-gray-400 text-gray-900" />
           </div>
         </section>
 
-        <section className="">
-          <div className="grid md:grid-cols-3 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+        <section className="px-2">
+          <div className="grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
             {subjects.map((subject) => (
               <div key={subject.id}>
                 <SubjectCard
