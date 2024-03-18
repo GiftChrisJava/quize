@@ -78,7 +78,7 @@ const QuizComponent = ({ path }) => {
     const progress = ((currentQuestion + 1) / questions.length) * 100;
     return (
       <div
-        className="progress-bar-container"
+        className="progress-bar-container "
         style={{ width: "100%", backgroundColor: "#e0e0e0" }}
       >
         <div
@@ -214,7 +214,7 @@ const QuizComponent = ({ path }) => {
         Take a deep breath and keep up the good work.
       </p>
       <button
-        className="btn btn-continue mt-4 bg-blue-500 text-white font-medium py-2 px-4 rounded-md"
+        className="btn btn-continue mt-4 bg-gray-800 text-gray-200 font-medium py-2 px-4 rounded-md"
         onClick={() => setHalfwayAcknowledged(true)}
       >
         Continue Quiz
@@ -223,8 +223,8 @@ const QuizComponent = ({ path }) => {
   );
 
   return (
-    <main className="flex flex-col justify-center items-center mt-10 w-[700px] mx-auto">
-      <div className="quiz-container max-container bg-yellow-300 rounded">
+    <main className="flex flex-col justify-center items-center mt-10 md:w-[700px] md:mx-auto">
+      <div className="quiz-container md:max-container max-w-[400px] bg-yellow-300 rounded">
         {/* Progress bar */}
         {flag && renderProgressBar()}
 
@@ -250,30 +250,29 @@ const QuizComponent = ({ path }) => {
           !showResult &&
           currentQuestion < questions.length && (
             <div data-aos="zoom-in" className="p-4">
-              <div className="flex gap-2 justify-center">
+              <div className="flex gap-2 md:justify-center">
                 <p
                   data-aos="zoom-in"
-                  className="text-xl font-semibold text-gray-700 "
+                  className="text-md md:text-xl font-semibold text-gray-700 "
                 >
                   {questions[currentQuestion].number}
                   {"."}
                 </p>
 
-                <h2 className="text-2xl font-normal text-gray-700">
+                <h2 className="text-md md:text-2xl font-normal text-gray-700 ">
                   {questions[currentQuestion].question}
                 </h2>
               </div>
-
-              <div className="mt-10 grid grid-flow-col gap-1">
+              <div className="md:mt-10 mt-5 sm:grid sm:grid-flow-col sm:gap-1">
                 {questions[currentQuestion].options.map((option, index) => (
                   <div
                     key={option}
-                    className={`text-left max-w-[200px] text-blue-900 border border-blue-400 text-[12px] bg-opacity-20 bg-gray-800 m-2 p-2 rounded-sm font-semibold flex justify-between items-center ${
+                    className={`text-left mb-3 md:mb-none max-w-[200px] text-blue-900 border border-blue-400 text-[12px] bg-opacity-20 bg-gray-800 m-2 p-2 rounded-sm font-semibold flex justify-between items-center ${
                       selectedOptions.includes(option) ? "bg-green-500" : ""
                     }`}
                     onClick={() => handleOptionSelect(option)}
                   >
-                    <div className="grid grid-flow-col">
+                    <div className="grid grid-flow-col p-2 md:p-0">
                       <p className="fixed border border-blue-400 text-gray-600 bg-yellow-300 px-1 w-[20px]">
                         {String.fromCharCode(65 + index)}
                       </p>

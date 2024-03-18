@@ -15,6 +15,8 @@ function Quiz({ params }) {
   }
   const subject = getObjectById(stringSubjectId);
 
+  const subjectName = subject.name;
+
   // retrieve one topic
   function getTopicById(id) {
     return topics.find((topic) => topic.id === id);
@@ -37,7 +39,7 @@ function Quiz({ params }) {
     <div className="max-container">
       <section>
         <p className={`${slate} font-bold text-center text-xl`}>
-          {subject.name} Quiz
+          {subjectName} Quizzes
         </p>
       </section>
       <section>
@@ -58,7 +60,7 @@ function Quiz({ params }) {
                     name={subtopic.name}
                     image={subtopic.image}
                     form={params.class}
-                    subject={params.subject}
+                    subject={subjectName}
                     quiz_id={subtopic.id}
                     klass={userClass}
                   />
