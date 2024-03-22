@@ -224,7 +224,7 @@ const QuizComponent = ({ path }) => {
 
   return (
     <main className="flex flex-col justify-center items-center mt-10 md:w-[700px] md:mx-auto">
-      <div className="quiz-container md:max-container max-w-[400px] bg-yellow-300 rounded">
+      <div className="quiz-container sm:max-container max-w-[400px] bg-yellow-300 rounded">
         {/* Progress bar */}
         {flag && renderProgressBar()}
 
