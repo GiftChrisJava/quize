@@ -47,7 +47,7 @@ function Videos({ params }) {
                 desc={subtopic.description}
                 image={subtopic.image}
                 subject_id={subject_id}
-                topic_id={topic_id}
+                topic_id={topic.id}
               />
             </div>
           ))}
