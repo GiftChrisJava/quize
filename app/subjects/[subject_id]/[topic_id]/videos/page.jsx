@@ -32,6 +32,7 @@ function Videos({ params }) {
             <PlaySquareIcon />
           </span>
           Available Videos
+          <span>{topic.premium ? "(Paid Content)" : "(Free)"}</span>
         </small>
 
         <article

@@ -41,6 +41,7 @@ function Subject({ params }) {
                   image={topic.image}
                   topic_id={topic.id}
                   subject_id={subject.id}
+                  premium={topic.premium}
                 />
               </div>
             ))}

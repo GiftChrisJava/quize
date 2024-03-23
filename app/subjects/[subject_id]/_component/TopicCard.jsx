@@ -1,7 +1,8 @@
+import { Crown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-function TopicCard({ name, image, topic_id, subject_id }) {
+function TopicCard({ name, image, topic_id, subject_id, premium }) {
   return (
     <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[230px]">
       <div>
@@ -16,7 +17,10 @@ function TopicCard({ name, image, topic_id, subject_id }) {
 
       <div className="mt-2  px-1">
         <div className="flex flex-col hover:cursor-pointer">
-          <p className="text-red-600 text-sm mb-2 text-center">{name}</p>
+          <div className=" flex gap-1 mx-auto max-w-sm">
+            {premium && <Crown className="w-6 text-yellow-500" />}
+            <p className="text-red-600 text-sm mb-2 text-center">{name}</p>
+          </div>
           <hr />
 
           <div className="mt-2 ">
@@ -24,7 +28,7 @@ function TopicCard({ name, image, topic_id, subject_id }) {
               href={`/subjects/${subject_id}/${topic_id}/videos`}
               className="group flex gap-3 leading-normal items-center justify-center"
             >
-              <p className="text-lg  text-gray-900 hover:text-green-600">
+              <p className="text-md  text-gray-900 hover:text-green-600">
                 Watch Videos
               </p>
             </Link>
@@ -33,7 +37,7 @@ function TopicCard({ name, image, topic_id, subject_id }) {
               href={`/subjects/${subject_id}/${topic_id}/quiz`}
               className="group justify-center flex gap-3 leading-normal items-center mt-2 "
             >
-              <p className="text-lg text-gray-700 hover:text-green-600">
+              <p className="text-md text-gray-700 hover:text-green-600">
                 Attemp Quiz
               </p>
             </Link>
@@ -42,7 +46,7 @@ function TopicCard({ name, image, topic_id, subject_id }) {
               href={`/subjects/${subject_id}/${topic_id}/questions`}
               className="group justify-center flex gap-3 leading-normal items-center mt-2"
             >
-              <p className=" text-lg text-gray-500 hover:text-green-600">
+              <p className=" text-md text-gray-500 hover:text-green-600">
                 Questions
               </p>
             </Link>

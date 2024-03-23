@@ -18,6 +18,7 @@ export const topics = [
     image: img5,
     banner: banner1,
     name: "Using Spreadsheets",
+    premium: false,
     subtopics: [
       {
         id: 1,
@@ -39,6 +40,7 @@ export const topics = [
     banner: banner2,
     image: img6,
     name: "Desktop publishing software",
+    premium: true,
     subtopics: [
       {
         id: 1,
@@ -60,6 +62,7 @@ export const topics = [
     banner: banner3,
     image: img5,
     name: "Software installation",
+    premium: false,
     subtopics: [
       {
         id: 1,
@@ -81,6 +84,7 @@ export const topics = [
     banner: banner4,
     image: img6,
     name: "Communication technologies",
+    premium: false,
     subtopics: [
       {
         id: 1,
@@ -110,6 +114,7 @@ export const topics = [
     banner: banner5,
     image: img,
     name: "Programming fundamentals",
+    premium: true,
     subtopics: [
       {
         id: 1,
