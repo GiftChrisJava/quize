@@ -18,13 +18,35 @@ export const topics = [
     image: img5,
     banner: banner1,
     name: "Using Spreadsheets",
-    premium: false,
+    premium: true,
     subtopics: [
       {
         id: 1,
         image: img1,
         name: "Spreadsheet basics",
         description: "Data entry, editing, formating and printing a worksheet",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/dy3W9-oaUH8?si=GFeaq5zSKQJ4euad",
+            title: "Entering Data into an Excel worksheet",
+          },
+          {
+            id: 2,
+            videos_url: "https://youtu.be/ZnXYEljrelM?si=XvW34pNlYohVMIGK",
+            title: "Editing data in Excel",
+          },
+          {
+            id: 3,
+            videos_url: "https://youtu.be/1LgkR1R1ACU?si=GbKho4Qx6youfXIT",
+            title: "Formating data in Excel",
+          },
+          {
+            id: 4,
+            videos_url: "https://youtu.be/HfwMo6M1XzM?si=6xL_GfBXEfRNR-Nh",
+            title: "How to Print Excel Sheet",
+          },
+        ],
       },
       {
         id: 2,
@@ -40,7 +62,7 @@ export const topics = [
     banner: banner2,
     image: img6,
     name: "Desktop publishing software",
-    premium: true,
+    premium: false,
     subtopics: [
       {
         id: 1,
@@ -122,6 +144,18 @@ export const topics = [
         name: "Definitions",
         description:
           "Have a good understanding of compilers, translators, assembler",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/zIjI8H945T8?si=t8m-h3ibxsYvAXOe",
+            title: "Understanding a compiler",
+          },
+          {
+            id: 2,
+            videos_url: "https://youtu.be/wA2oMRmbrfo?si=i7QVdnZ0ciWLPc9j",
+            title: "Assembly language",
+          },
+        ],
       },
       {
         id: 2,
