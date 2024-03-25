@@ -80,14 +80,29 @@ export const topics = [
     subtopics: [
       {
         id: 1,
-        videos: [],
+
         image: img1,
         name: "Learning the basics",
         description: "Creating, formating, editing, saving, printing, etc",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/-wlCZMYq3X0?si=B9kY8_qkBs7-ZyzG",
+            title: "The basics",
+            locked: false,
+          },
+        ],
       },
       {
         id: 2,
-        videos: [],
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/1h0DzZ1Sxis?si=2vTHty5ViCQGUjtk",
+            title: "Editing and formatting",
+            locked: false,
+          },
+        ],
         image: img4,
         name: "Designing publications",
         description: "Types, orientation, layout, margins, text boxes, etc",
@@ -105,17 +120,33 @@ export const topics = [
     subtopics: [
       {
         id: 1,
-        videos: [],
+
         image: img4,
         name: "Operating system (OS)",
         description: "Have a good understand of the OS",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/dpnYzKATBKA?si=lXwMdmYWbqBhBZXQ",
+            title:
+              "Introduction To Operating System | OS Functions , Features And Types",
+            locked: false,
+          },
+        ],
       },
       {
         id: 2,
-        videos: [],
         image: img1,
         name: "Troubleshoot computers",
         description: "Understand computer hardware and its software",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/jglLkX3sCsc?si=zK7m2pSAo-A9nq5r",
+            title: "Hardware and software",
+            locked: false,
+          },
+        ],
       },
     ],
   },
@@ -130,26 +161,50 @@ export const topics = [
     subtopics: [
       {
         id: 1,
-        videos: [],
+
         image: img1,
         name: "Uses of networks",
         description:
           "Learn how communication networks are used in everyday life",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/btUMi2kiCXw?si=GHOML8oqIkQzNTmw",
+            title: "Computer networks and it's applications",
+            locked: false,
+          },
+        ],
       },
       {
         id: 2,
-        videos: [],
+
         image: img4,
         name: "Communication systems network devices",
         description:
           "Modems, routers, transmitters, receivers, switches, repeaters, etc",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/yYe6Mh9fig0?si=fmNY8CP1gx0U9NF8",
+            title: "Communication devices",
+            locked: false,
+          },
+        ],
       },
       {
         id: 3,
-        videos: [],
+
         image: img1,
         name: "Transmission techniques",
         description: "Understand the complex techniques of transmission",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/ONTGxYI-00Q?si=bIXnh2WnZFQVB84J",
+            title: "Transimission modes",
+            locked: false,
+          },
+        ],
       },
     ],
   },

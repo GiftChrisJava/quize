@@ -17,7 +17,7 @@ function SideBarLeft({ subject_id }) {
   };
 
   return (
-    <div className="p-2 sticky bg-white shadow-lg border rounded-md md:mr-2 mt-12">
+    <div className="p-2 bg-white shadow-lg border rounded-md md:mr-2 mt-16">
       <p className="font-semibold text-green-600 text-xl">Topics</p>
       <hr className="mt-3" />
 
