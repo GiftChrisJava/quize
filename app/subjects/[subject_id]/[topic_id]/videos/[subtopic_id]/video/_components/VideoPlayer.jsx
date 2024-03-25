@@ -32,8 +32,8 @@ const VideoPlayer = ({ video, user_id }) => {
   };
   const youtubeVideoId = getYoutubeIdFromUrl(videoUrl);
   const opts = {
-    height: "480px",
-    width: "720px",
+    height: "480px", // Use percentage for responsive height
+    width: "720px", // Use percentage for responsive width
     playerVars: {
       // Enable progress tracking
       autoplay: 0,
@@ -46,6 +46,7 @@ const VideoPlayer = ({ video, user_id }) => {
       data-aos="zoom-in"
     >
       <YouTube
+        className="flex max-w-md md:max-w-4xl mx-auto pr-3"
         videoId={youtubeVideoId}
         opts={opts}
         onReady={onPlayerReady}
