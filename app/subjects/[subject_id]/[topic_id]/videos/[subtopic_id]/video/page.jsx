@@ -41,9 +41,7 @@ function VideoPlayer({ params }) {
             : "text-gray-300 cursor-not-allowed"
         }`}
                 key={index}
-                onClick={() =>
-                  !video.locked && setSelectedVideo(video.videos_url)
-                }
+                onClick={() => !video.locked && setSelectedVideo(video)}
               >
                 <p className="flex gap-2">
                   {video.locked && topic.isPaidFor ? (

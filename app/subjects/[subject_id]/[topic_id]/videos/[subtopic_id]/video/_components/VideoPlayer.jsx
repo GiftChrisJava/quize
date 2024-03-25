@@ -41,7 +41,10 @@ const VideoPlayer = ({ video, user_id }) => {
     },
   };
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div
+      className="flex flex-col items-center justify-center"
+      data-aos="zoom-in"
+    >
       <YouTube
         videoId={youtubeVideoId}
         opts={opts}
