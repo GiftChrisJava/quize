@@ -46,7 +46,7 @@ const VideoPlayer = ({ video, user_id }) => {
       data-aos="zoom-in"
     >
       <YouTube
-        className="flex max-w-sm md:max-w-4xl mx-auto pr-3"
+        className="flex max-w-[350px] md:max-w-4xl mx-auto pr-3"
         videoId={youtubeVideoId}
         opts={opts}
         onReady={onPlayerReady}
