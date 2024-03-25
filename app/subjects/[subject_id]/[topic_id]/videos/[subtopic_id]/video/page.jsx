@@ -117,7 +117,7 @@ function VideoPlayer({ params }) {
                           onClick={(e) => {
                             e.preventDefault();
                             if (!video.locked) {
-                              setSelectedVideo(video.videos_url);
+                              setSelectedVideo(video);
                               setDropdownOpen(false); // close the dropdown
                             }
                           }}
