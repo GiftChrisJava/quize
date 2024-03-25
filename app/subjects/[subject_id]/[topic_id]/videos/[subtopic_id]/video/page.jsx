@@ -65,7 +65,7 @@ function VideoPlayer({ params }) {
         )}
       </section>
       <section className="max-container">
-        <h2 className="text-center font-bold text-red-600 text-2xl mt-2 mb-3">
+        <h2 className="text-center font-bold text-red-600 text-2xl mt-2 md:mb-5 mb-11">
           {topic.name}
         </h2>
 

@@ -28,7 +28,7 @@ function Header() {
         </ul>
 
         {/* search bar  */}
-        <div className="flex gap-3 p-1 rounded-md outline-none border font-semibold">
+        <div className="md:flex gap-3 p-1 rounded-md outline-none border font-semibold hidden">
           <input
             className="text-slate-800 focus:outline-none"
             type="text"
