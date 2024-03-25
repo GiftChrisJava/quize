@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Button from "./_components/Button";
 import SideBarLeft from "./_components/SideBarLeft";
 import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
@@ -19,9 +18,7 @@ function VideoPlayer({ params }) {
 
   // model state
   const [showModel, setshowModel] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState(
-    subtopic.videos[0].videos_url
-  );
+  const [selectedVideo, setSelectedVideo] = useState(subtopic.videos[0]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const onClose = () => {
@@ -75,13 +72,12 @@ function VideoPlayer({ params }) {
         </h2>
 
         {/* video player component  */}
-        <VideoComponent video={selectedVideo} />
+        <VideoComponent video={selectedVideo.videos_url} />
 
         <div className="px-2">
-          <h2 className="font-bold text-sm mt-1 text-gray-800">
-            {subtopic.name}
+          <h2 className="font-bold text-left -mt-5 text-sm px-4 text-gray-800">
+            {selectedVideo.title}
           </h2>
-          <h4 className="text-sm text-gray-700">{subtopic.description}</h4>
         </div>
 
         {/* buttoms  */}

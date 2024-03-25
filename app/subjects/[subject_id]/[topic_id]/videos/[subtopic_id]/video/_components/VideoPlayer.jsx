@@ -3,11 +3,10 @@ import React, { useRef, useState, useEffect } from "react";
 import YouTube from "react-youtube";
 
 const VideoPlayer = ({ video, user_id }) => {
-  const videoUrl = video.url;
+  const videoUrl = video;
   const video_id = video.id;
 
   const [progressTime, setProgressTime] = useState(0);
-  const [progress_id, setProgress_id] = useState(0);
 
   const hasMounted = useRef(false);
   const playerRef = useRef(null);
@@ -20,8 +19,6 @@ const VideoPlayer = ({ video, user_id }) => {
 
   useEffect(() => {
     if (hasMounted.current) {
-      // Fetch progress only if the player is ready
-      fetchVideoProgress();
     } else {
       hasMounted.current = true;
     }
@@ -49,7 +46,6 @@ const VideoPlayer = ({ video, user_id }) => {
         videoId={youtubeVideoId}
         opts={opts}
         onReady={onPlayerReady}
-        onStateChange={onPlayerStateChange}
         ref={playerRef}
       />
     </div>
