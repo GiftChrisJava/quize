@@ -72,7 +72,7 @@ function VideoPlayer({ params }) {
         {/* video player component  */}
         <VideoComponent video={selectedVideo.videos_url} />
 
-        <div className="px-2">
+        <div className="px-3">
           <h2 className="font-bold text-center md:text-left mt-3 md:-mt-5 text-sm md:px-9 text-gray-800 ">
             {selectedVideo.title}
           </h2>
