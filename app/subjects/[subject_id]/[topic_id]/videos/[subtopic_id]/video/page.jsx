@@ -6,6 +6,7 @@ import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics"
 import FormModel from "./_components/FormModel";
 import { useState } from "react";
 import { ArrowDownNarrowWideIcon, LockIcon, Unlock } from "lucide-react";
+import VideoComponent from "./_components/VideoComponent";
 
 function VideoPlayer({ params }) {
   const topic_id = params.topic_id;
@@ -18,7 +19,9 @@ function VideoPlayer({ params }) {
 
   // model state
   const [showModel, setshowModel] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState(subtopic.videos);
+  const [selectedVideo, setSelectedVideo] = useState(
+    subtopic.videos[0].videos_url
+  );
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const onClose = () => {
@@ -41,7 +44,9 @@ function VideoPlayer({ params }) {
             : "text-gray-300 cursor-not-allowed"
         }`}
                 key={index}
-                onClick={() => !video.locked && setSelectedVideo(video.src)}
+                onClick={() =>
+                  !video.locked && setSelectedVideo(video.videos_url)
+                }
               >
                 <p className="flex gap-2">
                   {video.locked && topic.isPaidFor ? (
@@ -70,11 +75,7 @@ function VideoPlayer({ params }) {
         </h2>
 
         {/* video player component  */}
-        <Image
-          src={subtopic.image}
-          alt="image"
-          className="md:h-[390px] md:w-[780px] px-2"
-        />
+        <VideoComponent video={selectedVideo} />
 
         <div className="px-2">
           <h2 className="font-bold text-sm mt-1 text-gray-800">
@@ -122,7 +123,7 @@ function VideoPlayer({ params }) {
                           onClick={(e) => {
                             e.preventDefault();
                             if (!video.locked) {
-                              console.log(`Selected video: ${video.title}`);
+                              setSelectedVideo(video.videos_url);
                               setDropdownOpen(false); // close the dropdown
                             }
                           }}
