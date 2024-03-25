@@ -5,6 +5,7 @@ import SideBarLeft from "./_components/SideBarLeft";
 import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
 import FormModel from "./_components/FormModel";
 import { useState } from "react";
+import { LockIcon, Unlock } from "lucide-react";
 
 function VideoPlayer({ params }) {
   const topic_id = params.topic_id;
@@ -25,7 +26,41 @@ function VideoPlayer({ params }) {
   return (
     <main className="flex flex-row justify-between pb-6">
       <section className=" md:w-[320px] md:block hidden sm:ml-2">
-        <SideBarLeft subject_id={subtopic_id} />
+        {topic.premium ? (
+          <ul className="p-2 sticky bg-white shadow-lg border rounded-md md:mr-2 mt-12">
+            <p className="font-semibold text-green-600 text-xl">Topics</p>
+            <hr className="mt-3" />
+            {subtopic.videos.map((video, index) => (
+              <li
+                className={`group p-1 flex gap-3 mt-2 text-[18px] items-center 
+        ${
+          !video.locked
+            ? "text-gray-500 cursor-pointer"
+            : "text-gray-300 cursor-not-allowed"
+        }`}
+                key={index}
+                onClick={() => !video.locked && setSelectedVideo(video.src)}
+              >
+                <p className="flex gap-2">
+                  {video.locked ? (
+                    <LockIcon className="w-5" />
+                  ) : (
+                    <Unlock className="w-7" />
+                  )}
+                  <h2
+                    className={`text-sm md:text-lg ${
+                      !video.locked ? "hover:text-green-600" : ""
+                    }`}
+                  >
+                    {video.title}
+                  </h2>
+                </p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <SideBarLeft subject_id={subtopic_id} />
+        )}
       </section>
       <section className="max-container">
         <h2 className="text-center font-bold text-red-600 text-2xl mt-2 mb-3">
