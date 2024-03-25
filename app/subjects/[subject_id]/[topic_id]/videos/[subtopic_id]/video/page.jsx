@@ -109,7 +109,7 @@ function VideoPlayer({ params }) {
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"
                     >
-                      {subtopic.videos.map((video) => (
+                      {subtopic.videos.map((video, index) => (
                         <a
                           key={video.id}
                           href="#"
@@ -122,8 +122,8 @@ function VideoPlayer({ params }) {
                           onClick={(e) => {
                             e.preventDefault();
                             if (!video.locked) {
-                              // Handle video selection
                               console.log(`Selected video: ${video.title}`);
+                              setDropdownOpen(false); // This will close the dropdown
                             }
                           }}
                         >
