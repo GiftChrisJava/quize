@@ -144,8 +144,6 @@ function VideoPlayer({ params }) {
             >
               Give Feedback
             </button>
-
-            <Button name={"Practice"} />
           </div>
 
           <FormModel isVisible={showModel} onClose={onClose} />
