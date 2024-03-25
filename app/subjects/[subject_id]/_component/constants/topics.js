@@ -55,10 +55,17 @@ export const topics = [
       },
       {
         id: 2,
-        videos: [],
         image: img4,
         name: "Formulae and functions",
         description: "",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/Jl0Qk63z2ZY?si=WZV2jQf8UoUGLtbV",
+            title: "Formulae and functions",
+            locked: true,
+          },
+        ],
       },
     ],
   },
@@ -182,13 +189,46 @@ export const topics = [
         image: img4,
         name: "Programming basics",
         description: "Structure, variables, compiling and running",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/fZbSl58orNs?si=OqAnAamcWPsrCTOa",
+            title: "Variables",
+            locked: false,
+          },
+          {
+            id: 2,
+            videos_url: "https://youtu.be/fq6tyn8T9gk?si=ftjCcR4pyfUw3ux9",
+            title: "Structures",
+            locked: false,
+          },
+          {
+            id: 3,
+            videos_url: "https://youtu.be/vAPi4qN9kCs?si=zK0-Mjd0TN7bN5d7",
+            title: "Compiling and running",
+            locked: false,
+          },
+        ],
       },
       {
         id: 3,
-        videos: [],
         image: img1,
         name: "Operators",
         description: "Understand arithmetic and logical operators",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/5JXcX0IqRUo?si=nXWJFV62l0r9P38H",
+            title: "Arithmetic Operators",
+            locked: false,
+          },
+          {
+            id: 2,
+            videos_url: "https://youtu.be/36vZpQnaEiE?si=5AMdQyyEh8s5kLRL",
+            title: "Logical operators",
+            locked: false,
+          },
+        ],
       },
       {
         id: 4,
