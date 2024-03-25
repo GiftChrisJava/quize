@@ -68,6 +68,8 @@ function VideoPlayer({ params }) {
         <h2 className="text-center font-bold text-red-600 text-2xl mt-2 mb-3">
           {topic.name}
         </h2>
+
+        {/* video player component  */}
         <Image
           src={subtopic.image}
           alt="image"

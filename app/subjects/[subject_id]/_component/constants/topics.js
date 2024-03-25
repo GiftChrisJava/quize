@@ -232,10 +232,17 @@ export const topics = [
       },
       {
         id: 4,
-        videos: [],
         image: img4,
         name: "Control structures",
         description: "Sequence, selection, loops",
+        videos: [
+          {
+            id: 1,
+            videos_url: "https://youtu.be/OoShU65HemA?si=Ora9w7uA0TNi3GDF",
+            title: "Logical operators",
+            locked: false,
+          },
+        ],
       },
     ],
   },
