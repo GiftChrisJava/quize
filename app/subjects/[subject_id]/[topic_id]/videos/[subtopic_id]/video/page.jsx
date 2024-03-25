@@ -44,7 +44,7 @@ function VideoPlayer({ params }) {
                 onClick={() => !video.locked && setSelectedVideo(video.src)}
               >
                 <p className="flex gap-2">
-                  {video.locked ? (
+                  {video.locked && topic.isPaidFor ? (
                     <LockIcon className="w-5" />
                   ) : (
                     <Unlock className="w-7" />
@@ -123,7 +123,7 @@ function VideoPlayer({ params }) {
                             e.preventDefault();
                             if (!video.locked) {
                               console.log(`Selected video: ${video.title}`);
-                              setDropdownOpen(false); // This will close the dropdown
+                              setDropdownOpen(false); // close the dropdown
                             }
                           }}
                         >

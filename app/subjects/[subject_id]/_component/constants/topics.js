@@ -172,7 +172,7 @@ export const topics = [
             id: 2,
             videos_url: "https://youtu.be/wA2oMRmbrfo?si=i7QVdnZ0ciWLPc9j",
             title: "Assembly language",
-            locked: true,
+            locked: false,
           },
         ],
       },
