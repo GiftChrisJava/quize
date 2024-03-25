@@ -81,14 +81,12 @@ function VideoPlayer({ params }) {
           <h4 className="text-sm text-gray-700">{subtopic.description}</h4>
         </div>
 
+        {/* buttoms  */}
         <article>
-          {/* buttom  */}
-
-          <div className="flex flex-col sm:flex-row gap-6 pt-2 justify-center items-center mt-9 mb-5 ">
+          <div className="flex flex-col md:flex-row gap-6 pt-2 justify-center items-center mt-9 mb-5 ">
             {/* show this button if its in premium  */}
-
             {topic.premium && (
-              <div className="relative inline-block text-left sm:hidden">
+              <div className="relative inline-block text-left md:hidden">
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-200 w-38"
