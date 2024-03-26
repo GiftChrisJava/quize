@@ -26,9 +26,9 @@ function VideoPlayer({ params }) {
   };
 
   return (
-    <main className="flex flex-row justify-between pb-6">
-      <section className=" md:w-[320px] md:block hidden sm:ml-2">
-        <ul className="p-2 sticky bg-white shadow-lg border rounded-md md:mr-2 mt-12">
+    <main className="flex flex-row justify-between pb-6 ">
+      <section className=" md:w-[320px] md:block hidden sm:ml-2 ">
+        <ul className="p-2 sticky bg-white shadow-lg border rounded-md md:mr-2 mt-16">
           <p className="font-semibold text-green-600 text-xl">
             Available Videos
           </p>
@@ -150,7 +150,7 @@ function VideoPlayer({ params }) {
         </article>
       </section>
 
-      <section className="hidden md:block">
+      <section className=" hidden xl:block">
         <SideBarLeft subject_id={subtopic_id} />
       </section>
     </main>

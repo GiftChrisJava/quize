@@ -4,7 +4,7 @@ function VideoComponent({ video }) {
   return (
     <div>
       <div className="">
-        <div className="container mx-auto p-2 -mt-11 sm:p-12">
+        <div className="container mx-auto px-1 -mt-11 sm:p-12">
           <VideoPlayer video={video} />
         </div>
       </div>
