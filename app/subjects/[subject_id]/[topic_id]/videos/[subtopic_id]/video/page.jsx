@@ -6,6 +6,7 @@ import FormModel from "./_components/FormModel";
 import { useState } from "react";
 import { ArrowDownNarrowWideIcon, LockIcon, Unlock } from "lucide-react";
 import VideoComponent from "./_components/VideoComponent";
+import Link from "next/link";
 
 function VideoPlayer({ params }) {
   const topic_id = params.topic_id;
@@ -130,11 +131,11 @@ function VideoPlayer({ params }) {
             )}
             {/* button  */}
 
-            <Button
-              name={"Attemp Quize"}
-              premium={topic.premium}
-              isPaid={topic.isPaidFor}
-            />
+            <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-200 w-38">
+              <Link href={`/quizes/learning/${topic.name}/${subtopic_id}`}>
+                <p>Attempt Quiz</p>
+              </Link>
+            </button>
 
             <button
               onClick={() => setshowModel(true)}
@@ -143,7 +144,13 @@ function VideoPlayer({ params }) {
               Give Feedback
             </button>
 
-            <Button name={"Notes"} />
+            <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-200 w-38">
+              <Link
+                href={`/subjects/${params.subject_id}/${params.topic_id}/videos/${selectedVideo.id}/video/notes`}
+              >
+                <p>Notes</p>
+              </Link>
+            </button>
           </div>
 
           <FormModel isVisible={showModel} onClose={onClose} />
