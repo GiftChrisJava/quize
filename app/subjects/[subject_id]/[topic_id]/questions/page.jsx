@@ -39,6 +39,14 @@ function Questions({ params }) {
       <h1 className="text-center text-xl text-gray-800 font-bold">
         Operating System Test
       </h1>
+      <h5 className="text-center text-sm text-green-600 mb-8 mt-4">
+        click on the question to write an answer{". "}
+        <span className="font-bold">
+          {" "}
+          If you have no answer to any question, just write what you think might
+          be the answer
+        </span>
+      </h5>
       <section className="p-3">
         {!submitted ? (
           <div className="question-list">
@@ -55,7 +63,15 @@ function Questions({ params }) {
                 onSave={() => handleSave(question.id)}
               />
             ))}
-            <button onClick={handleSubmit}>Submit Answers</button>
+
+            <article className="flex flex-row justify-center items-center mt-10">
+              <button
+                className="mt-1 rounded  px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 text-gray-200 w-38"
+                onClick={handleSubmit}
+              >
+                Submit Answers
+              </button>
+            </article>
           </div>
         ) : (
           <div className="answer-review">
