@@ -42,7 +42,23 @@ function Notes({ params }) {
 
       <section className="mt-4">{note.paragraph4}</section>
 
-      <section className="mt-8">{note.conclusion}</section>
+      <section className="mt-8 ">{note.conclusion}</section>
+
+      <article className="mt-28">
+        <form
+          action=""
+          className="flex flex-col align-middle justify-center gap-2"
+        >
+          <input
+            type="text"
+            className="px-2 py-3 text-sm focus:outline-none bor"
+            placeholder="Write your comment here.."
+          />
+          <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 text-gray-200 w-38">
+            Submit
+          </button>
+        </form>
+      </article>
     </div>
   );
 }
