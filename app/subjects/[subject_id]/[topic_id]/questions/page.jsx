@@ -12,6 +12,7 @@ function Questions({ params }) {
   };
 
   const topic = getTopic(topic_id); // get topic
+  // const topic = getTopic(topic_id);
 
   const [userAnswers, setUserAnswers] = useState({}); // Stores user responses
   const [editMode, setEditMode] = useState({}); // Tracks which question is in edit mode
