@@ -7,7 +7,6 @@ import { testQuestions } from "./constants/practiceTest";
 function Questions({ params }) {
   const topic_id = parseInt(params.topic_id);
 
-  // function to get a topic
   const getTopic = (id) => {
     return topics.find((topic) => topic.id === id);
   };
