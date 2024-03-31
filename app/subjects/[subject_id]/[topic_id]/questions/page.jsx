@@ -23,6 +23,10 @@ function Questions({ params }) {
     setEditMode((prevEditMode) => ({ ...prevEditMode, [questionId]: true }));
   };
 
+  const allQuestionsAttempted = testQuestions.every(
+    (question) =>
+      userAnswers[question.id] && userAnswers[question.id].trim() !== ""
+  );
   const handleAnswerChange = (questionId, answer) => {
     setUserAnswers((prevAnswers) => ({ ...prevAnswers, [questionId]: answer }));
   };
@@ -32,7 +36,11 @@ function Questions({ params }) {
   };
 
   const handleSubmit = () => {
-    setSubmitted(true);
+    if (allQuestionsAttempted) {
+      setSubmitted(true);
+    } else {
+      alert("Please attempt all questions.");
+    }
   };
 
   const handleSeeResults = () => {
@@ -79,7 +87,7 @@ function Questions({ params }) {
               />
             ))}
 
-            {/* <article className="flex flex-row justify-center items-center mt-10">
+            <article className="flex flex-row justify-center items-center mt-10">
               <button
                 className={`mt-1 rounded px-3 py-2 font-semibold text-sm ${
                   allQuestionsAttempted
@@ -88,15 +96,6 @@ function Questions({ params }) {
                 } text-gray-200 w-38`}
                 onClick={handleSubmit}
                 disabled={!allQuestionsAttempted}
-              >
-                Submit Answers
-              </button>
-            </article> */}
-
-            <article className="flex flex-row justify-center items-center mt-10">
-              <button
-                className="mt-1 rounded  px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 text-gray-200 w-38"
-                onClick={handleSubmit}
               >
                 Submit Answers
               </button>

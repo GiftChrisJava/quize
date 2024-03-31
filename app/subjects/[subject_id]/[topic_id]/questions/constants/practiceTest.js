@@ -5,27 +5,27 @@ export const testQuestions = [
     answer:
       "An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs. Its main functions include managing the computer's memory, processing, software, and hardware. It also allows communication between software and hardware.",
   },
-  {
-    id: 2,
-    question:
-      "Explain the concept of multitasking and how it is handled in modern operating systems.",
-    answer:
-      "Multitasking is the ability of an OS to execute multiple tasks simultaneously. Modern OS handle multitasking by using processes and threads, allocating CPU time slices efficiently, and ensuring that each task receives enough attention from the processor to operate smoothly.",
-  },
-  {
-    id: 3,
-    question:
-      "What are the differences between a GUI (Graphical User Interface) and a CLI (Command Line Interface) in an operating system?",
-    answer:
-      "A GUI provides users with visual elements such as windows, icons, and menus to interact with the operating system, while a CLI requires users to type commands into a text-based interface. GUIs are more user-friendly and intuitive, while CLIs are often preferred by advanced users for their efficiency and flexibility.",
-  },
-  {
-    id: 4,
-    question:
-      "Discuss the role of device drivers in an operating system and why they are important.",
-    answer:
-      "Device drivers are software components that allow the operating system to communicate with hardware devices such as printers, keyboards, and graphics cards. They are essential because they enable hardware devices to function properly with the operating system, ensuring compatibility and optimal performance.",
-  },
+  // {
+  //   id: 2,
+  //   question:
+  //     "Explain the concept of multitasking and how it is handled in modern operating systems.",
+  //   answer:
+  //     "Multitasking is the ability of an OS to execute multiple tasks simultaneously. Modern OS handle multitasking by using processes and threads, allocating CPU time slices efficiently, and ensuring that each task receives enough attention from the processor to operate smoothly.",
+  // },
+  // {
+  //   id: 3,
+  //   question:
+  //     "What are the differences between a GUI (Graphical User Interface) and a CLI (Command Line Interface) in an operating system?",
+  //   answer:
+  //     "A GUI provides users with visual elements such as windows, icons, and menus to interact with the operating system, while a CLI requires users to type commands into a text-based interface. GUIs are more user-friendly and intuitive, while CLIs are often preferred by advanced users for their efficiency and flexibility.",
+  // },
+  // {
+  //   id: 4,
+  //   question:
+  //     "Discuss the role of device drivers in an operating system and why they are important.",
+  //   answer:
+  //     "Device drivers are software components that allow the operating system to communicate with hardware devices such as printers, keyboards, and graphics cards. They are essential because they enable hardware devices to function properly with the operating system, ensuring compatibility and optimal performance.",
+  // },
   // {
   //   id: 5,
   //   question:
