@@ -3,6 +3,8 @@ import person2 from "../../../public/person2.jpg";
 import person3 from "../../../public/person3.jpg";
 import person4 from "../../../public/person4.jpg";
 import person5 from "../../../public/person5.jpg";
+import person6 from "../../../public/person6.jpg";
+import person7 from "../../../public/person7.jpg";
 
 export const tutors = [
   {
@@ -207,87 +209,6 @@ export const tutors = [
         name: "Thoko",
         feedback:
           "Peter is a talented and creative artist, he designed a beautiful logo for my business.",
-      },
-    ],
-  },
-
-  {
-    id: 6,
-    name: "William Ng'ambi",
-    image: person5,
-    location: "Karonga",
-    masteredSubject: "Mathematics",
-    experience:
-      "I graduated from Chancellor College in 2017 and have been teaching Mathematics at St. Mary's Secondary School for 4 years. I specialize in preparing students for national exams with a focus on problem-solving skills.",
-    whatsappLink: "http://wwwwwww.com",
-    facebookLink: "http://wwwwwww.com",
-    linkedInProfileLink: "http://wwwwwww.com",
-    otherSubjects: [
-      {
-        id: 1,
-        name: "Physics",
-      },
-      {
-        id: 2,
-        name: "Chemistry",
-      },
-    ],
-    contacts: [
-      {
-        id: 1,
-        number: "0994321098",
-      },
-      {
-        id: 2,
-        number: "0883210987",
-      },
-    ],
-    customerFeedback: [
-      {
-        id: 1,
-        name: "Joseph",
-        feedback:
-          "William helped me understand difficult mathematical concepts with clear explanations and practical examples.",
-      },
-    ],
-  },
-  {
-    id: 7,
-    name: "Sarah Chikwemba",
-    image: person4,
-    location: "Nkhata Bay",
-    masteredSubject: "Biology",
-    experience:
-      "I hold a Bachelor's degree in Biology from Malawi University and have been teaching Biology at Likoma Secondary School for 3 years. I am passionate about environmental conservation and often incorporate real-life examples into my lessons.",
-    whatsappLink: "http://wwwwwww.com",
-    facebookLink: "http://wwwwwww.com",
-    linkedInProfileLink: "http://wwwwwww.com",
-    otherSubjects: [
-      {
-        id: 1,
-        name: "Chemistry",
-      },
-      {
-        id: 2,
-        name: "Agriculture",
-      },
-    ],
-    contacts: [
-      {
-        id: 1,
-        number: "0993210987",
-      },
-      {
-        id: 2,
-        number: "0882109876",
-      },
-    ],
-    customerFeedback: [
-      {
-        id: 1,
-        name: "Thandiwe",
-        feedback:
-          "Sarah's teaching style is engaging and informative, she sparked my interest in biology with her passion for the subject.",
       },
     ],
   },

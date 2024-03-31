@@ -25,21 +25,22 @@ function Page() {
   });
 
   return (
-    <div className="max-container pb-6 mb-4">
-      <div>
+    <div className=" pb-6 mb-4">
+      <div className="grid md:grid-cols-5 xl:grid-cols-9 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-3 text-[8px] sm:text-[10px]">
         {/* Use map to render the filter buttons */}
         {filterButtons.map((button) => (
-          <FilterButton
-            key={button.value}
-            label={button.label}
-            value={button.value}
-            selectedFilter={selectedFilter}
-            setSelectedFilter={handleFilterClick}
-          />
+          <div key={button.value}>
+            <FilterButton
+              label={button.label}
+              value={button.value}
+              selectedFilter={selectedFilter}
+              setSelectedFilter={handleFilterClick}
+            />
+          </div>
         ))}
       </div>
 
-      <div className="h-[80vh] mb-10 sm:px-9 md:px-1 mt-10 grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+      <div className="max-container h-[80vh] mb-10 sm:px-9 md:px-1 mt-14 grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
         {filteredTutors.length === 0 ? (
           <div className="no-tutors-message">
             <p>No tutors for that course are available yet.</p>
@@ -47,7 +48,6 @@ function Page() {
         ) : (
           filteredTutors.map((tutor) => (
             <div key={tutor.id}>
-              <div></div>
               <Tutorz
                 name={tutor.name}
                 image={tutor.image}

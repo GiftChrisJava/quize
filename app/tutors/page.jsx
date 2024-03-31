@@ -23,7 +23,7 @@ function Tutors() {
               solve problems creatively.
             </small>
 
-            <button className="p-2 w-[200px] hover:text-gray-50 rounded mt-3 border border-slate-600 bg-gray-700 text-gray-300 mx-auto max-w-sm md:left md:mx-0">
+            <button className="font-bold p-2 w-[200px] hover:text-gray-50 rounded mt-3 border border-slate-600 bg-gray-700 text-gray-300 mx-auto max-w-sm md:left md:mx-0">
               Get Started
             </button>
           </article>
@@ -102,7 +102,7 @@ function Tutors() {
             ))}
           </div>
 
-          <button className="mb-12 flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded mt-2 border border-slate-600 bg-gray-700 text-gray-300">
+          <button className="font-bold mb-12 flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded mt-2 border border-slate-600 bg-gray-700 text-gray-300">
             <Link href="/tutors/more"> See More </Link>
           </button>
         </container>
