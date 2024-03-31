@@ -259,9 +259,9 @@ export const tutors = [
     masteredSubject: "Biology",
     experience:
       "I hold a Bachelor's degree in Biology from Malawi University and have been teaching Biology at Likoma Secondary School for 3 years. I am passionate about environmental conservation and often incorporate real-life examples into my lessons.",
-    whatsappLink: "http://xxxxxxxx.com",
-    facebookLink: "http://xxxxxxxx.com",
-    linkedInProfileLink: "http://xxxxxxxx.com",
+    whatsappLink: "http://wwwwwww.com",
+    facebookLink: "http://wwwwwww.com",
+    linkedInProfileLink: "http://wwwwwww.com",
     otherSubjects: [
       {
         id: 1,
