@@ -4,6 +4,7 @@ import tutoring1 from "../../public/tutoring 1.jpg";
 import { BadgeCheck, Building2, Medal } from "lucide-react";
 import { tutors } from "./constants/tutors";
 import Tutorz from "./_components/Tutorz";
+import Link from "next/link";
 
 function Tutors() {
   return (
@@ -102,7 +103,7 @@ function Tutors() {
           </div>
 
           <button className="mb-12 flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded mt-2 border border-slate-600 bg-gray-700 text-gray-300">
-            See More
+            <Link href="/tutors/more"> See More </Link>
           </button>
         </container>
 
