@@ -112,10 +112,10 @@ function Questions({ params }) {
 
                 <div className="ml-8">
                   <p>
-                    <span className="font-bold text-orange-700">
+                    <span className="font-bold text-gray-600">
                       Your Answer:
                     </span>{" "}
-                    <span className="text-orange-700">
+                    <span className="text-gray-600">
                       {userAnswers[question.id]}
                     </span>
                   </p>
@@ -142,13 +142,20 @@ function Questions({ params }) {
         )}
 
         {showResults && (
-          <div>
+          <div className="flex flex-col justify-center items-center">
             {/* Display the results and feedback from the AI here */}
-
-            <p className="text-md font-bold text-gray-700">Overall Feedback:</p>
+            <p className="text-4xl font-bold text-green-700 mb-8 mt-10">76 %</p>
+            <p className="text-md  text-gray-700 max-w-sm text-center">
+              Scoring 70% on your test is commendable, and it reflects a solid
+              understanding of the material. However, I recommend reviewing the
+              questions you missed to identify areas for improvement. Ensure
+              clarity on underlying concepts and practice regularly to enhance
+              your performance. Keep up the positive mindset, as learning is a
+              continuous journey! 🌟
+            </p>
             <button
               onClick={handleRetry}
-              className="mt-1 rounded px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 text-gray-200 w-38"
+              className="mt-8 rounded px-4 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 text-gray-200 w-38"
             >
               Retry
             </button>
