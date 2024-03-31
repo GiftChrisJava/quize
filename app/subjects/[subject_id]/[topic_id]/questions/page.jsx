@@ -157,7 +157,7 @@ function Questions({ params }) {
               onClick={handleRetry}
               className="mt-8 rounded px-4 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 text-gray-200 w-38"
             >
-              Retry
+              Return
             </button>
           </div>
         )}
