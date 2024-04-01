@@ -25,8 +25,8 @@ function Page() {
   });
 
   return (
-    <div className=" pb-6 mb-4">
-      <div className="p-4 grid md:grid-cols-5 xl:grid-cols-9 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-3 text-[8px] sm:text-[10px]">
+    <div className="flex flex-col pb-6 mb-4">
+      <div className=" p-4 grid md:grid-cols-5 xl:grid-cols-9 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-3 text-[8px] sm:text-[10px]">
         {/* Use map to render the filter buttons */}
         {filterButtons.map((button) => (
           <div key={button.value}>
@@ -40,7 +40,7 @@ function Page() {
         ))}
       </div>
 
-      <div className="max-container h-[80vh] mb-10 sm:px-9 md:px-1 mt-14 grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+      <div className="max-container flex-grow mb-10 sm:px-9 md:px-1 mt-14 grid md:grid-cols-4 gap-6 sm:grid-cols-3 sm:gap-4 grid-cols-1">
         {filteredTutors.length === 0 ? (
           <div className="no-tutors-message">
             <p>No tutors for that course are available yet.</p>

@@ -6,7 +6,7 @@ function TutorFooter() {
   return (
     <div>
       <hr />
-      <div className="bg-gray-200 sticky pt-8 pb-5">
+      <div className="bg-gray-200 bottom pt-8 pb-5">
         <div className="px-2 py-4 max-container flex justify-between">
           {/* logo */}
           <p className="font-bold text-3xl text-green-600 hidden sm:block">
@@ -32,7 +32,7 @@ function TutorFooter() {
                 href="#"
                 className=" leading-normal text-md font-bold text-gray-600"
               >
-                Tutorship Companies
+                Companies
               </Link>
             </li>
           </ul>
