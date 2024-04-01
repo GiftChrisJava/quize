@@ -4,6 +4,7 @@ import Tutorz from "../_components/Tutorz";
 import { tutors } from "../constants/tutors";
 import FilterButton from "../_components/FilterButton";
 import { filterButtons } from "../constants/filterButtons";
+import { SearchXIcon } from "lucide-react";
 
 function Page() {
   // a state variable to track the selected filter
@@ -40,10 +41,13 @@ function Page() {
         ))}
       </div>
 
-      <div className="max-container flex-grow mb-10 sm:px-9 md:px-1 mt-14 grid md:grid-cols-4 gap-6 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+      <div className="max-container flex-grow h-[100%] mb-[380px] sm:px-9 md:px-1 mt-14 grid md:grid-cols-4 gap-6 sm:grid-cols-3 sm:gap-4 grid-cols-1">
         {filteredTutors.length === 0 ? (
           <div className="no-tutors-message">
-            <p>No tutors for that course are available yet.</p>
+            <SearchXIcon className="max-w-sm mx-auto text-gray-600 h-16 w-16" />
+            <p className="mb-[200px] text-lg text-gray-700">
+              {'"No tutors for that subject are available yet"'}
+            </p>
           </div>
         ) : (
           filteredTutors.map((tutor) => (
