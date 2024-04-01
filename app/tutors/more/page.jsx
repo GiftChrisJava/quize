@@ -26,7 +26,7 @@ function Page() {
 
   return (
     <div className=" pb-6 mb-4">
-      <div className="grid md:grid-cols-5 xl:grid-cols-9 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-3 text-[8px] sm:text-[10px]">
+      <div className="p-4 grid md:grid-cols-5 xl:grid-cols-9 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-3 text-[8px] sm:text-[10px]">
         {/* Use map to render the filter buttons */}
         {filterButtons.map((button) => (
           <div key={button.value}>

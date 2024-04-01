@@ -23,7 +23,7 @@ function Videos({ params }) {
               alt="image"
               className="w-[850px] h-[250px] rounded"
             />
-            <p className="font-bold text-4xl text-white -mt-11 ml-3">{`${topic.name}`}</p>
+            <p className="font-bold text-4xl text-white -mt-16 sm:-mt-11 ml-3">{`${topic.name}`}</p>
           </div>
         </article>
 

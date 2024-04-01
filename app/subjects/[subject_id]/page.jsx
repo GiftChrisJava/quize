@@ -50,7 +50,7 @@ function Subject({ params }) {
       </section>
 
       {/* side bar  */}
-      <section className="md:block hidden">
+      <section className="xl:block hidden">
         <SideNav subject_id={subject_id} />
       </section>
     </div>

@@ -33,7 +33,7 @@ const VideoPlayer = ({ video, user_id }) => {
   const youtubeVideoId = getYoutubeIdFromUrl(videoUrl);
   const opts = {
     height: "300px", // Use percentage for responsive height
-    width: "720px", // Use percentage for responsive width
+    width: "700px", // Use percentage for responsive width
     playerVars: {
       // Enable progress tracking
       autoplay: 0,
