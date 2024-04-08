@@ -3,6 +3,7 @@ import { allSubjects } from "@/app/allSubjects";
 import SideNav from "./_component/SideNav";
 import TopicCard from "./_component/TopicCard";
 import { topics } from "./_component/constants/topics";
+import Link from "next/link";
 
 function Subject({ params }) {
   const subject_id = params.subject_id;
@@ -40,7 +41,10 @@ function Subject({ params }) {
               In this class, we&lsquo;re not just about memorizing what&lsquo;s
               in the books. Nope! We&lsquo;re all about exploring beyond the
               pages and unlocking the secrets of computer literacy that will
-              make you a digital ninja.
+              make you a digital ninja.{" "}
+              <Link href="#ninja" className="text-[16px] text-purple-700">
+                Begin your journey
+              </Link>
             </small>
 
             <small className="block text-[16px] text-gray-900 mt-4">
@@ -73,6 +77,10 @@ function Subject({ params }) {
                 />
               </div>
             ))}
+          </div>
+
+          <div id="ninja">
+            <h2>Became a digital Ninja</h2>
           </div>
         </article>
       </section>
