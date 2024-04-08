@@ -3,7 +3,6 @@ import { allSubjects } from "@/app/allSubjects";
 import SideNav from "./_component/SideNav";
 import TopicCard from "./_component/TopicCard";
 import { topics } from "./_component/constants/topics";
-import { useState } from "react";
 
 function Subject({ params }) {
   const subject_id = params.subject_id;
@@ -14,6 +13,7 @@ function Subject({ params }) {
   }
 
   const subject = getObjectById(subject_id);
+  const form = subject.klass;
 
   return (
     <div className="flex flex-row justify-between pb-6">
@@ -22,13 +22,41 @@ function Subject({ params }) {
           <h4 className="font-semibold text-3xl text-gray-500 text-center pt-3">
             {subject.name}
           </h4>
-          <small className="block font-bold text-gray-900 text-center">
-            Select on a topic to watch videos, take a quiz and see exam
-            questions
-          </small>
+          <div className="px-2">
+            <small className="block text-[16px] text-gray-900 mt-8">
+              Hey!, Welcome to the awesome world of computer studies! 🚀 Get
+              ready to dive into a subject that&lsquo;s not just about boring
+              textbooks but is packed with exciting knowledge that will
+              turbocharge your computer skills. Below are the topics in computer
+              studies for form <span className="font-bold">{form}</span>.
+              Probably available in the books too. Here you will find videos of
+              those topics which seem to be difficult. Under each topic below
+              you can choose to watch videos to boost your understanding , take
+              a quiz to test your understanding and see how Maneb questions look
+              like. Just have a test!
+            </small>
+
+            <small className="block text-[16px] text-gray-900 mt-4">
+              In this class, we&lsquo;re not just about memorizing what&lsquo;s
+              in the books. Nope! We&lsquo;re all about exploring beyond the
+              pages and unlocking the secrets of computer literacy that will
+              make you a digital ninja.
+            </small>
+
+            <small className="block text-[16px] text-gray-900 mt-4">
+              Check out the cool stuff we have lined up for you: videos galore!
+              🎥 If a topic seems as mysterious as decoding alien signals, fear
+              not! We&lsquo;ve got videos to break it down for you in simple,
+              easy-to-understand terms. Plus, quizzes to put your newfound
+              knowledge to the test and get a sneak peek at what the big bad
+              Maneb exams might throw your way. So, what are you waiting for?
+              Let&lsquo;s rock this computer studies journey together!✌️
+            </small>
+          </div>
+          <p></p>
         </article>
 
-        <article className="px-2">
+        <article className="px-2 mt-8">
           <div
             data-aos="zoom-in"
             className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
