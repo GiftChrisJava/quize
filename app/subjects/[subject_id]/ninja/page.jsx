@@ -2,7 +2,9 @@ import React from "react";
 import NinjaCardNow from "./NinjaCardNow";
 import { computerLiteracyTopics } from "./literacyTopics";
 
-function Ninja() {
+function Ninja({ params }) {
+  const subject_id = params.subject_id;
+
   return (
     <div className="max-container max-w-3xl mx-auto p-3">
       <div>
@@ -35,6 +37,7 @@ function Ninja() {
               topic_title={topic.topic_title}
               thumbnail={topic.thumbnail}
               topic_id={topic.id}
+              subject_id={subject_id}
             />
           </div>
         ))}

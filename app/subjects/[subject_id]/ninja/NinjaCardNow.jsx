@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function NinjaCardNow({ topic_id, topic_title, thumbnail }) {
+function NinjaCardNow({ topic_id, topic_title, thumbnail, subject_id }) {
   return (
-    <div className="mt-6  hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[250px] hover:bg-gray-800 hover:text-gray-200 hover:delay-75">
-      <Link href="#">
+    <div className="mt-6  hover:cursor-pointer shadow-2xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[250px] hover:bg-gray-800 hover:text-gray-200 hover:delay-75">
+      <Link href={`/subjects/${subject_id}/ninja/${topic_id}`}>
         <div>
           <Image
             src={thumbnail}
