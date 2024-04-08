@@ -1,4 +1,4 @@
-import { Crown } from "lucide-react";
+import { Crown, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,7 +18,7 @@ function TopicCard({ name, image, topic_id, subject_id, premium }) {
       <div className="mt-2  px-1">
         <div className="flex flex-col hover:cursor-pointer">
           <div className=" flex gap-1 mx-auto max-w-sm">
-            {premium && <Crown className="w-6 text-yellow-500" />}
+            {premium && <Star className="w-6 text-yellow-500" />}
             <p className="text-red-600 text-sm mb-2 text-center">{name}</p>
           </div>
           <hr />
