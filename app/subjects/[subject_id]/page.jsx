@@ -79,7 +79,7 @@ function Subject({ params }) {
             ))}
           </div>
 
-          <div id="ninja">
+          <div id="ninja" className="pt-12">
             <Link href={`/subjects/${subject_id}/ninja`}>
               <h2 className="font-semibold cursor-pointer mb-8 mt-8 flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded bg-gray-700 text-gray-300">
                 Became a digital Ninja

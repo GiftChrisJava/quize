@@ -17,9 +17,9 @@ function TopicCard({ name, image, topic_id, subject_id, premium }) {
 
       <div className="mt-2  px-1">
         <div className="flex flex-col hover:cursor-pointer">
-          <div className=" flex gap-1 mx-auto max-w-sm">
+          <div className=" flex gap-1 mx-auto max-w-sm justify-center">
             {premium && <Star className="w-6 text-yellow-500" />}
-            <p className="text-red-600 text-sm mb-2 text-center">{name}</p>
+            <p className="text-red-600 text-sm mt-1 text-center ">{name}</p>
           </div>
           <hr />
 
