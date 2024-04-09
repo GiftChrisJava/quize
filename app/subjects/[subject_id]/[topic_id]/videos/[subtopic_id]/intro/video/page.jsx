@@ -1,12 +1,13 @@
 "use client";
-import Button from "./_components/Button";
-import SideBarLeft from "./_components/SideBarLeft";
-import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
-import FormModel from "./_components/FormModel";
+
 import { useState } from "react";
 import { ArrowDownNarrowWideIcon, LockIcon, Unlock } from "lucide-react";
-import VideoComponent from "./_components/VideoComponent";
+
 import Link from "next/link";
+import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
+import VideoComponent from "./_components/VideoComponent";
+import FormModel from "./_components/FormModel";
+import SideBarLeft from "./_components/SideBarLeft";
 
 function VideoPlayer({ params }) {
   const topic_id = params.topic_id;
@@ -146,7 +147,7 @@ function VideoPlayer({ params }) {
 
             <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-200 w-38">
               <Link
-                href={`/subjects/${params.subject_id}/${params.topic_id}/videos/${selectedVideo.id}/video/notes`}
+                href={`/subjects/${params.subject_id}/${params.topic_id}/videos/${selectedVideo.id}/intro/video/notes`}
               >
                 <p>Notes</p>
               </Link>

@@ -1,4 +1,4 @@
-import img from "../../../../../../../../public/cool.jpg";
+import img from "../../../../../../../../../public/cool.jpg";
 export const subtopicNotes = [
   // each video should have correspending notes
   {

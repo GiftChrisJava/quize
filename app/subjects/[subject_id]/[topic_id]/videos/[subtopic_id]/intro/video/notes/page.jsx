@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { subtopicNotes } from "../constant/subtopicNotes";
-
 function Notes({ params }) {
   const subtopic_id = parseInt(params.subtopic_id);
 

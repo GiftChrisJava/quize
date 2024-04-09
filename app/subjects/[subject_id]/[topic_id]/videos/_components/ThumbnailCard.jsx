@@ -24,11 +24,12 @@ function ThumbnailCard({ id, name, desc, image, subject_id, topic_id }) {
 
         <Link
           // href={`/subjects`}
-          href={`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/video`}
+          // href={`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/video`}
+          href={`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/intro`}
         >
           <div className="flex flex-row mt-1 justify-center items-center">
             <small className="text-green-600 font-bold hover:cursor-pointer hover:text-red-600">
-              Watch Now
+              Learn Now
             </small>
 
             <small>
