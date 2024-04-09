@@ -43,7 +43,7 @@ function Subject({ params }) {
               pages and unlocking the secrets of computer literacy that will
               make you a digital ninja.{" "}
               <Link href="#ninja" className="text-[16px] text-purple-700">
-                Begin your journey
+                Became a digital Ninja
               </Link>
             </small>
 

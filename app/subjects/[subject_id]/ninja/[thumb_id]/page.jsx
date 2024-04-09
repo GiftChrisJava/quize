@@ -1,4 +1,6 @@
+"use client";
 import { computerLiteracyTopics } from "../literacyTopics";
+import LiteracyVideoPlayer from "./LiteracyVideoPlayer";
 
 function LiterscyVideos({ params }) {
   const thumb_id = parseInt(params.thumb_id);
@@ -13,8 +15,15 @@ function LiterscyVideos({ params }) {
 
   return (
     <div>
-      <section>
-        <h2>{thumb_id}</h2>
+      <section className="mt-4 mb-8">
+        <h3 className="text-center text-[25px] font-semibold text-gray-800">
+          {videoObject.topic_title}
+        </h3>
+      </section>
+      <section className="">
+        <LiteracyVideoPlayer video={videoObject.video_url} />
+
+        <h5 className="mt-4 text-center px-2">{videoObject.description}</h5>
       </section>
     </div>
   );
