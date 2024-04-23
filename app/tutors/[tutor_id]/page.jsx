@@ -1,4 +1,7 @@
+"use client"
 import Image from "next/image";
+import React, { useState } from 'react';
+
 import { tutors } from "../constants/tutors";
 import { TfiEmail } from "react-icons/tfi";
 import { ImFacebook2 } from "react-icons/im";
@@ -14,6 +17,17 @@ function Tutor({ params }) {
 
   const tutor = getTutorById(tutor_id);
 
+  const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState([]);
+
+  const handleViewComments = () => {
+    // Fetch comments from an API or database
+    // For demonstration, let's assume comments are fetched from somewhere and stored in an array
+    const fetchedComments = ['Very friendly with students', 'Good mentor', 'Amadulitsa heavy'];
+    setComments(fetchedComments);
+    setShowComments(!showComments);
+  };
+
   return (
     <main className="px-2 pb-[400px] pt-12 flex-grow h-[100%] ">
       <div className="max-container ">
@@ -26,7 +40,7 @@ function Tutor({ params }) {
             src={tutor.image}
           />
 
-          <section className="flex flex-col gap-4 bg-white max-h-[500px] mt-4 md:max-w-[300px] md:rounded-tr-lg md:rounded-br-lg rounded-md max-w-[400px]">
+          <section className="flex flex-col gap-4 bg-white max-h-[500px] mt-4 md:max-w-[300px] md:rounded-tr-lg md:rounded-br-lg rounded md:rounded-none max-w-[400px]">
             <article className="px-2 w-[200px]">
               <h2 className="text-xl font-bold text-gray-700">{tutor.name}</h2>
             </article>
@@ -84,8 +98,7 @@ function Tutor({ params }) {
           </section>
 
         </section>
-
-        <form className="max-w-2xl mx-auto mt-20">
+        <form className="max-w-md mx-auto mt-20">
             <div className="px-3 mb-2 mt-2">
               <textarea
                 placeholder="Add comment about this tutor.."
@@ -100,7 +113,24 @@ function Tutor({ params }) {
               />
             </div>
         </form>
-       
+
+        <article className="mt-16 flex flex-col gap-2 justify-center max-w-[150px] mx-auto ">
+           <button className="flex flex-col  px-2.5 py-1.5 rounded-md text-white text-sm  bg-gray-700 ml-4" onClick={handleViewComments}>View Comments</button>
+           {showComments && (
+        <div className="relative max-h-[100vh]">
+          <div className="absolute right-0 mt-2 w-56 rounded-md bg-white shadow-lg">
+            <div className="py-1">
+              {comments.map((comment, index) => (
+                <p key={index} className="px-4 py-2 text-sm text-gray-700">
+                  {comment}
+                  <hr />
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+        </article>
       </div>
     </main>
   );
