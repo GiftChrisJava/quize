@@ -29,7 +29,7 @@ function TopicCard({ name, image, topic_id, subject_id, premium }) {
               className="group flex gap-3 leading-normal items-center justify-center"
             >
               <p className="text-md  text-gray-900 hover:text-green-600">
-                Watch Videos
+                Learn Now!
               </p>
             </Link>
 

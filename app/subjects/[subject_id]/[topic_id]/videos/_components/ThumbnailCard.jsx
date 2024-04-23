@@ -29,7 +29,7 @@ function ThumbnailCard({ id, name, desc, image, subject_id, topic_id }) {
         >
           <div className="flex flex-row mt-1 justify-center items-center">
             <small className="text-green-600 font-bold hover:cursor-pointer hover:text-red-600">
-              Learn Now
+              Click me to Proceed
             </small>
 
             <small>

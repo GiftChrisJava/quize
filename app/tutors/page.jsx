@@ -24,7 +24,7 @@ function Tutors() {
             </small>
 
             <button className="font-bold p-2 w-[200px] hover:text-gray-50 rounded mt-3 border border-slate-600 bg-gray-700 text-gray-300 mx-auto max-w-sm md:left md:mx-0">
-              Get Started
+              <Link href="/tutors/more">Find Tutors</Link>
             </button>
           </article>
 

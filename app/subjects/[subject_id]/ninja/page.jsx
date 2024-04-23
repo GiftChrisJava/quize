@@ -9,7 +9,7 @@ function Ninja({ params }) {
     <div className="max-container max-w-3xl mx-auto p-3">
       <div>
         <h2 className="text-2xl text-gray-800 font-bold">
-          Outside The Classroom
+          BeYoNd The Classroom
         </h2>
         <p className="mt-8">
           Hey, Hey, Hey! 🎉 Big shoutout to you for making the smart move to

@@ -131,29 +131,31 @@ function VideoPlayer({ params }) {
               </div>
             )}
             {/* button  */}
-
-            <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-200 w-38">
-              <Link href={`/quizes/learning/${topic.name}/${subtopic_id}`}>
-                <p>Attempt Quiz</p>
+            <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-white w-38">
+              <Link
+                href={`/subjects/${params.subject_id}/${params.topic_id}/videos/${selectedVideo.id}/intro/video/notes`}
+              >
+                <p>Read Notes Now!!</p>
               </Link>
             </button>
 
+           
+
             <button
               onClick={() => setshowModel(true)}
-              className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-200 w-38"
+              className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-300 w-38"
             >
               Give Feedback
             </button>
 
-            <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-200 w-38">
-              <Link
-                href={`/subjects/${params.subject_id}/${params.topic_id}/videos/${selectedVideo.id}/intro/video/notes`}
-              >
-                <p>Notes</p>
+            <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-gray-300 w-38">
+              
+              <Link href={`/quizes/learning/${topic.name}/${subtopic_id}`}>
+                <p>Attempt Quiz</p>
               </Link>
             </button>
           </div>
-
+          
           <FormModel isVisible={showModel} onClose={onClose} />
         </article>
       </section>
