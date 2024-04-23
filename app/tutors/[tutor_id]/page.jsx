@@ -11,7 +11,7 @@ function Tutor({ params }) {
   const tutor = getTutorById(tutor_id);
 
   return (
-    <main className="bg-white px-2 pb-[400px] flex-grow h-[100%] ">
+    <main className="px-2 pb-[400px] pt-12 flex-grow h-[100%] ">
       <div className="max-container ">
         <section className="flex flex-row">
           <Image
@@ -22,32 +22,35 @@ function Tutor({ params }) {
             src={tutor.image}
           />
 
-          <section className="flex flex-col gap-4">
-            <article className="p-2 bg-gray-300 shadow-xl w-[200px] mt-4">
-              <h2 className="text-xl font-bold ">{tutor.name}</h2>
+          <section className="flex flex-col gap-4 bg-white h-[500px] mt-4 max-w-[300px]">
+            <article className="px-2 w-[200px]">
+              <h2 className="text-xl font-bold text-gray-700">{tutor.name}</h2>
             </article>
 
-            <article className="p-2 bg-neutral-400 shadow-xl">
-              <h2 className="text-lg text-gray-50">{tutor.experience}</h2>
+            <article className="px-2">
+              <h2 className="text-md text-gray-800">{tutor.experience}</h2>
             </article>
-
-            <article className="p-2 bg-gray-700 shadow-md w-[300px]">
-              <h2 className="text-lg text-gray-50">
-                <span className="text-purple-500">
+            
+            <hr />
+            <article className="p-2 max-w-[300px] -mt-4">
+              <h2 className="text-lg text-gray-600">
+                <span className="text-gray-900">
                   {tutor.masteredSubject}{" "}
-                </span>{" "}
+                </span >{" "}
                 is the subject i mastered
               </h2>
             </article>
 
-            <article className="p-2 bg-gray-300 shadow-xl w-[200px] mt-4">
+            <hr className="-mt-4"/>
+
+            <article className="p-2 -mt-6">
               <h2 className="text-xl font-bold ">
-                <span className="text-purple-500 text-sm">
+                <span className="text-green-600 text-sm">
                   Other subjects i teach
                 </span>
                 {tutor.otherSubjects.map((subject) => (
                   <div key={subject.id}>
-                    <h4>{subject.name}</h4>
+                    <h4 className="text-sm font-normal">{subject.name}</h4>
                   </div>
                 ))}
               </h2>
