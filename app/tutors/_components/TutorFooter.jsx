@@ -27,14 +27,7 @@ function TutorFooter() {
               </li>
             ))}
 
-            <li>
-              <Link
-                href="#"
-                className=" leading-normal text-md font-bold text-gray-600"
-              >
-                Companies
-              </Link>
-            </li>
+           
           </ul>
 
           {/* logo */}
