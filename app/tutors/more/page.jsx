@@ -43,9 +43,9 @@ function Page() {
 
       <div className="max-container flex-grow h-[100%] mb-[380px] sm:px-9 md:px-1 mt-14 grid md:grid-cols-4 gap-6 sm:grid-cols-3 sm:gap-4 grid-cols-1">
         {filteredTutors.length === 0 ? (
-          <div className="no-tutors-message">
-            <SearchXIcon className="max-w-sm mx-auto text-gray-600 h-16 w-16" />
-            <p className="mb-[200px] text-lg text-gray-700">
+          <div className="md:ml-[200px]">
+            <SearchXIcon className="max-w-sm mx-auto text-gray-600 h-16 w-16 md:ml-[160px]" />
+            <p className="mb-[200px]  text-lg text-gray-700 text-center w-[400px] flex flex-row items-center justify-center">
               {'"No tutors for that subject are available yet"'}
             </p>
           </div>
@@ -56,6 +56,7 @@ function Page() {
                 name={tutor.name}
                 image={tutor.image}
                 masteredSubject={tutor.masteredSubject}
+                tutor_id={tutor.id}
               />
             </div>
           ))

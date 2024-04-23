@@ -97,6 +97,7 @@ function Tutors() {
                   name={tutor.name}
                   image={tutor.image}
                   masteredSubject={tutor.masteredSubject}
+                  tutor_id={tutor.id}
                 />
               </div>
             ))}
