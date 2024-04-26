@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
-import image1 from "../../public/e.jpg";
-import imaged from "../../public/g.jpg";
+import boy from "../../public/boy.jpg";
+import books from "../../public/books.jpg";
 
 import SubjectCard from "./_components/SubjectCard";
 import { formThree, formFour, tutors } from "../_data";
@@ -12,8 +12,8 @@ function Subjects() {
   return (
     <container className="mt-4">
       <section className="bg-white">
-        <article className="max-container  flex flex-row sm:gap-8 items-center justify-center">
-          <section className="flex flex-2 sm:flex-1 flex-col p-4">
+        <article className="max-container  flex flex-row sm:gap-8 items-center justify-center mb-16">
+          <section className="flex flex-2 sm:flex-1 flex-col p-4 ">
             <h2 className="font-extrabold flex-start sm:text-2xl md:text-4xl text-gray-900 ">
               <span className="text-green-600">MALAWI</span> EDUCATION
               ENHANCEMENT
@@ -31,23 +31,23 @@ function Subjects() {
           </section>
           <section className="flex-1 ml-10">
             <Image
-              src={image1}
+              src={boy}
               width={380}
-              height={335}
+              height={200}
               alt="student"
-              className="rounded-lg hidden object-contain sm:flex"
+              className="hidden object-contain sm:flex mt-2 rounded"
             />
           </section>
         </article>
 
         <article className="md:min-container max-container pb-10 flex flex-row sm:gap-8 items-center justify-center">
-          <section className="flex-1 md:ml-10">
+          <section className="flex-1 md:ml-2">
             <Image
-              src={imaged}
-              width={260}
+              src={books}
+              width={380}
               height={215}
               alt="student"
-              className="rounded-lg hidden object-contain sm:flex"
+              className="hidden object-contain sm:flex -ml-8 shadow-lg rounded"
             />
           </section>
           <section className="flex flex-2 sm:flex-1 flex-col p-4">
