@@ -1,5 +1,6 @@
 import { Outfit } from "next/font/google";
 import AOSWrapper from "./AOSwrapper";
+import { ClerkProvider } from '@clerk/nextjs'
 import "./globals.css";
 
 const inter = Outfit({ subsets: ["latin"] });
@@ -11,10 +12,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+
+    <ClerkProvider>
+      <html lang="en">
       <body className={inter.className}>
         <AOSWrapper>{children}</AOSWrapper>
       </body>
     </html>
+    </ClerkProvider>
+    
   );
 }
