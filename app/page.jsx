@@ -1,8 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { auth } from '@clerk/nextjs/dist/types/server';
+import { redirect } from 'next/dist/server/api-utils';
 
 export default function Page() {
+  const {userId} = auth()
+
+  if (userId) {
+    console.log(userId);
+    redirect("/subjects")
+  }
   return (
   <div className="h-screen bg-cover bg-center flex items-center justify-center bg-no-repeat backdrop-blur bg-[url('../public/bg2.jpg')]">
 
