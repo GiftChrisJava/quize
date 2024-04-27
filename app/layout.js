@@ -2,7 +2,6 @@ import { Outfit } from "next/font/google";
 import AOSWrapper from "./AOSwrapper";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs/dist/types/server";
 
 const inter = Outfit({ subsets: ["latin"] });
 
@@ -12,14 +11,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const {userId} = auth()
-
-  if (userId) {
-    console.log(userId);
-    redirect("/subjects")
-  } else {
-    redirect("/")
-  }
   return (
     <ClerkProvider>
       <html lang="en">
