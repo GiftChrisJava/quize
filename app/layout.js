@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
       <body className={inter.className}>
-        <AOSWrapper>{children}</AOSWrapper>
+        <div className="">
+          <AOSWrapper>{children}</AOSWrapper>
+        </div>
       </body>
     </html>
     </ClerkProvider>

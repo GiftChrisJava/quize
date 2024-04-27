@@ -1,9 +1,12 @@
+"use client"
 import { Search } from "lucide-react";
 import React from "react";
 import { navLinks } from "./constants/links";
 import Link from "next/link";
+import { UserButton, useUser } from "@clerk/nextjs";
 
 function Header() {
+  const {user, isLoaded} = useUser()
   return (
     <div className="bg-white sticky">
       <div className="px-2 py-4 max-container flex justify-between">
@@ -27,15 +30,16 @@ function Header() {
           ))}
         </ul>
 
-        {/* search bar  */}
-        <div className="md:flex gap-3 p-1 rounded-md outline-none border font-semibold hidden">
-          <input
-            className="text-slate-800 focus:outline-none"
-            type="text"
-            placeholder="Find a Topic "
-          />
-          <Search className="h-5 w-5 text-gray-400" />
-        </div>
+        {/* logout  */}
+
+        {
+          isLoaded && user && (
+          <div className="md:flex gap-3 p-1 rounded-md font-semibold hidden">
+            <UserButton afterSignOutUrl="/"/>   
+          </div>
+          )
+        }
+        
       </div>
     </div>
   );

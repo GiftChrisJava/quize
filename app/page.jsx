@@ -15,7 +15,7 @@ export default function Page() {
      A website to that simplies what you learn in class to increase your understanding for best grades
     </h4>
      
-      <div className="mt-8 flex justify-between max-w-sm mx-auto gap-5">
+      <div className="mt-8 flex justify-between max-w-sm mx-auto gap-[100px]">
           <button className="bg-gray-700 text-gray-200 hover:text-green-600 hover:cursor-pointer font-bold rounded-lg shadow-lg py-2 px-4">
             <Link href="/sign-in">Login</Link>
           </button>
