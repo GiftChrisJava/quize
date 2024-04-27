@@ -1,5 +1,6 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
+// this is a public route
 export default clerkMiddleware({
   publicRoutes : ["/"]
 });
