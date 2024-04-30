@@ -16,7 +16,7 @@ function HomeFooter() {
         </svg>
 
      
-        <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Meep</span>
+        <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">MEep</span>
       </a>
       <div class="mt-6 lg:max-w-sm">
         <p class="text-sm text-gray-800">

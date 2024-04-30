@@ -10,6 +10,8 @@ import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 import TutorCard from "../tutors/_components/TutorCard";
 import Slider from "react-slick";
 import Header from "./[subject_id]/_component/Header";
+import TutorNav from "../tutors/_components/TutorNav";
+import SubjectBottomNav from "./_components/SubjectBottomNav";
 
 function Subjects() {
   const settings = {
@@ -128,7 +130,7 @@ function Subjects() {
 
       {/* Tutors  */}
       <section className="bg-white mt-10 pb-2">
-     
+       <SubjectBottomNav/>
       </section>
     </container>
   );
