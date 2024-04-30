@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { navigationLinks } from "../constants/navigationLinks";
+import { UserButton } from "@clerk/nextjs";
 
 function NavBar() {
   return (
@@ -30,6 +31,11 @@ function NavBar() {
           <span className="text-red-600">Qu</span>
           <span className="text-gray-800">iz</span>
         </p>
+
+        
+        <div className="md:flex gap-3 p-1 rounded-md font-semibold hidden ml-8">
+            <UserButton afterSignOutUrl="/"/>   
+          </div>
       </div>
     </div>
   );

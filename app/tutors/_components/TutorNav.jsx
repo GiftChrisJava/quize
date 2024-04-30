@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { navLinks } from "../constants/navLinks";
+import { UserButton } from "@clerk/nextjs";
 
 function TutorNav() {
   return (
@@ -30,6 +31,11 @@ function TutorNav() {
           <span className="text-red-600">Tut</span>
           <span className="text-gray-800">ors</span>
         </p>
+
+        
+        <div className="md:flex gap-3 p-1 rounded-md font-semibold hidden ml-8">
+            <UserButton afterSignOutUrl="/"/>   
+          </div>
       </div>
     </div>
   );

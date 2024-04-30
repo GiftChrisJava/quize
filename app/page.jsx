@@ -19,11 +19,11 @@ export default function Page() {
     </h4>
      
       <div className="mt-8 flex justify-between max-w-sm mx-auto gap-[100px]">
-          <button className="bg-gray-700 text-gray-200 hover:text-green-600 hover:cursor-pointer font-bold rounded-lg shadow-lg py-2 px-4">
+          <button className="bg-gray-700 text-gray-200 hover:text-green-600 hover:cursor-pointer font-semibold rounded-lg shadow-lg py-2 px-6">
             <Link href="/sign-in">Login</Link>
           </button>
 
-          <button className="bg-gray-700 px-4 text-gray-200 hover:text-green-600 hover:cursor-pointer font-bold rounded-lg shadow-lg py-2">
+          <button className="bg-gray-700 px-6 text-gray-200 hover:text-green-600 hover:cursor-pointer font-semibold rounded-lg shadow-lg py-2">
             <Link href="/sign-up">Register</Link>
           </button>
       </div>

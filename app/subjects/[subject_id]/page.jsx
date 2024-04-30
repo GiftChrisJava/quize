@@ -36,31 +36,14 @@ function Subject({ params }) {
               a quiz to test your understanding and see how Maneb questions look
               like. Just have a test!
             </small>
+          
+            <small className="block text-[16px] text-gray-900 mt-4">Click  <span className="text-gray-800 font-bold">learn now </span> to begin Your learning</small>
 
-            <small className="block text-[16px] text-gray-900 mt-4">
-              In this class, we&lsquo;re not just about memorizing what&lsquo;s
-              in the books. Nope! We&lsquo;re all about exploring beyond the
-              pages and unlocking the secrets of computer literacy that will
-              make you a digital ninja.{" "}
-              <Link href="#ninja" className="text-[16px] text-purple-700">
-                Became a digital Ninja
-              </Link>
-            </small>
-
-            <small className="block text-[16px] text-gray-900 mt-4">
-              Check out the cool stuff we have lined up for you: videos galore!
-              🎥 If a topic seems as mysterious as decoding alien signals, fear
-              not! We&lsquo;ve got videos to break it down for you in simple,
-              easy-to-understand terms. Plus, quizzes to put your newfound
-              knowledge to the test and get a sneak peek at what the big bad
-              Maneb exams might throw your way. So, what are you waiting for?
-              Let&lsquo;s rock this computer studies journey together!✌️
-            </small>
           </div>
           <p></p>
         </article>
 
-        <article className="px-2 mt-8">
+        <article className="px-2 mt-2">
           <div
             data-aos="zoom-in"
             className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
@@ -79,13 +62,39 @@ function Subject({ params }) {
             ))}
           </div>
 
-          <div id="ninja" className="pt-12">
+
+          <div className="mt-14">
+          <small className="block text-[16px] text-gray-900 mt-4">
+              We&lsquo;re not just about memorizing what&lsquo;s
+              in the books. Nope! We&lsquo;re all about exploring beyond the
+              pages and unlocking the secrets of computer literacy that will
+              make you a digital ninja.{" "}
+              <Link href={`/subjects/${subject_id}/ninja`}className="text-[16px] text-purple-700">
+                Became a digital Ninja
+              </Link>
+            </small>
+
+            <small className="block text-[16px] text-gray-900 mt-4">
+              Check out the cool stuff we have lined up for you: videos galore!
+              🎥 If a topic seems as mysterious as decoding alien signals, fear
+              not! We&lsquo;ve got videos to break it down for you in simple,
+              easy-to-understand terms. Plus, quizzes to put your newfound
+              knowledge to the test and get a sneak peek at what the big bad
+              Maneb exams might throw your way. So, what are you waiting for?
+              Let&lsquo;s rock this computer studies journey together!✌️
+            </small>
+          </div>
+
+          {/* <div id="ninja" className="pt-12">
             <Link href={`/subjects/${subject_id}/ninja`}>
               <h2 className="font-semibold cursor-pointer mb-8 mt-8 flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded bg-gray-700 text-gray-300">
                 Became a digital Ninja
               </h2>
             </Link>
-          </div>
+          </div> */}
+
+
+
         </article>
       </section>
 

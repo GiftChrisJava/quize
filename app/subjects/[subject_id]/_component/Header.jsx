@@ -32,13 +32,11 @@ function Header() {
 
         {/* logout  */}
 
-        {
-          isLoaded && user && (
+    
           <div className="md:flex gap-3 p-1 rounded-md font-semibold hidden">
             <UserButton afterSignOutUrl="/"/>   
           </div>
-          )
-        }
+       
         
       </div>
     </div>
