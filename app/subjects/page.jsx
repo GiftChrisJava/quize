@@ -1,3 +1,4 @@
+"use client"
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
 import boy from "../../public/boy.jpg";
@@ -7,8 +8,20 @@ import SubjectCard from "./_components/SubjectCard";
 import { formThree, formFour, tutors } from "../_data";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 import TutorCard from "../tutors/_components/TutorCard";
+import Slider from "react-slick";
+import Header from "./[subject_id]/_component/Header";
 
 function Subjects() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide :0,
+    pauseOnHover : true,
+    autoplay: true
+  }
   return (
     <container className="mt-4">
       <section className="bg-white">
@@ -114,33 +127,8 @@ function Subjects() {
       </section>
 
       {/* Tutors  */}
-      <section className="bg-white mt-10 pb-5">
-        <article className="max-container">
-          <h4 className="font-bold text-3xl text-red-600 text-center pt-3">
-            Find a Tutor
-          </h4>
-          <small className="block font-bold text-gray-900 text-center">
-            Here is a list of tutors to you can hire for further help
-          </small>
-        </article>
-
-        <article
-          data-aos="zoom-in"
-          className="min-container sm:px-9 md:px-1 mt-10 grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1"
-        >
-          {tutors.map((tutor) => (
-            <div key={tutor.id}>
-              <TutorCard
-                className="flex"
-                name={tutor.name}
-                image={tutor.image}
-                tutor_id={tutor.id}
-                desc={tutor.desc}
-                location={tutor.location}
-              />
-            </div>
-          ))}
-        </article>
+      <section className="bg-white mt-10 pb-2">
+     
       </section>
     </container>
   );
