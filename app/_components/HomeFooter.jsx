@@ -20,9 +20,9 @@ function HomeFooter() {
       </a>
       <div class="mt-6 lg:max-w-sm">
         <p class="text-sm text-gray-800">
-        MeeP is the ultimate learning playground where every lesson transforms you into a classroom superstar! 🌟 This isn&lsquo;t just any platform; it&lsquo;s your secret weapon to becoming a genius in the making. Dive into a world where subjects become adventures, and your understanding soars to epic heights.💡  </p>
+        MeeP is the ultimate learning playground where every lesson transforms you into a classroom superstar! This isn&lsquo;t just any platform; it&lsquo;s your secret weapon to becoming a genius in the making. Dive into a world where subjects become adventures, and your understanding soars to epic heights. </p>
         <p class="mt-4 text-sm text-gray-800">
-        We are committed to help Malawian secondary school students do better in their academics. 🎓🎉📚
+        We are committed to help Malawian secondary school students do better in their academics.
         </p>
       </div>
     </div>
@@ -30,18 +30,27 @@ function HomeFooter() {
       <p class="text-base font-bold tracking-wide text-gray-900">Contacts</p>
       <div class="flex">
         <p class="mr-1 text-gray-800">Phone:</p>
-        <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">850-123-5021</a>
+        <a href="tel:+265887036123" aria-label="Our phone" title="Our phone" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+265887036123</a>
       </div>
       <div class="flex">
         <p class="mr-1 text-gray-800">Email:</p>
-        <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">info@lorem.mail</a>
+        <a href="mailto:bed-com-09-19@unima.ac.mw" aria-label="Our email" title="Our email" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">bed-com-09-19@unima.ac.mw</a>
+      </div>
+
+      <div class="flex">
+        <p class="mr-1 text-gray-800">Phone:</p>
+        <a href="tel:+265887036123" aria-label="Our phone" title="Our phone" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+265887036123</a>
       </div>
       <div class="flex">
+        <p class="mr-1 text-gray-800">Email:</p>
+        <a href="mailto:bed-com-09-19@unima.ac.mw" aria-label="Our email" title="Our email" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">bed-com-09-19@unima.ac.mw</a>
+      </div>
+      {/* <div class="flex">
         <p class="mr-1 text-gray-800">Address:</p>
         <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" aria-label="Our address" title="Our address" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">
           312 Lovely Street, NY
         </a>
-      </div>
+      </div> */}
     </div>
     <div>
       <span class="text-base font-bold tracking-wide text-gray-900">Social</span>
@@ -76,9 +85,9 @@ function HomeFooter() {
   </div>
   <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
     <p class="text-sm text-gray-600">
-      © Copyright 2020 Lorem Inc. All rights reserved.
+      © Copyright 2024 Meep Web. All rights reserved.
     </p>
-    <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+    {/* <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
       <li>
         <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">F.A.Q</a>
       </li>
@@ -88,7 +97,7 @@ function HomeFooter() {
       <li>
         <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Terms &amp; Conditions</a>
       </li>
-    </ul>
+    </ul> */}
   </div>
 </div>
   )
