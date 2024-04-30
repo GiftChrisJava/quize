@@ -7,10 +7,7 @@ import books from "../../public/books.jpg";
 import SubjectCard from "./_components/SubjectCard";
 import { formThree, formFour, tutors } from "../_data";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
-import TutorCard from "../tutors/_components/TutorCard";
-import Slider from "react-slick";
-import Header from "./[subject_id]/_component/Header";
-import TutorNav from "../tutors/_components/TutorNav";
+
 import SubjectBottomNav from "./_components/SubjectBottomNav";
 
 function Subjects() {
@@ -25,7 +22,12 @@ function Subjects() {
     autoplay: true
   }
   return (
-    <container className="mt-4">
+    <container className="">
+      <section className="">
+       <SubjectBottomNav/>
+      </section>
+
+  <hr />
       <section className="bg-white">
         <article className="max-container  flex flex-row sm:gap-8 items-center justify-center mb-16">
           <section className="flex flex-2 sm:flex-1 flex-col p-4 ">
