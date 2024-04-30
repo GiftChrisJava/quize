@@ -1,8 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { auth } from '@clerk/nextjs';
-import { redirect } from 'next/dist/server/api-utils';
+
 
 export default function Page() {
   
