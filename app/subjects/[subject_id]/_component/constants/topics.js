@@ -12,6 +12,9 @@ import banner3 from "../../../../../public/banner3.jpg";
 import banner4 from "../../../../../public/banner4.jpg";
 import banner5 from "../../../../../public/banner5.jpg";
 
+// https://buy.stripe.com/test_5kA4je0h3ggu1m8144
+
+// https://buy.stripe.com/test_aEUg1WbZL9S69SE9AB
 export const topics = [
   {
     id: 1,
@@ -19,13 +22,14 @@ export const topics = [
     banner: banner1,
     name: "Using Spreadsheets",
     premium: true,
+    paymentLink : "https://buy.stripe.com/test_aEUg1WbZL9S69SE9AB",
     isPaidFor: false,
     subtopics: [
       {
         id: 1,
         image: img1,
         name: "Spreadsheet basics",
-        description: "Data entry, editing, formating and printing a worksheet",
+        description: "Data entry, editing, formatting and printing a worksheet",
         notes: [
           {
             id: 1,
