@@ -9,3 +9,6 @@ export default function Page() {
     </div>
   );
 }
+
+
+// Error: Clerk: The "/subjects/2/1/videos/1/intro/video" route is not a catch-all route. It is recommended to convert this route to a catch-all route, eg: "/subjects/2/1/videos/1/intro/video/[[...rest]]/page.tsx". Alternatively, update the SignIn component to use hash-based routing by setting the "routing" prop to "hash".
