@@ -10,6 +10,7 @@ import FormModel from "./_components/FormModel";
 import SideBarLeft from "./_components/SideBarLeft";
 
 function VideoPlayer({ params }) {
+  
   const topic_id = parseInt(params.topic_id);
   const subtopic_id = params.subtopic_id;
 
