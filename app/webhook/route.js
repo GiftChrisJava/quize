@@ -23,16 +23,6 @@ exports.POST = async function (req) {
     // payment_intent.succeeded
     // payment_intent.created
 
-
-      // Check if the event type is payment_intent.succeeded
-      if (event.type === 'payment_intent.succeeded') {
-        // Redirect the user to the home page
-        return NextResponse.redirect(`/subjects`);
-        // return NextResponse.redirect(`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/intro/video`);
-
-      }
-  
-
     console.log(
       res?.data?.object?.billing_details?.email, // email
       res?.data?.object?.amount, // amount

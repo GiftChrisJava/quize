@@ -164,7 +164,7 @@ function VideoPlayer({ params }) {
           </div>
 
             <div className="mt-14 flex flex-row justify-center items-center">
-              {!topic.isPaidFor && (
+              {(topic.isPaidFor == false) && (
                <Link
                  href={`https://buy.stripe.com/test_aEUg1WbZL9S69SE9AB`}
                >
