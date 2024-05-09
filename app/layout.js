@@ -2,7 +2,6 @@ import { Outfit } from "next/font/google";
 import AOSWrapper from "./AOSwrapper";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import HomeFooter from "./_components/HomeFooter";
 
 const inter = Outfit({ subsets: ["latin"] });
 

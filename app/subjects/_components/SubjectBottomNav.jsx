@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
-import logo from "../../../public/meep.png"
 import { navLinks } from "../[subject_id]/_component/constants/links";
 
 function SubjectBottomNav() {
