@@ -11,16 +11,7 @@ import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 import SubjectBottomNav from "./_components/SubjectBottomNav";
 
 function Subjects() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide :0,
-    pauseOnHover : true,
-    autoplay: true
-  }
+
   return (
     <container className="">
       <section className="">

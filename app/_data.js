@@ -1,9 +1,11 @@
 import image1 from "../public/img1.jpeg";
-import image3 from "../public/img3.jpeg";
+import image3 from "../public/com.jpg";
 import cool from "../public/cool.jpg";
-import image5 from "../public/img5.jpeg";
-import image6 from "../public/img6.jpeg";
-import image7 from "../public/img7.jpeg";
+import image5 from "../public/phy.jpg";
+import image6 from "../public/bio.jpg";
+import image7 from "../public/mat.jpg";
+import image8 from "../public/che.jpg";
+import image9 from "../public/geo.jpg";
 
 export const formFour = [
   {
@@ -15,7 +17,7 @@ export const formFour = [
 
   {
     id: "1",
-    name: "English",
+    name: "Physics",
     image: image5,
     klass: 4,
   },
@@ -23,14 +25,14 @@ export const formFour = [
   {
     id: "6",
     name: "Chemistry",
-    image: image6,
+    image: image8,
     klass: 4,
   },
 
   {
     id: "5",
     name: "Geography",
-    image: image5,
+    image: image9,
     klass: 4,
   },
 
@@ -58,7 +60,7 @@ export const formThree = [
 
   {
     id: "11",
-    name: "English",
+    name: "Physics",
     image: image5,
     klass: 3,
   },
@@ -66,14 +68,14 @@ export const formThree = [
   {
     id: "12",
     name: "Chemistry",
-    image: image6,
+    image: image8,
     klass: 3,
   },
 
   {
     id: "13",
     name: "Geography",
-    image: image5,
+    image: image9,
     klass: 3,
   },
 

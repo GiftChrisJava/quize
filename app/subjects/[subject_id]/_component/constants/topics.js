@@ -1,10 +1,11 @@
-import img from "../../../../../public/img3.jpeg";
-import img5 from "../../../../../public/img5.jpeg";
-import img6 from "../../../../../public/img6.jpeg";
+import img from "../../../../../public/programming.jpg";
+import img5 from "../../../../../public/installation.jpg";
+import img6 from "../../../../../public/publisher.jpg";
+import img7 from "../../../../../public/communication.jpg";
+import img1 from "../../../../../public/sbasics.jpg";
+import img4 from "../../../../../public/fun.jpg";
+import img3 from "../../../../../public/spreadsheet.jpg";
 
-// for subtopics
-import img1 from "../../../../../public/img1.jpeg";
-import img4 from "../../../../../public/img4.jpeg";
 
 import banner1 from "../../../../../public/banner1.jpg";
 import banner2 from "../../../../../public/banner2.jpg";
@@ -18,7 +19,7 @@ import banner5 from "../../../../../public/banner5.jpg";
 export const topics = [
   {
     id: 1,
-    image: img5,
+    image: img3,
     banner: banner1,
     name: "Using Spreadsheets",
     premium: true,
@@ -215,7 +216,7 @@ export const topics = [
   {
     id: 4,
     banner: banner4,
-    image: img6,
+    image: img7,
     name: "Communication technologies",
     premium: false,
     isPaidFor: false,

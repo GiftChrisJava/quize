@@ -36,6 +36,16 @@ function Subject({ params }) {
               a quiz to test your understanding and see how Maneb questions look
               like. Just have a test!
             </small>
+
+            <small className="block text-[16px] text-gray-900 mt-4">
+              We&lsquo;re not just about memorizing what&lsquo;s
+              in the books. Nope! We&lsquo;re all about exploring beyond the
+              pages and unlocking the secrets of computer literacy that will
+              make you a digital ninja.{" "}
+              <Link href={`/subjects/${subject_id}/ninja`}className="text-[16px] text-purple-700">
+                Became a digital Ninja
+              </Link>
+            </small>
           
             <small className="block text-[16px] text-gray-900 mt-4">Click  <span className="text-gray-800 font-bold">learn now </span> to begin Your learning</small>
 
@@ -64,17 +74,9 @@ function Subject({ params }) {
 
 
           <div className="mt-14">
-          <small className="block text-[16px] text-gray-900 mt-4">
-              We&lsquo;re not just about memorizing what&lsquo;s
-              in the books. Nope! We&lsquo;re all about exploring beyond the
-              pages and unlocking the secrets of computer literacy that will
-              make you a digital ninja.{" "}
-              <Link href={`/subjects/${subject_id}/ninja`}className="text-[16px] text-purple-700">
-                Became a digital Ninja
-              </Link>
-            </small>
+        
 
-            <small className="block text-[16px] text-gray-900 mt-4">
+            {/* <small className="block text-[16px] text-gray-900 mt-4">
               Check out the cool stuff we have lined up for you: videos galore!
               🎥 If a topic seems as mysterious as decoding alien signals, fear
               not! We&lsquo;ve got videos to break it down for you in simple,
@@ -82,7 +84,7 @@ function Subject({ params }) {
               knowledge to the test and get a sneak peek at what the big bad
               Maneb exams might throw your way. So, what are you waiting for?
               Let&lsquo;s rock this computer studies journey together!✌️
-            </small>
+            </small> */}
           </div>
 
           {/* <div id="ninja" className="pt-12">

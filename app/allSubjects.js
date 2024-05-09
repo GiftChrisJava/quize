@@ -1,5 +1,5 @@
 import image3 from "../public/img3.jpeg";
-import image5 from "../public/img5.jpeg";
+import image5 from "../public/bio.jpg";
 import image6 from "../public/img6.jpeg";
 import image7 from "../public/img7.jpeg";
 export const allSubjects = [
@@ -81,7 +81,7 @@ export const allSubjects = [
   {
     id: "15",
     name: "Biology",
-    image: image6,
+    image: image5,
     klass: 3,
   },
 ];
