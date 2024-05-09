@@ -6,12 +6,33 @@ import img1 from "../../../../../public/sbasics.jpg";
 import img4 from "../../../../../public/fun.jpg";
 import img3 from "../../../../../public/spreadsheet.jpg";
 
+// publications
+import pub3 from "../../../../../public/pub3.jpg";
+import pub2 from "../../../../../public/pub2.jpg";
+// import pub1 from "../../../../../public/pub1.jpg";
 
-import banner1 from "../../../../../public/banner1.jpg";
-import banner2 from "../../../../../public/banner2.jpg";
-import banner3 from "../../../../../public/banner3.jpg";
-import banner4 from "../../../../../public/banner4.jpg";
-import banner5 from "../../../../../public/banner5.jpg";
+// operating systems
+import os1 from "../../../../../public/os1.jpg";
+import os3 from "../../../../../public/os3.jpg";
+
+// communications 
+import comm1 from "../../../../../public/comm1.jpg";
+import comm2 from "../../../../../public/comm2.jpg";
+import comm3 from "../../../../../public/comm3.jpg";
+
+
+// programming
+import cod1 from "../../../../../public/cod1.jpg";
+import cod2 from "../../../../../public/cod2.jpg";
+import cod3 from "../../../../../public/cod3.jpg";
+import cod4 from "../../../../../public/cod4.jpg";
+
+
+import banner1 from "../../../../../public/spreadb.jpg";
+import banner2 from "../../../../../public/pub.jpg";
+import banner3 from "../../../../../public/installb.jpg";
+import banner4 from "../../../../../public/comb.jpg";
+import banner5 from "../../../../../public/progb.jpg";
 
 // https://buy.stripe.com/test_5kA4je0h3ggu1m8144
 
@@ -111,7 +132,7 @@ export const topics = [
       {
         id: 1,
 
-        image: img1,
+        image: pub3,
         name: "Learning the basics",
         description: "Creating, formating, editing, saving, printing, etc",
         notes: [
@@ -141,7 +162,7 @@ export const topics = [
             locked: false,
           },
         ],
-        image: img4,
+        image: pub2,
         name: "Designing publications",
         description: "Types, orientation, layout, margins, text boxes, etc",
         notes: [
@@ -167,7 +188,7 @@ export const topics = [
       {
         id: 1,
 
-        image: img4,
+        image: os1,
         name: "Operating system (OS)",
         description: "Have a good understand of the OS",
         notes: [
@@ -190,7 +211,7 @@ export const topics = [
       },
       {
         id: 2,
-        image: img1,
+        image: os3,
         name: "Troubleshoot computers",
         description: "Understand computer hardware and its software",
         notes: [
@@ -224,7 +245,7 @@ export const topics = [
       {
         id: 1,
 
-        image: img1,
+        image: comm1,
         name: "Uses of networks",
         description:
           "Learn how communication networks are used in everyday life",
@@ -248,7 +269,7 @@ export const topics = [
       {
         id: 2,
 
-        image: img4,
+        image: comm2,
         name: "Communication systems network devices",
         description:
           "Modems, routers, transmitters, receivers, switches, repeaters, etc",
@@ -272,7 +293,7 @@ export const topics = [
       {
         id: 3,
 
-        image: img1,
+        image: comm3,
         name: "Transmission techniques",
         description: "Understand the complex techniques of transmission",
         notes: [
@@ -305,7 +326,7 @@ export const topics = [
     subtopics: [
       {
         id: 1,
-        image: img1,
+        image: cod1,
         name: "Definitions",
         description:
           "Have a good understanding of compilers, translators, assembler",
@@ -335,7 +356,7 @@ export const topics = [
       {
         id: 2,
         videos: [],
-        image: img4,
+        image: cod2,
         name: "Programming basics",
         description: "Structure, variables, compiling and running",
         notes: [
@@ -369,7 +390,7 @@ export const topics = [
       },
       {
         id: 3,
-        image: img1,
+        image: cod3,
         name: "Operators",
         description: "Understand arithmetic and logical operators",
         notes: [
@@ -397,7 +418,7 @@ export const topics = [
       },
       {
         id: 4,
-        image: img4,
+        image: cod4,
         name: "Control structures",
         description: "Sequence, selection, loops",
         notes: [

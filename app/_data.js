@@ -1,4 +1,3 @@
-import image1 from "../public/img1.jpeg";
 import image3 from "../public/com.jpg";
 import cool from "../public/cool.jpg";
 import image5 from "../public/phy.jpg";
