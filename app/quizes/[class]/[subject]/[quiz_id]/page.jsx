@@ -5,7 +5,7 @@ function Quiz({ params }) {
   const path = `/quizes/${params.class}/${params.subject}`;
 
   return (
-    <div className="" data-aos="slide-down">
+    <div className="h-[60vh]" data-aos="slide-down">
       <QuizComponent path={path} />
     </div>
   );

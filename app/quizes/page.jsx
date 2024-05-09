@@ -7,7 +7,7 @@ function Quizes() {
   const formThree = "Form_three";
   const formFour = "Form_four";
   return (
-    <main className="max-container mt-6">
+    <main className="max-container mt-6 h-[60vh]">
       <h1 className="font-bold text-3xl text-center text-gray-800">
         Select Class
       </h1>
