@@ -2,6 +2,8 @@ import { Outfit } from "next/font/google";
 import AOSWrapper from "./AOSwrapper";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import Head from "next/head";
+import Script from "next/script";
 
 const inter = Outfit({ subsets: ["latin"] });
 
@@ -11,15 +13,22 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const gtmId = 'GTM-P3G5VR3S'; // Replace with your actual GTM ID
+
   return (
     <ClerkProvider>
       <html lang="en">
-      <body className={inter.className}>
-        <div className="">
-          <AOSWrapper>{children}</AOSWrapper>
-        </div>
-      </body>
-    </html>
+        <head>
+          {/* Insert GTM script here */}
+          <Script async src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`} />
+          {/* Rest of your head content */}
+        </head>
+        <body className={inter.className}>
+          <div className="">
+            <AOSWrapper>{children}</AOSWrapper>
+          </div>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
