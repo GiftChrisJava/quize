@@ -17,18 +17,32 @@ export default function RootLayout({ children }) {
 
   return (
     <ClerkProvider>
-      <html lang="en">
-        <head>
-          {/* Insert GTM script here */}
-          <Script async src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`} />
-          {/* Rest of your head content */}
-        </head>
-        <body className={inter.className}>
-          <div className="">
-            <AOSWrapper>{children}</AOSWrapper>
-          </div>
-        </body>
-      </html>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-8Q0GE1VSCS`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8Q0GE1VSCS');
+          `}
+        </Script>
+        {/* Insert GTM script here */}
+        <Script async src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`} />
+        {/* Rest of your head content */}
+      </head>
+      <body className={inter.className}>
+        <div className="">
+          <AOSWrapper>{children}</AOSWrapper>
+        </div>
+      </body>
     </ClerkProvider>
   );
 }
