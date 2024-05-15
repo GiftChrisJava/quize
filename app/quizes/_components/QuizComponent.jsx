@@ -210,11 +210,11 @@ const QuizComponent = ({ path }) => {
       <h2 className="text-2xl font-semibold text-green-600">
         Great job so far!
       </h2>
-      <p className="text-md text-gray-800">
+      <p className="text-md text-gray-100">
         Take a deep breath and keep up the good work.
       </p>
       <button
-        className="btn btn-continue mt-4 bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-md"
+        className="btn btn-continue mt-4 bg-gray-200 text-purple-600 font-medium py-2 px-4 rounded-md"
         onClick={() => setHalfwayAcknowledged(true)}
       >
         Continue Quiz
@@ -232,7 +232,7 @@ const QuizComponent = ({ path }) => {
         {attempts > 0 && (
           <div className="feedback-container mt-4">
             {attempts === 1 && (
-              <p className="text-gray-100 text-center">
+              <p className="text-gray-50 text-center">
                 Incorrect, One attempt remaining!
               </p>
             )}
@@ -290,7 +290,7 @@ const QuizComponent = ({ path }) => {
                   isOptionSelected
                     ? "text-gray-100 bg-gray-800"
                     : "text-gray-500 bg-gray-400 cursor-not-allowed"
-                } text-sm rounded-md font-bold`}
+                } text-sm rounded-md font-bold hover:text-purple-600`}
                 onClick={handleAnswerSubmit}
                 disabled={!isOptionSelected}
               >

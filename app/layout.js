@@ -17,7 +17,8 @@ export default function RootLayout({ children }) {
 
   return (
     <ClerkProvider>
-      <head>
+     <html>
+     <head>
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
           <AOSWrapper>{children}</AOSWrapper>
         </div>
       </body>
+     </html>
     </ClerkProvider>
   );
 }
