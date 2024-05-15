@@ -214,7 +214,7 @@ const QuizComponent = ({ path }) => {
         Take a deep breath and keep up the good work.
       </p>
       <button
-        className="btn btn-continue mt-4 bg-gray-800 text-gray-200 font-medium py-2 px-4 rounded-md"
+        className="btn btn-continue mt-4 bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-md"
         onClick={() => setHalfwayAcknowledged(true)}
       >
         Continue Quiz
@@ -224,7 +224,7 @@ const QuizComponent = ({ path }) => {
 
   return (
     <main className="flex flex-col justify-center items-center mt-10 md:w-[700px] md:mx-auto">
-      <div className="quiz-container sm:max-container max-w-[400px] bg-yellow-300 rounded">
+      <div className="quiz-container sm:max-container max-w-[400px] bg-gray-700 rounded">
         {/* Progress bar */}
         {flag && renderProgressBar()}
 
@@ -232,12 +232,12 @@ const QuizComponent = ({ path }) => {
         {attempts > 0 && (
           <div className="feedback-container mt-4">
             {attempts === 1 && (
-              <p className="text-purple-600 text-center">
-                One attempt remaining!
+              <p className="text-gray-100 text-center">
+                Incorrect, One attempt remaining!
               </p>
             )}
             {attempts > 1 && (
-              <p className="text-red-600 text-center">Incorrect!</p>
+              <p className="text-red-600 text-center font-bold">Incorrect!</p>
             )}
           </div>
         )}
@@ -253,13 +253,13 @@ const QuizComponent = ({ path }) => {
               <div className="flex gap-2 md:justify-center">
                 <p
                   data-aos="zoom-in"
-                  className="text-md md:text-xl font-semibold text-gray-700 "
+                  className="text-md md:text-xl font-semibold text-gray-300 "
                 >
                   {questions[currentQuestion].number}
                   {"."}
                 </p>
 
-                <h2 className="text-md md:text-2xl font-normal text-gray-700 ">
+                <h2 className="text-md md:text-2xl font-normal text-gray-300 ">
                   {questions[currentQuestion].question}
                 </h2>
               </div>
@@ -273,10 +273,10 @@ const QuizComponent = ({ path }) => {
                     onClick={() => handleOptionSelect(option)}
                   >
                     <div className="grid grid-flow-col p-2 md:p-0">
-                      <p className="fixed border border-blue-400 text-gray-600 bg-yellow-300 px-1 w-[20px]">
+                      <p className="fixed border border-blue-400 text-purple-600 bg-gray-300 px-1 w-[20px]">
                         {String.fromCharCode(65 + index)}
                       </p>
-                      <p className="ml-6 text-gray-700">{option}</p>
+                      <p className="ml-6 text-gray-300">{option}</p>
                     </div>
                     {selectedOptions.includes(option) &&
                       questions[currentQuestion].correctAnswer === option && (
@@ -288,8 +288,8 @@ const QuizComponent = ({ path }) => {
               <button
                 className={`mt-8 ml-2 p-2 border border-slate-600 ${
                   isOptionSelected
-                    ? "bg-gray-800 text-gray-100"
-                    : "bg-gray-400 text-gray-500 cursor-not-allowed"
+                    ? "text-gray-100 bg-gray-800"
+                    : "text-gray-500 bg-gray-400 cursor-not-allowed"
                 } text-sm rounded-md font-bold`}
                 onClick={handleAnswerSubmit}
                 disabled={!isOptionSelected}

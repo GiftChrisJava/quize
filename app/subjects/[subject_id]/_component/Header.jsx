@@ -6,7 +6,6 @@ import Link from "next/link";
 import { UserButton, useUser } from "@clerk/nextjs";
 
 function Header() {
-  const {user, isLoaded} = useUser()
   return (
     <div className="bg-white sticky">
       <div className="px-2 py-4 max-container flex justify-between">

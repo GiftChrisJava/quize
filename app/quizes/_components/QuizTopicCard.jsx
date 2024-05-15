@@ -5,6 +5,7 @@ import React from "react";
 function QuizTopicCard({ name, image, form, subject, quiz_id, klass }) {
   return (
     <div>
+      <Link href={`/quizes/${klass}/${subject}/${quiz_id}`}>
       <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[230px]">
         <div>
           <Image
@@ -18,14 +19,15 @@ function QuizTopicCard({ name, image, form, subject, quiz_id, klass }) {
 
         <div className="mt-2  px-1">
           <div className="flex flex-col hover:cursor-pointer">
-            <Link href={`/quizes/${klass}/${subject}/${quiz_id}`}>
+           
               <p className="text-gray-800 font-semibold text-sm mb-2 text-center">
                 {name}
               </p>
-            </Link>
+            
           </div>
         </div>
       </div>
+      </Link>
     </div>
   );
 }

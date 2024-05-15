@@ -16,33 +16,15 @@ export default function RootLayout({ children }) {
   const gtmId = 'GTM-P3G5VR3S'; // Replace with your actual GTM ID
 
   return (
-    <ClerkProvider>
-      <head>
-        {/* Google Analytics */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-8Q0GE1VSCS`}
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-        >
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8Q0GE1VSCS');
-          `}
-        </Script>
-        {/* Insert GTM script here */}
-        <Script async src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`} />
-        {/* Rest of your head content */}
-      </head>
+    <div>
+     
       <body className={inter.className}>
         <div className="">
-          <AOSWrapper>{children}</AOSWrapper>
+          {/* <AOSWrapper>{children}</AOSWrapper> */}
+          <>{children}</>
+
         </div>
       </body>
-    </ClerkProvider>
+    </div>
   );
 }
