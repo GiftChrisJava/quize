@@ -1,5 +1,4 @@
 import { SignIn } from "@clerk/nextjs";
-import Image from "next/image";
 // import logo from "../../../public/meep.png"
 
 export default function Page() {
