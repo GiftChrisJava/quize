@@ -18,7 +18,7 @@ const data = {
   labels: Array.from({ length: 20 }, (_, i) => `Quiz ${i + 1}`),
   datasets: [
     {
-      label: 'Student Performance',
+      label: 'Quiz Performance',
       data: scores,
       fill: false,
       backgroundColor: 'rgb(75, 192, 192)',

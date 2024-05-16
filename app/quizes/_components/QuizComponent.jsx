@@ -232,7 +232,7 @@ const QuizComponent = ({ path }) => {
         {attempts > 0 && (
           <div className="feedback-container mt-4">
             {attempts === 1 && (
-              <p className="text-gray-50 text-center">
+              <p className="text-purple-400 text-center">
                 Incorrect, One attempt remaining!
               </p>
             )}
