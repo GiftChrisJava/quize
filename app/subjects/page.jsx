@@ -1,4 +1,7 @@
 "use client"
+
+import store from "store2";
+
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
 import boy from "../../public/boy.jpg";
@@ -9,8 +12,11 @@ import { formThree, formFour, tutors } from "../_data";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 
 import SubjectBottomNav from "./_components/SubjectBottomNav";
+import { form4Subjects  } from "../server-actions/actions";
 
 function Subjects() {
+  let storedForm4Subjects = store.get("form4subjects");
+  let storedForm3Subjects = store.get("form3subjects");
 
   return (
     <container className="">
@@ -40,8 +46,8 @@ function Subjects() {
           <section className="flex-1 ml-10">
             <Image
               src={boy}
-              width={380}
-              height={200}
+              width={"auto"}
+              height={"auto"}
               alt="student"
               className="hidden object-contain sm:flex mt-2 rounded"
             />
@@ -82,13 +88,13 @@ function Subjects() {
             data-aos="slide-right"
             className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
           >
-            {formFour.map((subject) => (
+            {storedForm4Subjects.map((subject) => (
               <div key={subject.id}>
                 <FormFourSubjectCard
                   className="flex "
                   name={subject.name}
-                  image={subject.image}
-                  subject_id={subject.id}
+                  image={subject.image_url}
+                  subject_id={subject.class}
                 />
               </div>
             ))}
@@ -103,11 +109,11 @@ function Subjects() {
           </h4>
           {/* form 3 subjects  */}
 
-          <div
+          {(storedForm3Subjects.length > 0 ) ? (<div
             data-aos="slide-right"
             className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
           >
-            {formThree.map((subject) => (
+            {storedForm3Subjects.map((subject) => (
               <div key={subject.id}>
                 <SubjectCard
                   className="flex"
@@ -117,7 +123,11 @@ function Subjects() {
                 />
               </div>
             ))}
-          </div>
+          </div> ) : ( 
+            <div>
+              <h3 className="font-bold text-center text-gray-700 text-xl p-10">Coming Soon...</h3>
+            </div>
+          )}
         </article>
       </section>
 
