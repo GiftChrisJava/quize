@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['live.staticflickr.com'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'live.staticflickr.com',
       },
+    ],
+  },
 };
 
 export default nextConfig;

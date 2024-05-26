@@ -84,7 +84,7 @@ function Subjects() {
             Form 4 Subjects
           </h4>
 
-          <div
+          {(storedForm4Subjects.length) ? ( <div
             data-aos="slide-right"
             className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
           >
@@ -98,7 +98,11 @@ function Subjects() {
                 />
               </div>
             ))}
-          </div>
+          </div>) : ( <div>
+              <h3 className="font-bold text-center text-gray-700 text-xl p-10">Coming Soon...</h3>
+          </div>)}
+
+         
         </article>
 
         <hr className="mt-12" />
