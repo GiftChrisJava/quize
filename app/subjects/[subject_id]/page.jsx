@@ -12,7 +12,11 @@ function Subject({ params }) {
   const [subjectData, setSubjectData] = useState({});
   const subject_id = params.subject_id;
 
-
+   // Use useEffect to call fetchSubject on mount
+   useEffect(() => {
+    fetchSubject();
+  }, []);
+  
    // fetch form 4 subjects class container
    const fetchSubject = async () => {
     if (await checkInternet()) {
@@ -35,23 +39,8 @@ function Subject({ params }) {
     }
   };
 
-   // Use useEffect to call fetchSubject on mount
-   useEffect(() => {
-    fetchSubject();
-  }, []);
-  
 
-  // console.log(subjectData.foundSubject.name);
-
-  // Function to retrieve object by id
-  function getObjectById(id) {
-    return allSubjects.find((subject) => subject.id === id);
-  }
-
-  const subject = subjectData;
-  // const form = subject.klass;
-  const form = "form 4";
-
+  const subject = store.get("subject");
 
   return (
     <div className="flex flex-row justify-between pb-6">
