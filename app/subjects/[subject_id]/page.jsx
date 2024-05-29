@@ -1,8 +1,6 @@
 "use client";
-import { allSubjects } from "@/app/allSubjects";
 import SideNav from "./_component/SideNav";
 import TopicCard from "./_component/TopicCard";
-import { topics } from "./_component/constants/topics";
 import Link from "next/link";
 import { checkInternet, getSubjectById } from "@/app/server-actions/actions";
 import store from "store2";
@@ -22,9 +20,10 @@ function Subject({ params }) {
     if (await checkInternet()) {
       try {
         const data = await getSubjectById(subject_id); // Call your API function to get subject data
-        setSubjectData(data); // Update the state with the subjects data
+        setSubjectData(data); 
         // Store the fetched data locally
         store.set("subject", data);
+
       } catch (error) {
         console.error('Error getting a subject:', error);
       }
@@ -38,7 +37,6 @@ function Subject({ params }) {
       }
     }
   };
-
 
   const subject = store.get("subject");
 
@@ -88,31 +86,6 @@ function Subject({ params }) {
               </div>
             ))}
           </div>
-
-
-          <div className="mt-14">
-        
-
-            {/* <small className="block text-[16px] text-gray-900 mt-4">
-              Check out the cool stuff we have lined up for you: videos galore!
-              🎥 If a topic seems as mysterious as decoding alien signals, fear
-              not! We&lsquo;ve got videos to break it down for you in simple,
-              easy-to-understand terms. Plus, quizzes to put your newfound
-              knowledge to the test and get a sneak peek at what the big bad
-              Maneb exams might throw your way. So, what are you waiting for?
-              Let&lsquo;s rock this computer studies journey together!✌️
-            </small> */}
-          </div>
-
-          {/* <div id="ninja" className="pt-12">
-            <Link href={`/subjects/${subject_id}/ninja`}>
-              <h2 className="font-semibold cursor-pointer mb-8 mt-8 flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded bg-gray-700 text-gray-300">
-                Became a digital Ninja
-              </h2>
-            </Link>
-          </div> */}
-
-
 
         </article>
       </section>
