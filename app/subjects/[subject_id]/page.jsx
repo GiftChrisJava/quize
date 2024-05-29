@@ -4,37 +4,65 @@ import SideNav from "./_component/SideNav";
 import TopicCard from "./_component/TopicCard";
 import { topics } from "./_component/constants/topics";
 import Link from "next/link";
+import { checkInternet, getSubjectById } from "@/app/server-actions/actions";
+import store from "store2";
+import { useEffect, useState } from "react";
 
 function Subject({ params }) {
+  const [subjectData, setSubjectData] = useState({});
   const subject_id = params.subject_id;
+
+
+   // fetch form 4 subjects class container
+   const fetchSubject = async () => {
+    if (await checkInternet()) {
+      try {
+        const data = await getSubjectById(subject_id); // Call your API function to get subject data
+        setSubjectData(data); // Update the state with the subjects data
+        // Store the fetched data locally
+        store.set("subject", data);
+      } catch (error) {
+        console.error('Error getting a subject:', error);
+      }
+
+      console.log(store.get("subject"))
+    } else {
+      // Retrieve the subject data from store2
+      const storedSubject = store.get("subject");
+      if (storedSubject) {
+        setSubjectData(storedSubject);
+      }
+    }
+  };
+
+   // Use useEffect to call fetchSubject on mount
+   useEffect(() => {
+    fetchSubject();
+  }, []);
+  
+
+  // console.log(subjectData.foundSubject.name);
 
   // Function to retrieve object by id
   function getObjectById(id) {
     return allSubjects.find((subject) => subject.id === id);
   }
 
-  const subject = getObjectById(subject_id);
-  const form = subject.klass;
+  const subject = subjectData;
+  // const form = subject.klass;
+  const form = "form 4";
+
 
   return (
     <div className="flex flex-row justify-between pb-6">
       <section className="flex-3 max-container">
         <article data-aos="slide-up">
           <h4 className="font-semibold text-3xl text-gray-500 text-center pt-3">
-            {subject.name}
+            {subject.foundSubject.name}
           </h4>
           <div className="px-2">
             <small className="block text-[16px] text-gray-900 mt-8">
-              Hey!, Welcome to the awesome world of computer studies! 🚀 Get
-              ready to dive into a subject that&lsquo;s not just about boring
-              textbooks but is packed with exciting knowledge that will
-              turbocharge your computer skills. Below are the topics in computer
-              studies for form <span className="font-bold">{form}</span>.
-              Probably available in the books too. Here you will find videos of
-              those topics which seem to be difficult. Under each topic below
-              you can choose to watch videos to boost your understanding , take
-              a quiz to test your understanding and see how Maneb questions look
-              like. Just have a test!
+            {subject.foundSubject.description}
             </small>
 
             <small className="block text-[16px] text-gray-900 mt-4">
@@ -58,14 +86,14 @@ function Subject({ params }) {
             data-aos="zoom-in"
             className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
           >
-            {topics.map((topic) => (
+            {subject.topics.map((topic) => (
               <div key={topic.id}>
                 <TopicCard
                   className="flex"
                   name={topic.name}
-                  image={topic.image}
-                  topic_id={topic.id}
-                  subject_id={subject.id}
+                  image={topic.topic_img_url}
+                  topic_id={topic._id}
+                  subject_id={subject.foundSubject._id}
                   premium={topic.premium}
                 />
               </div>

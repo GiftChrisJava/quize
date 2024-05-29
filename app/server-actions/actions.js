@@ -1,4 +1,7 @@
 "use server"
+
+import { auth, currentUser } from "@clerk/nextjs/server";
+
 // Define a function to check the internet connection
 export async function checkInternet() {
     try {
@@ -16,10 +19,25 @@ export async function checkInternet() {
       return false;
     }
   }
+  
 
+  // a function that gets a subject by Id
+  export async function getSubjectById(subjectId) {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/api/v1/subject/${subjectId}`
+      );
+  
+      const data = await response.json();
+      console.log("subject  data : ", data)
+      return data;
+    } catch (error) {
+      console.error("Error getting user progress:", error);
+    }
+  }
   // write a function that gets a form 4 class
   export async function getForm4class() {
-    const form4ClassId = "66518888680b22dfa3e6acd8";
+    const form4ClassId = "6654cad9354cd7cc5392cdde";
 
     try {
       const response = await fetch(
@@ -28,6 +46,13 @@ export async function checkInternet() {
 
       const data = await response.json();
     //   console.log(data)
+
+      // Get the userId from auth() -- if null, the user is not signed in
+      const { userId } = auth();
+
+      // Get the Backend API User object when you need access to the user's information
+      const user = await currentUser()
+      console.log(user.username)
       return data;
     } catch (error) {
       console.error("Error getting form 4 subjects : ", error);
@@ -36,7 +61,7 @@ export async function checkInternet() {
   
   // write a function that gets a form 3 class
   export async function getForm3class() {
-    const form3ClassId = "665188ab680b22dfa3e6acda";
+    const form3ClassId = "6655a404049abde0be4aa036";
 
     try {
       const response = await fetch(
@@ -51,3 +76,4 @@ export async function checkInternet() {
     }
   }
   
+

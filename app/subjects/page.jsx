@@ -18,13 +18,15 @@ function Subjects() {
   let storedForm4Subjects = store.get("form4subjects");
   let storedForm3Subjects = store.get("form3subjects");
 
+  console.log(storedForm4Subjects)
+
   return (
-    <container className="">
+    <main className="">
       <section className="">
        <SubjectBottomNav/>
       </section>
 
-  <hr />
+     <hr />
       <section className="bg-white">
         <article className="max-container  flex flex-row sm:gap-8 items-center justify-center mb-16">
           <section className="flex flex-2 sm:flex-1 flex-col p-4 ">
@@ -94,7 +96,7 @@ function Subjects() {
                   className="flex "
                   name={subject.name}
                   image={subject.image_url}
-                  subject_id={subject.class}
+                  subject_id={subject._id}
                 />
               </div>
             ))}
@@ -139,7 +141,7 @@ function Subjects() {
       <section className="bg-white mt-10 pb-2">
        <SubjectBottomNav/>
       </section>
-    </container>
+    </main>
   );
 }
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 function FormFourSubjectCard({ name, image, subject_id }) {
+  console.log(subject_id);
   return (
     <Link href={`/subjects/${subject_id}`}>
       <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[200px] ">

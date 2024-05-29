@@ -6,13 +6,16 @@ function TopicCard({ name, image, topic_id, subject_id, premium }) {
   return (
     <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[230px]">
       <div>
-        <Image
-          src={image}
-          height={200}
-          width={220}
-          alt="topic image"
-          className="rounded-md hover:cursor-pointer object-contain md:h-54 md:w-84 rounded-b-none"
-        />
+        <Link href={`/subjects/${subject_id}/${topic_id}/videos`}>
+          <Image
+            src={image}
+            height={200}
+            width={220}
+            alt="topic image"
+            className="rounded-md hover:cursor-pointer object-contain md:h-54 md:w-84 rounded-b-none"
+          />
+        </Link>
+       
       </div>
 
       <div className="mt-2  px-1">

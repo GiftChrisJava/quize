@@ -8,7 +8,7 @@ export default function Page() {
   const [form4Subjects, setForm4Subjects] = useState([]);
   const [form3Subjects, setForm3Subjects] = useState([]);
 
-  // fetch form 4 subjects
+  // fetch form 4 subjects class container
   const fetchForm4Subjects = async () => {
     if (await checkInternet()) {
       try {
