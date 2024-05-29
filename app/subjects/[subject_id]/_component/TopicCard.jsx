@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function TopicCard({ name, image, topic_id, subject_id, premium }) {
   return (
-    <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[230px]">
+    <div className="mt-6 hover:cursor-pointer shadow-xl bg-white rounded-md mx-auto max-w-[220px] md:max-w-[220px]">
       <div>
         <Link href={`/subjects/${subject_id}/${topic_id}/videos`}>
           <Image
