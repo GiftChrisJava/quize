@@ -35,7 +35,7 @@ function Subject({ params }) {
       if (storedSubject) {
         setSubjectData(storedSubject);
       }
-    }
+    } 
     setLoading(false); // Set loading to false after fetching data
   };
 

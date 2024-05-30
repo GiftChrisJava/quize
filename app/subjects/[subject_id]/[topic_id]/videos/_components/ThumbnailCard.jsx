@@ -7,13 +7,17 @@ function ThumbnailCard({ id, name, desc, image, subject_id, topic_id }) {
   return (
     <article className="mb-4 shadow-xl bg-white rounded-md mx-auto max-w-[250px]">
       <div className="flex flex-col items-center justify-center">
-        <Image
-          src={image}
-          height={250}
-          width={270}
-          alt="topic image"
-          className="rounded-md hover:cursor-pointer object-contain md:h-54 md:w-84 rounded-b-none"
-        />
+      <Link
+          href={`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/intro`}
+        >
+          <Image
+            src={image}
+            height={250}
+            width={270}
+            alt="topic image"
+            className="rounded-md hover:cursor-pointer object-contain md:h-54 md:w-84 rounded-b-none"
+          />
+        </Link>
       </div>
 
       <div className="px-2">
@@ -23,8 +27,6 @@ function ThumbnailCard({ id, name, desc, image, subject_id, topic_id }) {
         <hr className="mt-1" />
 
         <Link
-          // href={`/subjects`}
-          // href={`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/video`}
           href={`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/intro`}
         >
           <div className="flex flex-row mt-1 justify-center items-center">

@@ -1,47 +1,65 @@
-import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
+"use client";
+import { checkInternet, getSubtopicById } from "@/app/server-actions/actions";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
+import store from "store2";
 
-function page({ params }) {
-  const topic_id = parseInt(params.topic_id);
-  const subtopic_id = parseInt(params.subtopic_id);
-  const subject_id = parseInt(params.subject_id);
+function VideoIntro({ params }) {
+  const [loading, setLoading] = useState(true);
 
-  // { subject_id: '12', topic_id: '5', subtopic_id: '1' }
-  // href={`/subjects/${subject_id}/${topic_id}/videos/${subtopic_id}/intro/video`}
+  let storedSubtopic;
 
-  // Function to retrieve a topic based on the given topic_id
-  const getTopicById = (topicId) => {
-    return topics.find((topic) => topic.id === topicId);
-  };
+  const subtopic_id = params.subtopic_id;
+  const subject_id = params.subject_id;
+  const topic_id = params.topic_id;
 
-  // Function to retrieve a subtopic based on the given topic_id and subtopic_id
-  const getSubtopicById = (topicId, subtopicId) => {
-    const topic = getTopicById(topicId);
-    if (topic) {
-      return topic.subtopics.find((subtopic) => subtopic.id === subtopicId);
+  useEffect(() => {
+    fetchSubTopicData();
+  }, []);
+
+  const fetchSubTopicData = async () => {
+    if (await checkInternet()) {
+      try {
+        const data = await getSubtopicById(subtopic_id);
+        store.set("subtopic", data);
+        storedSubtopic = store.get("subtopic");
+      } catch (error) {
+        console.error('Error getting a subtopic:', error);
+      }
+    } else {
+      storedSubtopic = store.get("subtopic");
     }
-    return null; // Return null if the topic with the given topicId is not found
+    setLoading(false); // Set loading to false after fetching data
   };
 
-  // get a topic
-  const subtopic = getSubtopicById(topic_id, subtopic_id);
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <ClipLoader color={"#205530"} loading={loading} size={50} />
+      </div>
+    );
+  }
+
+  // get a subtopic
+  const subtopic = store.get("subtopic");
 
   const notes = subtopic.notes[0];
   return (
-    <div className="max-container px-4">
+    <div className="max-container px-4 h-[80vh]">
       <section>
         <h2 className="font-bold text-2xl text-gray-800 py-2 ml-3 text-center mt-2">
-          {subtopic.name}
+          {subtopic.foundSubtopic.subtopic_name}
         </h2>
 
         <div className="flex md:flex-row gap-5 flex-col mt-8">
           <Image
-            className="p-2"
-            alt={subtopic.name}
-            src={subtopic.image}
-            height={`100%`}
-            width={`100%`}
+            className=""
+            alt={subtopic.foundSubtopic.subtopic_name}
+            src={subtopic.foundSubtopic.subtopic_img_url}
+            height={340}
+            width={235}
             data-aos="slide-left"
           />
 
@@ -67,4 +85,4 @@ function page({ params }) {
   );
 }
 
-export default page;
+export default VideoIntro;

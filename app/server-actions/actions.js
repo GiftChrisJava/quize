@@ -34,7 +34,25 @@ export async function checkInternet() {
       console.error("Error getting user progress:", error);
     }
   }
+ 
 
+    // a function that gets a subtopic by Id
+    export async function getSubtopicById(subtopicId) {
+      console.log(subtopicId)
+      try {
+        const response = await fetch(
+          `http://localhost:8000/api/v1/subtopics/${subtopicId}`
+        );
+    
+        const data = await response.json();
+        // console.log("subtopic  data : ", data)
+        return data;
+      } catch (error) {
+        console.error("Error getting user progress:", error);
+      }
+    }
+  
+  
 
     // a function that gets a topic by Id
     export async function getTopicById(topicId) {
@@ -44,7 +62,6 @@ export async function checkInternet() {
         );
     
         const data = await response.json();
-        console.log("topic  data : ", data)
         return data;
       } catch (error) {
         console.error("Error getting user progress:", error);

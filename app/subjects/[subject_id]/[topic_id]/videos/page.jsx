@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { topics } from "../../_component/constants/topics";
 import Image from "next/image";
 import ThumbnailCard from "./_components/ThumbnailCard";
 import { PlaySquareIcon } from "lucide-react";
