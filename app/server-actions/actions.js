@@ -29,12 +29,29 @@ export async function checkInternet() {
       );
   
       const data = await response.json();
-      console.log("subject  data : ", data)
       return data;
     } catch (error) {
       console.error("Error getting user progress:", error);
     }
   }
+
+
+    // a function that gets a topic by Id
+    export async function getTopicById(topicId) {
+      try {
+        const response = await fetch(
+          `http://localhost:8000/api/v1/topic/${topicId}`
+        );
+    
+        const data = await response.json();
+        console.log("topic  data : ", data)
+        return data;
+      } catch (error) {
+        console.error("Error getting user progress:", error);
+      }
+    }
+
+
   // write a function that gets a form 4 class
   export async function getForm4class() {
     const form4ClassId = "6654cad9354cd7cc5392cdde";

@@ -1,38 +1,74 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { topics } from "../../_component/constants/topics";
 import Image from "next/image";
 import ThumbnailCard from "./_components/ThumbnailCard";
 import { PlaySquareIcon } from "lucide-react";
+import { checkInternet, getTopicById } from "@/app/server-actions/actions";
+import store from "store2";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Videos({ params }) {
-  console.log(params.topic_id);
   const subject_id = params.subject_id;
   const topic_id = params.topic_id;
 
-  const [topic, settopic] = useState(topics[topic_id - 1]);
+  const [topic, setTopic] = useState({ banner_url: '', name: '', isPremium: false, subtopics: [] });
+  const [loading, setLoading] = useState(true); // New loading state
+
+  useEffect(() => {
+    fetchSubtopicsFromTopic();
+  }, []);
+
+  const fetchSubtopicsFromTopic = async () => {
+    if (await checkInternet()) {
+      try {
+        const data = await getTopicById(topic_id);
+        setTopic(data);
+        store.set("topic", data);
+      } catch (error) {
+        console.error('Error getting a subject:', error);
+      }
+    } else {
+      const storedTopic = store.get("topic");
+      if (storedTopic) {
+        setTopic(storedTopic);
+      }
+    }
+    setLoading(false); // Set loading to false after fetching data
+  };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <ClipLoader color={"#AD1C23"} loading={loading} size={50} />
+      </div>
+    );
+  }
 
   return (
-    <main className=" h-full">
+    <main className="h-full">
       <hr />
       <div className="max-container p-4 flex flex-col justify-center items-center">
         <article className="mb-8">
           <div>
-            <Image
-              src={topic.banner}
-              alt="image"
-              className="w-[850px] h-[250px] rounded"
-            />
+          <Image
+            src={topic.banner_url}
+            alt="image"
+            width={850}
+            height={250}
+            className="rounded"
+          />
+
             <p className="font-bold text-[23px] md:text-4xl text-white -mt-10 sm:-mt-11 ml-3">{`${topic.name}`}</p>
           </div>
         </article>
 
-        <small className=" flex gap-2 items-center text-center text-lg text-gray-800 mb-3 font-bold">
+        <small className="flex gap-2 items-center text-center text-lg text-gray-800 mb-3 font-bold">
           <span>
             <PlaySquareIcon />
           </span>
           Available Videos
-          <span>{topic.premium ? "(Paid Content)" : "(Free)"}</span>
+          <span>{topic.isPremium ? "(Paid Content)" : "(Free)"}</span>
         </small>
 
         <article
@@ -42,12 +78,12 @@ function Videos({ params }) {
           {topic.subtopics.map((subtopic) => (
             <div key={subtopic.id}>
               <ThumbnailCard
-                id={subtopic.id}
-                name={subtopic.name}
+                id={subtopic._id}
+                name={subtopic.subtopic_name}
                 desc={subtopic.description}
-                image={subtopic.image}
+                image={subtopic.subtopic_img_url}
                 subject_id={subject_id}
-                topic_id={topic.id}
+                topic_id={topic_id}
               />
             </div>
           ))}
