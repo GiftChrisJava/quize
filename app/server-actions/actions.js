@@ -21,8 +21,39 @@ export async function checkInternet() {
   }
   
 
+    // a function that gets all the tutors
+    export async function getAllTutors() {
+      try {
+        const response = await fetch(
+          `http://localhost:8000/api/v1/tutor`
+        );
+    
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error("Error getting user progress:", error);
+      }
+    }
+
+     // a function that gets a tutor by Id
+  export async function getTutorById(tutorId) {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/api/v1/tutor/${tutorId}`
+      );
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error getting user progress:", error);
+    }
+  }
+ 
+   
+  
+
   // a function that gets a subject by Id
-  export async function getSubjectById(subjectId) {
+  export async function getSubjectById(tutorId) {
     try {
       const response = await fetch(
         `http://localhost:8000/api/v1/subject/${subjectId}`
@@ -45,7 +76,7 @@ export async function checkInternet() {
         );
     
         const data = await response.json();
-        // console.log("subtopic  data : ", data)
+        console.log("subtopic  data : ", data)
         return data;
       } catch (error) {
         console.error("Error getting user progress:", error);

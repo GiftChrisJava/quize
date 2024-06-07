@@ -2,8 +2,12 @@
 import { Fragment, useState } from "react";
 import Model from "@/app/subjects/[subject_id]/_component/Model";
 import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
+import store from "store2"
 
 function SideBarLeft({ subject_id }) {
+
+  const subject = store.get("subject")
+
   // Initialize visibility state for each topic
   const [topicVisibility, setTopicVisibility] = useState(
     topics.map(() => false)
@@ -23,7 +27,7 @@ function SideBarLeft({ subject_id }) {
 
       {/* Topic list  */}
       <div className="mt-5">
-        {topics.map((topic, index) => (
+        {subject.topics.map((topic, index) => (
           <Fragment key={topic.id}>
             <div
               onClick={() => handleTopicClick(index)}
@@ -36,9 +40,9 @@ function SideBarLeft({ subject_id }) {
             </div>
             <Model
               subject_id={subject_id}
-              image={topic.image}
+              image={topic.topic_img_url}
               name={topic.name}
-              topic_id={topic.id}
+              topic_id={topic._id}
               isVisible={topicVisibility[index]}
               onClose={() => handleTopicClick(index)}
             />

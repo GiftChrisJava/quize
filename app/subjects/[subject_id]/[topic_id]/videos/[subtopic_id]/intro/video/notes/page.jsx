@@ -1,17 +1,20 @@
+"use client"
 import Image from "next/image";
 import { subtopicNotes } from "../constant/subtopicNotes";
+import store from "store2";
+
 function Notes({ params }) {
-  const subtopic_id = parseInt(params.subtopic_id);
+ const video = store.get("video");
+ const topic = store.get("topic");
+ 
+ const contentCreatorId = topic.contentCreator;
 
-  // function to get notes for a subtopic
-  const getNotesOnSubtopic = (id) => {
-    return subtopicNotes.find((note) => note.subtopic_id === id);
-  };
-
-  const note = getNotesOnSubtopic(subtopic_id);
+  // let note = video.notes[0];
+  let note = [];
 
   return (
-    <div className="max-container max-w-xl mx-auto p-4">
+    <div>
+      {( note.size < 2) ? (<div className="max-container max-w-xl mx-auto p-4">
       <section className="flex gap-[60px] items-center">
         <article>
           <div className="h-16 w-16 rounded-full overflow-hidden border border-gray-200">
@@ -58,6 +61,7 @@ function Notes({ params }) {
           </button>
         </form>
       </article>
+    </div>) : (<div className="max-container max-w-xl mx-auto p-4"><h2 className="font-bold justify-center items-center text-gray-700 p-8"></h2>Not Available for now</div>)}
     </div>
   );
 }

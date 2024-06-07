@@ -1,12 +1,48 @@
+"use client"
 import Image from "next/image";
+import store from "store2"
 
 import tutoring1 from "../../public/tutoring 1.jpg";
 import { BadgeCheck, Building2, Medal } from "lucide-react";
-import { tutors } from "./constants/tutors";
+// import { tutors } from "./constants/tutors";
 import Tutorz from "./_components/Tutorz";
 import Link from "next/link";
+import { checkInternet, getAllTutors } from "../server-actions/actions";
+import { useEffect, useState } from "react";
 
 function Tutors() {
+
+  let [tutors, setTutors] = useState([{}])
+
+
+ // get all tutors
+ const getTutors = async () => {
+  if (await checkInternet()) {
+    try {
+        const data = await getAllTutors();
+        setTutors(data); // Update the state with the subjects data
+
+        // Store the fetched data locally
+        store.set("tutors", data);
+     
+    } catch (error) {
+      console.error('Error getting form 3 subjects:', error);
+    }
+  } else {
+    // Retrieve the progress data from store2
+    const storedTutors = store.get("tutors");
+    if (storedTutors) {
+      setTutors(storedTutors);
+    }
+  }
+};
+
+tutors = store.get("tutors");
+
+// Use useEffect to call fetchForm4Subjects and getTutors on mount
+useEffect(() => {
+  getTutors();
+}, []);
   return (
     <main className="bg-white">
       <hr />
@@ -92,12 +128,12 @@ function Tutors() {
 
           <div className="mb-10 sm:px-9 md:px-1 mt-10 grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
             {tutors.map((tutor) => (
-              <div key={tutor.id}>
+              <div key={tutor._id}>
                 <Tutorz
                   name={tutor.name}
-                  image={tutor.image}
+                  image={tutor.image_url}
                   masteredSubject={tutor.masteredSubject}
-                  tutor_id={tutor.id}
+                  tutor_id={tutor._id}
                 />
               </div>
             ))}
