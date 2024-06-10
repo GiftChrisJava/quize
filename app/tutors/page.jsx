@@ -126,7 +126,7 @@ useEffect(() => {
             The Experts In Their Own Field
           </h2>
 
-          <div className="mb-10 sm:px-9 md:px-1 mt-10 grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
+          <section className="mb-10 sm:px-9 md:px-1 mt-10 grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
             {tutors.map((tutor) => (
               <div key={tutor._id}>
                 <Tutorz
@@ -137,7 +137,7 @@ useEffect(() => {
                 />
               </div>
             ))}
-          </div>
+          </section>
 
           <button className="font-bold mb-12 flex flex-row justify-center items-center mx-auto p-2 w-[200px] hover:text-gray-50 rounded mt-2 border border-slate-600 bg-gray-700 text-gray-300">
             <Link href="/tutors/more"> See More </Link>

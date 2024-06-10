@@ -1,15 +1,14 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link'; // Import Link from next/link
-
 import { TfiEmail } from "react-icons/tfi";
 import { ImFacebook2 } from "react-icons/im";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa6";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import { getTutorById, postComment, getCustomerFeedbackByTutorId } from "@/app/server-actions/actions";
+import { getTutorById, postComment, getCustomerFeedbackByTutorId, checkInternet } from "@/app/server-actions/actions";
 import { ClipLoader } from "react-spinners";
+import store from "store2"
 
 function Tutor({ params }) {
   const tutor_id = params.tutor_id;
@@ -25,6 +24,7 @@ function Tutor({ params }) {
     try {
       const data = await getTutorById(tutor_id);
       setTutor(data);
+      store.set("tutor", data);
     } catch (error) {
       console.error("Error fetching tutor data:", error);
     }
@@ -33,7 +33,12 @@ function Tutor({ params }) {
   }
 
   useEffect(() => {
+
+   if (checkInternet()) {
     fetchTutor();
+   } else {
+     setTutor(store.get("tutor"));
+   }
   }, [tutor_id]);
 
   const handleViewComments = async () => {
@@ -42,8 +47,9 @@ function Tutor({ params }) {
       if (feedbackData) {
         const fetchedComments = feedbackData.map(comment => comment.feedback).reverse(); // Reverse to show most recent first
         setComments(fetchedComments);
+        store.set("comments", fetchedComments); // store comments locally
       } else {
-        setComments([]);
+        setComments(store.get("comments"));
       }
       setShowComments(!showComments);
     } catch (error) {
@@ -190,16 +196,17 @@ function Tutor({ params }) {
             View Comments
           </button>
           {showComments && comments.length > 0 && (
-            <div className="relative max-h-[100vh] overflow-y-auto">
+            <div className="relative h-[70vh]">
               <div className="absolute right-0 mt-2 w-56 rounded-md bg-white shadow-lg">
-                <div className="py-1">
-                  {comments.map((comment, index) => (
-                    <div key={index} className="px-4 py-2 text-sm text-gray-700">
-                      <h5>{comment}</h5>
-                      <hr />
-                    </div>
-                  ))}
-                </div>
+              <div className="py-1">
+                {comments.map((comment, index) => (
+                  <div key={index} className="px-4 py-2 text-sm text-gray-700">
+                    <h5>{comment}</h5>
+                    <hr />
+                  </div>
+                ))}
+              </div>
+
               </div>
             </div>
           )}
