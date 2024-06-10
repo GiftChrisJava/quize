@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 function Tutors() {
 
-  let [tutors, setTutors] = useState([{}])
+  const [tutors, setTutors] = useState([{}])
 
 
  // get all tutors
@@ -37,14 +37,14 @@ function Tutors() {
   }
 };
 
-tutors = store.get("tutors");
+
 
 // Use useEffect to call fetchForm4Subjects and getTutors on mount
 useEffect(() => {
   getTutors();
 }, []);
   return (
-    <main className="bg-white">
+    <section className="bg-white">
       <hr />
       <section className="max-container mt-6 p-2">
         <container className="flex flex-row gap-4 mb-10">
@@ -146,7 +146,7 @@ useEffect(() => {
 
         <container className="pb-8"></container>
       </section>
-    </main>
+    </section>
   );
 }
 
