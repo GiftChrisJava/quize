@@ -155,3 +155,19 @@ export async function getSubjectWithSubtopics(classId, subjectName) {
     console.error("Error getting subject with subtopics:", error);
   }
 }
+
+
+// Function to get a test
+export async function getTestById(testId) {
+  try {
+    const response = await fetch(`http://localhost:8000/api/v1/test/${testId}`);
+    
+    const data = await response.json();
+    console.log( "Test acquired",data);
+    return data;
+  
+  } catch (error) {
+    console.error("Error in getting test by id:", error);
+    throw error;
+  }
+}

@@ -74,7 +74,7 @@ function Subject({ params }) {
         <article className="px-2 mt-2">
           <div data-aos="zoom-in" className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
             {subjectData.topics.map((topic) => (
-              <div key={topic.id}>
+              <div key={topic._id}>
                 <TopicCard
                   className="flex"
                   name={topic.name}

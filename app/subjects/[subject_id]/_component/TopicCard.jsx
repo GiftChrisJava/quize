@@ -15,18 +15,17 @@ function TopicCard({ name, image, topic_id, subject_id, premium }) {
             className="rounded-md hover:cursor-pointer object-contain md:h-54 md:w-84 rounded-b-none"
           />
         </Link>
-       
       </div>
 
       <div className="mt-2  px-1">
         <div className="flex flex-col hover:cursor-pointer">
-          <div className=" flex gap-1 mx-auto max-w-sm justify-center">
+          <div className="flex gap-1 mx-auto max-w-sm justify-center">
             {premium && <Star className="w-6 text-yellow-500" />}
-            <p className="text-red-600 text-sm mt-1 text-center ">{name}</p>
+            <p className="text-red-600 text-sm mt-1 text-center">{name}</p>
           </div>
           <hr />
 
-          <div className="mt-2 ">
+          <div className="mt-2">
             <Link
               href={`/subjects/${subject_id}/${topic_id}/videos`}
               className="group flex gap-3 leading-normal items-center justify-center"
@@ -38,10 +37,10 @@ function TopicCard({ name, image, topic_id, subject_id, premium }) {
 
             <Link
               href={`/subjects/${subject_id}/${topic_id}/quiz`}
-              className="group justify-center flex gap-3 leading-normal items-center mt-2 "
+              className="group justify-center flex gap-3 leading-normal items-center mt-2"
             >
               <p className="text-md text-gray-700 hover:text-green-600">
-                Attemp Quiz
+                Attempt Quiz
               </p>
             </Link>
 
