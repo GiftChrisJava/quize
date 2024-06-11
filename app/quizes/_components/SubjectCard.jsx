@@ -16,7 +16,6 @@ function SubjectCard({ name, slate, klass }) {
     try {
       const data = await getSubjectWithSubtopics(klass, name);
       store.set("subjectData", data); // store data locally
-      console.log(data);
     } catch (error) {
       console.error("Error fetching subject with subtopics:", error);
       setError("Failed to fetch subject data. Please try again.");

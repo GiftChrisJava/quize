@@ -59,7 +59,6 @@ export async function getSubtopicById(subtopicId) {
     const response = await fetch(`http://localhost:8000/api/v1/subtopics/${subtopicId}`);
 
     const data = await response.json();
-    console.log("subtopic data : ", data);
     return data;
   } catch (error) {
     console.error("Error getting user progress:", error);

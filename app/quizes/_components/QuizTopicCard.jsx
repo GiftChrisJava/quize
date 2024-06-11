@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -15,10 +16,8 @@ function QuizTopicCard({ name, image, form, subject, quiz_id, klass }) {
     setError(null); // Reset error state before making the request
     try {
       const subtopicData = await getSubtopicById(quiz_id);
-      console.log("Subtopic data on click: ", subtopicData);
-
       // store subtopic data locally
-      store.set("subtopic", subtopicData);
+      const storedSubTopic = store.set("subtopic", subtopicData);
     } catch (error) {
       console.error("Error getting subtopic data:", error);
       setError("Failed to fetch subtopic data. Please try again.");
