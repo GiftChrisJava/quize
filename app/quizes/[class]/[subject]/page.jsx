@@ -24,7 +24,7 @@ function QuizList({ params }) {
         </p>
       </section>
 
-      <section className="mt-12">
+      {/* <section className="mt-12">
       <button
         className="btn btn-continue mt-4 bg-gray-800 text-gray-200 font-medium py-2 px-4 rounded-md flex flex-row gap-2 justify-center mx-auto max-sm"
       >
@@ -35,7 +35,7 @@ function QuizList({ params }) {
           </h5>
         </Link>
       </button>
-      </section>
+      </section> */}
 
 
       <section className="mt-12">

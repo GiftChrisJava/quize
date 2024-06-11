@@ -1,47 +1,59 @@
+// file: /app/tutors/more/page.jsx
+
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Tutorz from "../_components/Tutorz";
 import FilterButton from "../_components/FilterButton";
 import { SearchXIcon } from "lucide-react";
-import store from "store2"
-
-
-// Extract subjects from the local data stored in store
-const tutorsData = store.get("tutors");
-
-// Create an array to store unique subjects
-const uniqueSubjects = new Set();
-
-// Iterate through the tutorsData to extract subjects
-tutorsData.forEach((tutor) => {
-  uniqueSubjects.add(tutor.masteredSubject);
-  // If tutors have otherSubjects array, include those as well
-  if (tutor.otherSubjects) {
-    tutor.otherSubjects.forEach((subject) => uniqueSubjects.add(subject.name));
-  }
-});
-
-// Convert the Set to an array and map it to the desired format
-const filterButtons = [
-  { label: "All", value: "All" },
-  ...Array.from(uniqueSubjects).map((subject) => ({
-    label: subject,
-    value: subject,
-  })),
-];
+import store from "store2";
 
 function Page() {
-  // a state variable to track the selected filter
-  const [selectedFilter, setSelectedFilter] = useState("All"); // Initially set to "All"
+  const [tutorsData, setTutorsData] = useState(null);
+  const [filterButtons, setFilterButtons] = useState([
+    { label: "All", value: "All" }
+  ]);
+  const [selectedFilter, setSelectedFilter] = useState("All");
+
+  useEffect(() => {
+    const data = store.get("tutors");
+    if (data) {
+      setTutorsData(data);
+      
+      const uniqueSubjects = new Set();
+      data.forEach((tutor) => {
+        uniqueSubjects.add(tutor.masteredSubject);
+        if (tutor.otherSubjects) {
+          tutor.otherSubjects.forEach((subject) => uniqueSubjects.add(subject.name));
+        }
+      });
+
+      setFilterButtons([
+        { label: "All", value: "All" },
+        ...Array.from(uniqueSubjects).map((subject) => ({
+          label: subject,
+          value: subject,
+        })),
+      ]);
+    }
+  }, []);
 
   const handleFilterClick = (filterValue) => {
     setSelectedFilter(filterValue);
   };
 
-  // Filter the tutors based on the selected subject
+  if (!tutorsData) {
+    return (
+      <div className="flex flex-col pb-6 mb-4">
+        <div className="text-center">
+          <p>Loading tutors...</p>
+        </div>
+      </div>
+    );
+  }
+
   const filteredTutors = tutorsData.filter((tutor) => {
     if (selectedFilter === "All") {
-      return true; // Show all tutors initially
+      return true;
     }
     return (
       tutor.masteredSubject === selectedFilter ||
@@ -52,7 +64,6 @@ function Page() {
   return (
     <div className="flex flex-col pb-6 mb-4">
       <div className="p-4 grid md:grid-cols-5 xl:grid-cols-9 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-3 text-[8px] sm:text-[10px]">
-        {/* Use map to render the filter buttons */}
         {filterButtons.map((button) => (
           <div key={button.value}>
             <FilterButton
@@ -69,8 +80,8 @@ function Page() {
         {filteredTutors.length === 0 ? (
           <div className="md:ml-[200px]">
             <SearchXIcon className="max-w-sm mx-auto text-gray-600 h-16 w-16 md:ml-[160px]" />
-            <p className="mb-[200px]  text-lg text-gray-700 text-center w-[400px] flex flex-row items-center justify-center">
-              {'"No tutors for that subject are available yet"'}
+            <p className="mb-[200px] text-lg text-gray-700 text-center w-[400px] flex flex-row items-center justify-center">
+              {"No tutors for that subject are available yet"}
             </p>
           </div>
         ) : (
