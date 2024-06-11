@@ -1,5 +1,4 @@
 "use client"
-import { formFour, formThree } from "@/app/_data";
 import { MoveRight } from "lucide-react";
 import React from "react";
 import SubjectCard from "../_components/SubjectCard";
