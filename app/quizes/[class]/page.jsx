@@ -1,25 +1,28 @@
+"use client"
 import { formFour, formThree } from "@/app/_data";
 import { MoveRight } from "lucide-react";
 import React from "react";
 import SubjectCard from "../_components/SubjectCard";
+import store from "store2";
 
 function Form({ params }) {
-  let subjects = [];
+  let subjects;
   let slate = "";
+ 
 
   let userClass = "class";
   if (params.class.endsWith("e")) {
     userClass = "Form 3";
-    subjects = formThree;
+    subjects = store.get("form3subjects");
     slate = "text-green-600";
   } else {
     userClass = "Form 4";
-    subjects = formFour;
+    subjects = store.get("form4subjects");
     slate = "text-red-600";
   }
 
   return (
-    <div className="w-full bg-white border border-t h-screen">
+    <div className="w-full bg-white border border-t md:h-screen h-[180vh]">
       <h2 className={`text-center mt-4 font-bold ${slate} text-3xl`}>
         {userClass}
       </h2>
@@ -42,17 +45,21 @@ function Form({ params }) {
         </section>
 
         <section className="px-2">
-          <div className="grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
+          {subjects.length > 0 ? (<div className="grid md:grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-4 grid-cols-1">
             {subjects.map((subject) => (
-              <div key={subject.id}>
+              <div key={subject._id}>
                 <SubjectCard
                   name={subject.name}
                   slate={slate}
-                  klass={params.class}
+                  klass={subject.class.name}
                 />
               </div>
             ))}
-          </div>
+          </div>) : (
+            <div>
+              <h2 className="ml-12 mt-10 p-4 font-bold justify-center items-center text-red-600">Not Yet Available!</h2>
+            </div>
+          )}
         </section>
       </article>
     </div>
