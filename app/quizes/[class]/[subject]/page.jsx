@@ -1,5 +1,4 @@
 "use client"
-import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
 import React from "react";
 import QuizTopicCard from "../../_components/QuizTopicCard";
 import { LineChart } from "lucide-react";
@@ -46,7 +45,7 @@ function QuizList({ params }) {
 
 
       <section className="mt-12">
-        <div>
+        {subjectData.topics.length > 0 ? (<div>
           {subjectData.topics.map((topic) => (
             <article key={topic._id} className="mb-4">
               {/* display topic  */}
@@ -62,7 +61,7 @@ function QuizList({ params }) {
                   <div key={subtopic._id}>
                     <QuizTopicCard
                       name={subtopic.subtopic_name}
-                      image={subtopic.image_url}
+                      image={subtopic.subtopic_img_url}
                       form={params.class}
                       subject={params.subject}
                       quiz_id={subtopic._id}
@@ -73,7 +72,11 @@ function QuizList({ params }) {
               </div>
             </article>
           ))}
-        </div>
+        </div>) : (
+          <div className="p-8">
+            <h2 className="font-bold text-gray-800 p-10 m">To be uploaded soon ...</h2>
+          </div>
+        )}
       </section>
     </div>
   );

@@ -2,6 +2,7 @@ import QuizComponent from "@/app/quizes/_components/QuizComponent";
 import React from "react";
 
 function Quiz({ params }) {
+  console.log(params);
   const path = `/quizes/${params.class}/${params.subject}`;
 
   return (
