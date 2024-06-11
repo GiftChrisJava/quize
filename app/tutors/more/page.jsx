@@ -1,10 +1,34 @@
 "use client";
 import React, { useState } from "react";
 import Tutorz from "../_components/Tutorz";
-import { tutors } from "../constants/tutors";
 import FilterButton from "../_components/FilterButton";
-import { filterButtons } from "../constants/filterButtons";
 import { SearchXIcon } from "lucide-react";
+import store from "store2"
+
+
+// Extract subjects from the local data stored in store
+const tutorsData = store.get("tutors");
+
+// Create an array to store unique subjects
+const uniqueSubjects = new Set();
+
+// Iterate through the tutorsData to extract subjects
+tutorsData.forEach((tutor) => {
+  uniqueSubjects.add(tutor.masteredSubject);
+  // If tutors have otherSubjects array, include those as well
+  if (tutor.otherSubjects) {
+    tutor.otherSubjects.forEach((subject) => uniqueSubjects.add(subject.name));
+  }
+});
+
+// Convert the Set to an array and map it to the desired format
+const filterButtons = [
+  { label: "All", value: "All" },
+  ...Array.from(uniqueSubjects).map((subject) => ({
+    label: subject,
+    value: subject,
+  })),
+];
 
 function Page() {
   // a state variable to track the selected filter
@@ -15,19 +39,19 @@ function Page() {
   };
 
   // Filter the tutors based on the selected subject
-  const filteredTutors = tutors.filter((tutor) => {
+  const filteredTutors = tutorsData.filter((tutor) => {
     if (selectedFilter === "All") {
       return true; // Show all tutors initially
     }
     return (
       tutor.masteredSubject === selectedFilter ||
-      tutor.otherSubjects.some((subject) => subject.name === selectedFilter)
+      (tutor.otherSubjects && tutor.otherSubjects.some((subject) => subject.name === selectedFilter))
     );
   });
 
   return (
     <div className="flex flex-col pb-6 mb-4">
-      <div className=" p-4 grid md:grid-cols-5 xl:grid-cols-9 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-3 text-[8px] sm:text-[10px]">
+      <div className="p-4 grid md:grid-cols-5 xl:grid-cols-9 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-3 text-[8px] sm:text-[10px]">
         {/* Use map to render the filter buttons */}
         {filterButtons.map((button) => (
           <div key={button.value}>
@@ -51,12 +75,12 @@ function Page() {
           </div>
         ) : (
           filteredTutors.map((tutor) => (
-            <div key={tutor.id}>
+            <div key={tutor._id}>
               <Tutorz
                 name={tutor.name}
-                image={tutor.image}
+                image={tutor.image_url}
                 masteredSubject={tutor.masteredSubject}
-                tutor_id={tutor.id}
+                tutor_id={tutor._id}
               />
             </div>
           ))

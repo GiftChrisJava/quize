@@ -136,7 +136,7 @@ export async function getCustomerFeedbackByTutorId(tutorId) {
     const response = await fetch(`http://localhost:8000/api/v1/tut/feedback/customer/${tutorId}`);
     
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   
   } catch (error) {
