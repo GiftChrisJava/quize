@@ -1,11 +1,30 @@
+"use client"
 import Image from "next/image";
 import imageb from "../../public/b.jpg";
 import imaged from "../../public/d.jpg";
 import Link from "next/link";
+import store from "store2";
+import { getForm3class, getForm4class } from "../server-actions/actions";
 
 function Quizes() {
   const formThree = "Form_three";
   const formFour = "Form_four";
+
+  // get form 3 subjects
+  const getForm3Subjects = async () => {
+    const data = await getForm3class(); // Call your API function
+    // Store the fetched data locally
+    store.set("form3subjects", data.subjects);
+  }
+
+  // get form 4 subjects
+  const getForm4Subjects = async () => {
+    const data = await getForm4class(); // Call your API function
+    // Store the fetched data locally
+    store.set("form4subjects", data.subjects);
+  }
+
+
   return (
     <main className="max-container mt-6 h-[60vh]">
       <h1 className="font-bold text-3xl text-center text-gray-800">

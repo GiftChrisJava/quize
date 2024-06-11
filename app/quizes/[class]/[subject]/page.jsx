@@ -1,11 +1,12 @@
+"use client"
 import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
 import React from "react";
 import QuizTopicCard from "../../_components/QuizTopicCard";
 import { LineChart } from "lucide-react";
-import Link from "next/link";
+import Link from "next/link"
+import store from "store2";
 
 function QuizList({ params }) {
-  console.log(params)
   let slate = "";
 
   let userClass = "class";
@@ -16,11 +17,17 @@ function QuizList({ params }) {
     slate = "text-red-600";
     userClass = "Form_four";
   }
+   
+  const subjectData = store.get("subjectData");
+  
+  // Replace %20 with space in params.subject
+  const formattedSubject = params.subject.replace(/%20/g, " ");
+
   return (
     <div className="max-container">
       <section>
         <p className={`${slate} font-bold text-center text-xl`}>
-          {params.subject} Quiz
+          {formattedSubject} Quiz
         </p>
       </section>
 
@@ -40,8 +47,8 @@ function QuizList({ params }) {
 
       <section className="mt-12">
         <div>
-          {topics.map((topic) => (
-            <article key={topic.id} className="mb-4">
+          {subjectData.topics.map((topic) => (
+            <article key={topic._id} className="mb-4">
               {/* display topic  */}
               <p
                 className={`font-bold text-gray-800 text-lg text-center md:text-left`}
@@ -52,13 +59,13 @@ function QuizList({ params }) {
               {/* render the quize card  */}
               <div className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1">
                 {topic.subtopics.map((subtopic) => (
-                  <div key={subtopic.id}>
+                  <div key={subtopic._id}>
                     <QuizTopicCard
-                      name={subtopic.name}
-                      image={subtopic.image}
+                      name={subtopic.subtopic_name}
+                      image={subtopic.image_url}
                       form={params.class}
                       subject={params.subject}
-                      quiz_id={subtopic.id}
+                      quiz_id={subtopic._id}
                       klass={userClass}
                     />
                   </div>

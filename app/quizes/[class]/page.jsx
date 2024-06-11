@@ -50,7 +50,7 @@ function Form({ params }) {
                 <SubjectCard
                   name={subject.name}
                   slate={slate}
-                  klass={subject.class.name}
+                  klass={subject.class} // class Id
                 />
               </div>
             ))}

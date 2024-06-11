@@ -144,3 +144,15 @@ export async function getCustomerFeedbackByTutorId(tutorId) {
     throw error;
   }
 }
+
+// Function to get subject by class ID and subject name
+export async function getSubjectWithSubtopics(classId, subjectName) {
+  try {
+    const response = await fetch(`http://localhost:8000/api/v1/subject/${classId}/${subjectName}`);
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error getting subject with subtopics:", error);
+  }
+}
