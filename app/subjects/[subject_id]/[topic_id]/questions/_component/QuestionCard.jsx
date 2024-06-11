@@ -16,6 +16,7 @@ function QuestionCard({
     <div className="mb-4 max-w-md mx-auto" onClick={onQuestionClick}>
       <article className="bg-slate-300 px-2 py-4">
         <p>{question.question}</p>
+        <p>{"[" +  question.marks + " Mark(s)]"}</p>
       </article>
       {editMode && (
         <div className="flex flex-row space-x-2 justify-center items-center mt-4">
