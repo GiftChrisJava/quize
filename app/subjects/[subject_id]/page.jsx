@@ -8,7 +8,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { useEffect, useState } from "react";
 
 function Subject({ params }) {
-  const [subjectData, setSubjectData] = useState({ foundSubject: {}, topics: [] });
+  let [subjectData, setSubjectData] = useState({ foundSubject: {}, topics: [] });
   const [loading, setLoading] = useState(true); // New loading state
   const subject_id = params.subject_id;
  
@@ -47,6 +47,8 @@ function Subject({ params }) {
       </div>
     );
   }
+  
+  subjectData = store.get("subject");
 
   return (
     <div className="flex flex-row justify-between pb-6">
@@ -61,13 +63,17 @@ function Subject({ params }) {
             </small>
             <small className="block text-[16px] text-gray-900 mt-4">
               We&lsquo;re not just about memorizing what&lsquo;s in the books. Nope! We&lsquo;re all about exploring beyond the pages and unlocking the secrets of computer literacy that will make you a digital ninja.{" "}
-              <Link href={`/subjects/${subject_id}/ninja`} className="text-[16px] text-purple-700">
-                Become a digital Ninja
+              <Link href={`/subjects/${subject_id}/ninja`} className="text-[19px] text-purple-700">
+                Have a look of what is outside the classroom
               </Link>
             </small>
-            <small className="block text-[16px] text-gray-900 mt-4">
+
+            {subjectData.topics.length > 0 ? (<small className="block text-[16px] text-gray-900 mt-4">
               Click <span className="text-gray-800 font-bold">learn now</span> to begin Your learning
-            </small>
+            </small>) : (<small className="block text-[16px] text-gray-900 mt-4">
+              <span className="text-gray-800 font-bold">TOPICS NOT YET AVAILABLE!!</span>
+            </small>)}
+            
           </div>
           <p></p>
         </article>

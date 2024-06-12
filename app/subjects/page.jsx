@@ -8,11 +8,9 @@ import boy from "../../public/boy.jpg";
 import books from "../../public/books.jpg";
 
 import SubjectCard from "./_components/SubjectCard";
-import { formThree, formFour, tutors } from "../_data";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 
 import SubjectBottomNav from "./_components/SubjectBottomNav";
-import { form4Subjects  } from "../server-actions/actions";
 
 function Subjects() {
   let storedForm4Subjects = store.get("form4subjects");

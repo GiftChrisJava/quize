@@ -1,14 +1,48 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import award from "../../../public/award.gif";
 import trophy from "../../../public/trophy.gif";
 import origami from "../../../public/origami.gif";
 import sad from "../../../public/sad.gif";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import store from "store2";
+import { getSubtopicById } from "@/app/server-actions/actions";
 
-const QuizComponent = ({ path, quizData }) => {
-  const questions = quizData.questions;
+const QuizComponent = ({ path, quizzData }) => {
+  const subtopicId = store.get("quiz_id");
+  const [subtopic, setSubtopic] = useState(store.get("subtopic") || null);
+  let questions = [];
+
+  useEffect(() => {
+    const fetchSubtopic = async () => {
+      try {
+        const retrievedSubtopic = await getSubtopicById(subtopicId);
+        setSubtopic(retrievedSubtopic);
+        store.set("subtopic", retrievedSubtopic);
+      } catch (error) {
+        console.error("Error fetching subtopic:", error);
+      }
+    };
+
+    if (!subtopic) {
+      fetchSubtopic();
+    }
+  }, [subtopicId, subtopic]);
+
+  // Check if subtopic and subtopic.quizzes are defined
+  if (subtopic && Array.isArray(subtopic.quizzes) && subtopic.quizzes.length > 0) {
+    if (typeof quizzData === 'undefined') {
+      const quizData = subtopic.quizzes[0];
+      questions = quizData.questions;
+    } else {
+      questions = quizzData.questions;
+    }
+  } else {
+    console.error("Subtopic or subtopic quizzes are undefined or empty");
+  }
+
+  // other states
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);

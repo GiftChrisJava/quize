@@ -7,8 +7,13 @@ import store from "store2";
 import { getSubtopicById } from "@/app/server-actions/actions";
 
 function QuizTopicCard({ name, image, form, subject, quiz_id, klass }) {
+
+  store.set("quiz_id", quiz_id); // store the id of the quiz locally
+  
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+
 
   const handleCardClick = async (e) => {
     e.preventDefault(); // Prevent default link behavior

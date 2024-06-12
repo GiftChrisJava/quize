@@ -1,10 +1,14 @@
 "use client";
 import { BookOpen } from "lucide-react";
-import { topics } from "./constants/topics";
 import { Fragment, useState } from "react";
 import Model from "./Model";
+import store from "store2";
 
 function SideNav({ subject_id }) {
+  const subject  = store.get("subject");
+
+  const topics = subject.topics;
+
   // Initialize visibility state for each topic
   const [topicVisibility, setTopicVisibility] = useState(
     topics.map(() => false)
@@ -25,7 +29,7 @@ function SideNav({ subject_id }) {
       {/* Topic list  */}
       <div className="mt-5">
         {topics.map((topic, index) => (
-          <Fragment key={topic.id}>
+          <Fragment key={topic._id}>
             <div
               onClick={() => handleTopicClick(index)}
               className="group p-1 flex gap-3 mt-2 text-[18px] items-center 
@@ -36,9 +40,9 @@ function SideNav({ subject_id }) {
             </div>
             <Model
               subject_id={subject_id}
-              image={topic.image}
+              image={topic.topic_img_url}
               name={topic.name}
-              topic_id={topic.id}
+              topic_id={topic._id}
               isVisible={topicVisibility[index]}
               onClose={() => handleTopicClick(index)}
             />
