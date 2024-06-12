@@ -29,7 +29,12 @@ export async function getAllTutors() {
     const response = await fetch(`http://localhost:8000/api/v1/tutor/`);
 
     const data = await response.json();
-    return data;
+       
+    const user_id = JSON.parse(localStorage.getItem("user_id"));
+
+    const username = JSON.parse(localStorage.getItem("username"));
+
+    return {data, user_id, username};
   } catch (error) {
     console.error("Error getting user progress:", error);
   }
@@ -59,7 +64,7 @@ export async function getSubjectById(subjectId) {
     const user = await currentUser();
 
     await postStudentData(user); // call this guy
-    
+
     return data;
   } catch (error) {
     console.error("Error getting user progress:", error);
@@ -186,8 +191,13 @@ export async function getTestById(testId) {
     const response = await fetch(`http://localhost:8000/api/v1/test/${testId}`);
     
     const data = await response.json();
-    console.log( "Test acquired",data);
-    return data;
+    
+    const user_id = JSON.parse(localStorage.getItem("user_id"));
+
+    const username = JSON.parse(localStorage.getItem("username"));
+
+
+    return {data, user_id, username};
   
   } catch (error) {
     console.error("Error in getting test by id:", error);
@@ -222,16 +232,37 @@ export async function postStudentData(user) {
     // Store the username in node-localstorage
     localStorage.setItem("username", JSON.stringify(user.username));
 
+     // Store the username in node-localstorage
+     localStorage.setItem("firstName", JSON.stringify(user.firstName));
+
     // Store the user_id in node-localstorage
     localStorage.setItem("user_id", JSON.stringify(data._id));
     }
 
     // Retrieve the user_id from node-localstorage
     //  user_id = JSON.parse(localStorage.getItem("user_id"));
-  
     return data;
   } catch (error) {
     console.error("Error posting student data:", error);
     throw error;
+  }
+}
+
+// function to post student responses
+export async function postStudentResponse(responseData) {
+  try {
+      const response = await fetch('http://localhost:8000/api/v1/student_test_response', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(responseData),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      return data;
+  } catch (error) {
+      console.error("Error posting student response:", error);
   }
 }
