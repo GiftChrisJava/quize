@@ -1,6 +1,13 @@
 "use server";
 
+// Import node-localstorage
+const LocalStorage = require("node-localstorage").LocalStorage;
 import { auth, currentUser } from "@clerk/nextjs/server";
+
+
+ // Create a new node-localstorage instance
+ const localStorage = new LocalStorage("./scratch");
+
 
 // Define a function to check the internet connection
 export async function checkInternet() {
@@ -46,6 +53,13 @@ export async function getSubjectById(subjectId) {
     const response = await fetch(`http://localhost:8000/api/v1/subject/${subjectId}`);
 
     const data = await response.json();
+
+    const { userId } = auth();
+
+    const user = await currentUser();
+
+    await postStudentData(user); // call this guy
+    
     return data;
   } catch (error) {
     console.error("Error getting user progress:", error);
@@ -89,7 +103,9 @@ export async function getForm4class() {
     const { userId } = auth();
 
     const user = await currentUser();
-    console.log(user.username);
+
+    await postStudentData(user); // call this guy
+
     return data;
   } catch (error) {
     console.error("Error getting form 4 subjects : ", error);
@@ -104,6 +120,13 @@ export async function getForm3class() {
     const response = await fetch(`http://localhost:8000/api/v1/class/${form3ClassId}`);
 
     const data = await response.json();
+
+    const { userId } = auth();
+
+    const user = await currentUser();
+
+    await postStudentData(user); // call this guy
+
     return data;
   } catch (error) {
     console.error("Error getting form 4 subjects : ", error);
@@ -168,6 +191,47 @@ export async function getTestById(testId) {
   
   } catch (error) {
     console.error("Error in getting test by id:", error);
+    throw error;
+  }
+}
+
+// Function to post student data
+export async function postStudentData(user) {
+  console.log("called and username is " + user.username);
+  const studentData = {
+    stripe_student_id: user.id,
+    username: user.username,
+    firstname: user.firstName,
+    lastname: user.lastName,
+  };
+
+  try {
+    const response = await fetch(`http://localhost:8000/api/v1/student`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(studentData),
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+      console.log(data);
+    } else {
+    // Store the username in node-localstorage
+    localStorage.setItem("username", JSON.stringify(user.username));
+
+    // Store the user_id in node-localstorage
+    localStorage.setItem("user_id", JSON.stringify(data._id));
+    }
+
+    // Retrieve the user_id from node-localstorage
+    //  user_id = JSON.parse(localStorage.getItem("user_id"));
+  
+    return data;
+  } catch (error) {
+    console.error("Error posting student data:", error);
     throw error;
   }
 }

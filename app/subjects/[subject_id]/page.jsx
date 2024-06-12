@@ -11,7 +11,7 @@ function Subject({ params }) {
   const [subjectData, setSubjectData] = useState({ foundSubject: {}, topics: [] });
   const [loading, setLoading] = useState(true); // New loading state
   const subject_id = params.subject_id;
-
+ 
 
   useEffect(() => {
     if (store.get("subject")) {
