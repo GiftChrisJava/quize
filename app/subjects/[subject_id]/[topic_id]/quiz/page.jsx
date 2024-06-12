@@ -43,9 +43,8 @@ function Quiz({ params }) {
     userClass = "Form_four";
   }
 
-  // show loading
   if (loading) {
-    return <div className="p-4 justify-center items-center">Loading...</div>; 
+    return <div className="p-4 justify-center items-center">Loading...</div>; // You can use a spinner or a loading indicator here
   }
 
   return (
