@@ -19,11 +19,12 @@ function Tutors() {
  const getTutors = async () => {
   if (await checkInternet()) {
     try {
-        const data = await getAllTutors();
-        setTutors(data); // Update the state with the subjects data
+        const maTutors = await getAllTutors();
+        setTutors(maTutors.data); // Update the state with the subjects maTutors
 
-        // Store the fetched data locally
-        store.set("tutors", data);
+        // Store the fetched maTutors locally
+        store.set("tutors", maTutors.data);
+        store.set("username", maTutors.username)
      
     } catch (error) {
       console.error('Error getting form 3 subjects:', error);

@@ -60,7 +60,7 @@ function Tutor({ params }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const commentData = {
-      name: "Your Name", // Replace with actual user name if available
+      name: store.get("username"),
       feedback: commentText,
       tutor: tutor_id,
     };
