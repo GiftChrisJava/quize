@@ -1,4 +1,4 @@
-"use server";
+"use client";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
 
@@ -48,12 +48,6 @@ export async function getSubjectById(subjectId) {
 
     const data = await response.json();
 
-    const { userId } = auth();
-
-    const user = await currentUser();
-
-    await postStudentData(user);
-
     return data;
   } catch (error) {
     console.error("Error getting user progress:", error);
@@ -95,12 +89,6 @@ export async function getForm4class() {
     const response = await fetch(`https://meep-app-api.onrender.com/api/v1/class/${form4ClassId}`);
     
     const data = await response.json();
-    const { userId } = auth();
-
-    const user = await currentUser();
-   
-    await postStudentData(user); // call this guy
-  
     return data;
   } catch (error) {
     console.error("Error getting form 4 subjects : ", error);
@@ -115,13 +103,6 @@ export async function getForm3class() {
     const response = await fetch(`https://meep-app-api.onrender.com/api/v1/class/${form3ClassId}`);
 
     const data = await response.json();
-
-    const { userId } = auth();
-
-    const user = await currentUser();
-
-    await postStudentData(user); // call this guy
-
     return data;
   } catch (error) {
     console.error("Error getting form 4 subjects : ", error);
