@@ -42,7 +42,7 @@ function Subjects() {
         // const student = await postStudentData(user);
         
         // store student id 
-        store.set("user_id", student._id)
+        // store.set("user_id", student._id)
 
         store.set("form4subjects", form4Data.subjects);
         store.set("form3subjects", form3Data.subjects);
