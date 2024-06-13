@@ -40,7 +40,7 @@ function Subjects() {
     };
 
     fetchSubjects();
-  }, [form4subjectId, form3SubjectId]);
+  }, []);
 
   if (loading) {
     return (
