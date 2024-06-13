@@ -268,3 +268,22 @@ export async function postStudentResponse(responseData) {
       console.error("Error posting student response:", error);
   }
 }
+
+// Function to get test score
+export async function getTestScore(studentId, testId) {
+  try {
+    const url = `http://localhost:8000/api/v1/test_score/${studentId}/test/${testId}`;
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error getting test score:", error);
+    throw error;
+  }
+}
