@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import store from "store2";
 
@@ -13,20 +13,20 @@ import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 import SubjectBottomNav from "./_components/SubjectBottomNav";
 
 function Subjects() {
-  let storedForm4Subjects = store.get("form4subjects");
-  let storedForm3Subjects = store.get("form3subjects");
+  let storedForm4Subjects = store.get("form4subjects") || [];
+  let storedForm3Subjects = store.get("form3subjects") || [];
 
-  console.log(storedForm4Subjects)
+  console.log(storedForm4Subjects);
 
   return (
     <main className="">
       <section className="">
-       <SubjectBottomNav/>
+        <SubjectBottomNav />
       </section>
 
-     <hr />
+      <hr />
       <section className="bg-white">
-        <article className="max-container  flex flex-row sm:gap-8 items-center justify-center mb-16">
+        <article className="max-container flex flex-row sm:gap-8 items-center justify-center mb-16">
           <section className="flex flex-2 sm:flex-1 flex-col p-4 ">
             <h2 className="font-extrabold flex-start sm:text-2xl md:text-4xl text-gray-900 ">
               <span className="text-green-600">MALAWI</span> EDUCATION
@@ -70,39 +70,43 @@ function Subjects() {
             </h4>
 
             <h4 className="text-md text-gray-800 mt-2 md:items-center md:justify-center">
-              Begin your journey of of learning by just clicking on the subject
+              Begin your journey of learning by just clicking on the subject
               below depending on your secondary school level
             </h4>
           </section>
         </article>
       </section>
 
-      {/* form 4 subjects  */}
+      {/* form 4 subjects */}
       <section className="max-container">
         <article className="sm:4 p-1 mt-4">
           <h4 className="text-center md:text-left font-bold text-lg mt-4 text-red-600">
             Form 4 Subjects
           </h4>
 
-          {(storedForm4Subjects) ? ( <div
-            data-aos="slide-right"
-            className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
-          >
-            {storedForm4Subjects.map((subject) => (
-              <div key={subject.id}>
-                <FormFourSubjectCard
-                  className="flex "
-                  name={subject.name}
-                  image={subject.image_url}
-                  subject_id={subject._id}
-                />
-              </div>
-            ))}
-          </div>) : ( <div>
-              <h3 className="font-bold text-center text-gray-700 text-xl p-10">Coming Soon...</h3>
-          </div>)}
-
-         
+          {storedForm4Subjects.length > 0 ? (
+            <div
+              data-aos="slide-right"
+              className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
+            >
+              {storedForm4Subjects.map((subject) => (
+                <div key={subject.id}>
+                  <FormFourSubjectCard
+                    className="flex "
+                    name={subject.name}
+                    image={subject.image_url}
+                    subject_id={subject._id}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>
+              <h3 className="font-bold text-center text-gray-700 text-xl p-10">
+                Coming Soon...
+              </h3>
+            </div>
+          )}
         </article>
 
         <hr className="mt-12" />
@@ -111,33 +115,37 @@ function Subjects() {
           <h4 className="text-center md:text-left font-bold text-lg mt-4 text-green-700">
             Form 3 Subjects
           </h4>
-          {/* form 3 subjects  */}
+          {/* form 3 subjects */}
 
-          {(storedForm3Subjects.length > 0 ) ? (<div
-            data-aos="slide-right"
-            className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
-          >
-            {storedForm3Subjects.map((subject) => (
-              <div key={subject.id}>
-                <SubjectCard
-                  className="flex"
-                  name={subject.name}
-                  image={subject.image}
-                  subject_id={subject.id}
-                />
-              </div>
-            ))}
-          </div> ) : ( 
+          {storedForm3Subjects.length > 0 ? (
+            <div
+              data-aos="slide-right"
+              className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
+            >
+              {storedForm3Subjects.map((subject) => (
+                <div key={subject.id}>
+                  <SubjectCard
+                    className="flex"
+                    name={subject.name}
+                    image={subject.image}
+                    subject_id={subject.id}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
             <div>
-              <h3 className="font-bold text-center text-gray-700 text-xl p-10">Coming Soon...</h3>
+              <h3 className="font-bold text-center text-gray-700 text-xl p-10">
+                Coming Soon...
+              </h3>
             </div>
           )}
         </article>
       </section>
 
-      {/* Tutors  */}
+      {/* Tutors */}
       <section className="bg-white mt-10 pb-2">
-       <SubjectBottomNav/>
+        <SubjectBottomNav />
       </section>
     </main>
   );
