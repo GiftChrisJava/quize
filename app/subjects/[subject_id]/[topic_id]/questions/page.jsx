@@ -8,6 +8,7 @@ import { Loader } from 'lucide-react';
 
 function Questions({ params }) {
     const topic_id = params.topic_id;
+    console.log(params)
 
     // State hooks
     const [topic, setTopic] = useState(null);
