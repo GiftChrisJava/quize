@@ -1,7 +1,6 @@
 "use client";
 import { Fragment, useState } from "react";
 import Model from "@/app/subjects/[subject_id]/_component/Model";
-import { topics } from "@/app/subjects/[subject_id]/_component/constants/topics";
 import store from "store2"
 
 function SideBarLeft({ subject_id }) {
@@ -10,7 +9,7 @@ function SideBarLeft({ subject_id }) {
 
   // Initialize visibility state for each topic
   const [topicVisibility, setTopicVisibility] = useState(
-    topics.map(() => false)
+    subject.topics.map(() => false)
   );
 
   const handleTopicClick = (index) => {
