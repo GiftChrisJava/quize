@@ -11,7 +11,7 @@ function Videos({ params }) {
   const subject_id = params.subject_id;
   const topic_id = params.topic_id;
 
-  const [topic, setTopic] = useState({ banner_url: '', name: '', isPremium: false, subtopics: [] });
+  let [topic, setTopic] = useState({ banner_url: '', name: '', isPremium: false, subtopics: [] });
   const [loading, setLoading] = useState(true); // New loading state
 
   useEffect(() => {
@@ -43,6 +43,8 @@ function Videos({ params }) {
       </div>
     );
   }
+
+  topic = store.get("topic");
 
   return (
     <main className="h-full">

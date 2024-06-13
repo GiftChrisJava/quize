@@ -91,6 +91,7 @@ export async function getTopicById(topicId) {
     const response = await fetch(`http://localhost:8000/api/v1/topic/${topicId}`);
 
     const data = await response.json();
+    console.log(data); // display topic data
     return data;
   } catch (error) {
     console.error("Error getting user progress:", error);
