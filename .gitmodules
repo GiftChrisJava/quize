@@ -1,0 +1,3 @@
+[submodule "Meep-App"]
+	path = Meep-App
+	url = https://github.com/bed-com-48-19/Meep-App.git
