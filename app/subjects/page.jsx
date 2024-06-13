@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Loader } from "lucide-react";
 import store from "store2";
+import { useUser } from "@clerk/nextjs";
 
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
@@ -13,9 +14,19 @@ import SubjectCard from "./_components/SubjectCard";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 
 import SubjectBottomNav from "./_components/SubjectBottomNav";
-import { getForm3class, getForm4class } from "../server-actions/actions";
+import { getForm3class, getForm4class, postStudentData } from "../server-actions/actions";
 
 function Subjects() {
+  const { isLoaded, isSignedIn, user } = useUser();
+  console.log(isSignedIn)
+
+  if (isSignedIn) {
+    store.set("username", user.username);
+    store.set("stripeId", user.id)
+    store.set("firstName", user.firstName);
+    store.set("lastName", user.lastName);
+  } 
+  
   const [form4Subjects, setForm4Subjects] = useState([]);
   const [form3Subjects, setForm3Subjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,6 +37,10 @@ function Subjects() {
       try {
         const form4Data = await getForm4class();
         const form3Data = await getForm3class();
+        const student = await postStudentData(user);
+        
+        // store student id 
+        store.set("user_id", student._id)
 
         store.set("form4subjects", form4Data.subjects);
         store.set("form3subjects", form3Data.subjects);
