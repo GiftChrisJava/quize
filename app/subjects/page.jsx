@@ -30,11 +30,11 @@ function Subjects() {
         const form4Data = await getForm4class(form4subjectId);
         const form3Data = await getForm3class(form3SubjectId);
 
-        store.set("form4subjects", form4Data);
-        store.set("form3subjects", form3Data);
+        store.set("form4subjects", form4Data.subjects);
+        store.set("form3subjects", form3Data.subjects);
 
-        setForm4Subjects(form4Data);
-        setForm3Subjects(form3Data);
+        setForm4Subjects(form4Data.subjects);
+        setForm3Subjects(form3Data.subjects);
       } catch (error) {
         setError(error);
       } finally {
