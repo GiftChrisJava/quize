@@ -22,7 +22,7 @@ function SideBarLeft({ subject_id }) {
   };
 
   if (!subject || !subject.topics) {
-    return <div>Loading...</div>;
+    return <div className="ml-10 p-8">Loading...</div>;
   }
 
   return (
