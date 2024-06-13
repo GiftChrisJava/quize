@@ -5,10 +5,11 @@ import QuestionCard from "./_component/QuestionCard";
 import store from "store2";
 import { getTestById, getTopicById, postStudentResponse } from "@/app/server-actions/actions";
 import { Loader } from 'lucide-react';
+import Link from "next/link";
 
 function Questions({ params }) {
     const topic_id = params.topic_id;
-    console.log(params)
+    const subject_id = params.subject_id;
 
     // State hooks
     const [topic, setTopic] = useState(null);
@@ -103,7 +104,8 @@ function Questions({ params }) {
               <button
                   className="mt-1 rounded px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 text-gray-200 w-38"
               >
-                  View Test Results
+                <Link href={`/subjects/${subject_id}/${topic_id}/questions/results`} >View Test Results</Link>
+                
               </button>
             </article>
             {!submitted && (

@@ -6,7 +6,9 @@ function Results({ params }) {
     const topic_id = params.topic_id;
     console.log(params)
 
-  
+    const studentId = store.get("studentId");
+    const testId = store.get("testId");
+
     return (
         <div className="max-container">
             <h1 className="text-center text-2xl text-gray-600 font-bold">
