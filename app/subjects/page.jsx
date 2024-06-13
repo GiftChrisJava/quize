@@ -17,6 +17,10 @@ import SubjectBottomNav from "./_components/SubjectBottomNav";
 import { getForm3class, getForm4class, postStudentData } from "../server-actions/actions";
 
 function Subjects() {
+  const [form4Subjects, setForm4Subjects] = useState([]);
+  const [form3Subjects, setForm3Subjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const { isLoaded, isSignedIn, user } = useUser();
 
   if (isSignedIn && isLoaded) {
@@ -28,10 +32,7 @@ function Subjects() {
     store.set("username", "student");
   }
   
-  const [form4Subjects, setForm4Subjects] = useState([]);
-  const [form3Subjects, setForm3Subjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+ 
 
   useEffect(() => {
     const fetchSubjects = async () => {
