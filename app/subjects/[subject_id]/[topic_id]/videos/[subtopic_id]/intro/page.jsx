@@ -45,7 +45,7 @@ function VideoIntro({ params }) {
   // get a subtopic
   const subtopic = store.get("subtopic");
 
-  const notes = subtopic.notes[0];
+  const notes = subtopic.SubtopicIntroNotes[0];
   return (
     <div className="max-container px-4 h-[80vh]">
       <section>
