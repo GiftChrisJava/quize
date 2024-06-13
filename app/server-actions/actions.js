@@ -325,3 +325,16 @@ export async function updatePayment(studentId, topicId, paymentData) {
     throw error;
   }
 }
+
+// Function to get payment data by student and topic IDs
+export async function getPayment(studentId, topicId) {
+  try {
+    const response = await fetch(`http://localhost:8000/api/v1/payments/${studentId}/${topicId}`);
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error getting payment data:", error);
+    throw error;
+  }
+}
