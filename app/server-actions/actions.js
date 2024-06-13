@@ -12,7 +12,7 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 // Define a function to check the internet connection
 export async function checkInternet() {
   try {
-    const response = await fetch("http://localhost:8000/api/v1/class");
+    const response = await fetch("https://meep-app-api.onrender.com/api/v1/class");
     if (response.ok) {
       return true;
     } else {
@@ -26,7 +26,7 @@ export async function checkInternet() {
 // a function that gets all the tutors
 export async function getAllTutors() {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/tutor/`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/tutor/`);
 
     const data = await response.json();
        
@@ -43,7 +43,7 @@ export async function getAllTutors() {
 // a function that gets a tutor by Id
 export async function getTutorById(tutorId) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/tutor/${tutorId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/tutor/${tutorId}`);
 
     const data = await response.json();
     return data;
@@ -55,7 +55,7 @@ export async function getTutorById(tutorId) {
 // a function that gets a subject by Id
 export async function getSubjectById(subjectId) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/subject/${subjectId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/subject/${subjectId}`);
 
     const data = await response.json();
 
@@ -75,7 +75,7 @@ export async function getSubjectById(subjectId) {
 export async function getSubtopicById(subtopicId) {
   console.log(subtopicId);
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/subtopics/${subtopicId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/subtopics/${subtopicId}`);
 
     const data = await response.json();
     console.log(data)
@@ -88,7 +88,7 @@ export async function getSubtopicById(subtopicId) {
 // a function that gets a topic by Id
 export async function getTopicById(topicId) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/topic/${topicId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/topic/${topicId}`);
 
     const data = await response.json();
     console.log(data); // display topic data
@@ -103,7 +103,7 @@ export async function getForm4class() {
   const form4ClassId = "6654cad9354cd7cc5392cdde";
 
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/class/${form4ClassId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/class/${form4ClassId}`);
     
     const data = await response.json();
     const { userId } = auth();
@@ -123,7 +123,7 @@ export async function getForm3class() {
   const form3ClassId = "6655a404049abde0be4aa036";
 
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/class/${form3ClassId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/class/${form3ClassId}`);
 
     const data = await response.json();
 
@@ -142,7 +142,7 @@ export async function getForm3class() {
 // Function to post a comment
 export async function postComment(commentData) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/tut/feedback`, {
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/tut/feedback`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -161,7 +161,7 @@ export async function postComment(commentData) {
 // Function to get customer feedback by tutor ID
 export async function getCustomerFeedbackByTutorId(tutorId) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/tut/feedback/customer/${tutorId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/tut/feedback/customer/${tutorId}`);
     
     const data = await response.json();
     // console.log(data);
@@ -176,7 +176,7 @@ export async function getCustomerFeedbackByTutorId(tutorId) {
 // Function to get subject by class ID and subject name
 export async function getSubjectWithSubtopics(classId, subjectName) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/subject/${classId}/${subjectName}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/subject/${classId}/${subjectName}`);
 
     const data = await response.json();
     return data;
@@ -189,7 +189,7 @@ export async function getSubjectWithSubtopics(classId, subjectName) {
 // Function to get a test
 export async function getTestById(testId) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/test/${testId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/test/${testId}`);
     
     const data = await response.json();
     
@@ -217,7 +217,7 @@ export async function postStudentData(user) {
   };
 
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/student`, {
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/student`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -252,7 +252,7 @@ export async function postStudentData(user) {
 // function to post student responses
 export async function postStudentResponse(responseData) {
   try {
-      const response = await fetch('http://localhost:8000/api/v1/student_test_response', {
+      const response = await fetch('https://meep-app-api.onrender.com/api/v1/student_test_response', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -271,7 +271,7 @@ export async function postStudentResponse(responseData) {
 // Function to get test score
 export async function getTestScore(studentId, testId) {
   try {
-    const url = `http://localhost:8000/api/v1/test_score/${studentId}/test/${testId}`;
+    const url = `https://meep-app-api.onrender.com/api/v1/test_score/${studentId}/test/${testId}`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -290,7 +290,7 @@ export async function getTestScore(studentId, testId) {
 // Function to post payment data
 export async function postPayment(paymentData) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/payments`, {
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/payments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -310,7 +310,7 @@ export async function postPayment(paymentData) {
 // Function to update payment data by student and topic IDs
 export async function updatePayment(studentId, topicId, paymentData) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/payments/${studentId}/${topicId}`, {
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/payments/${studentId}/${topicId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -329,7 +329,7 @@ export async function updatePayment(studentId, topicId, paymentData) {
 // Function to get payment data by student and topic IDs
 export async function getPayment(studentId, topicId) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/payments/${studentId}/${topicId}`);
+    const response = await fetch(`https://meep-app-api.onrender.com/api/v1/payments/${studentId}/${topicId}`);
 
     const data = await response.json();
     return data;
