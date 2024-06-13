@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Loader } from "lucide-react";
 import store from "store2";
-import { getForm4class, getForm3class } from "./path/to/actions";
 
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
@@ -14,6 +13,7 @@ import SubjectCard from "./_components/SubjectCard";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 
 import SubjectBottomNav from "./_components/SubjectBottomNav";
+import { getForm3class, getForm4class } from "../server-actions/actions";
 
 function Subjects() {
   const form4subjectId = "6669b010ddfade1a22cd7b1c";
