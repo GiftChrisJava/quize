@@ -16,9 +16,6 @@ import SubjectBottomNav from "./_components/SubjectBottomNav";
 import { getForm3class, getForm4class } from "../server-actions/actions";
 
 function Subjects() {
-  const form4subjectId = "6669b010ddfade1a22cd7b1c";
-  const form3SubjectId = "6669b04bddfade1a22cd7b20";
-  
   const [form4Subjects, setForm4Subjects] = useState([]);
   const [form3Subjects, setForm3Subjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,8 +24,8 @@ function Subjects() {
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
-        const form4Data = await getForm4class(form4subjectId);
-        const form3Data = await getForm3class(form3SubjectId);
+        const form4Data = await getForm4class();
+        const form3Data = await getForm3class();
 
         store.set("form4subjects", form4Data.subjects);
         store.set("form3subjects", form3Data.subjects);
