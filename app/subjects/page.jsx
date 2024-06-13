@@ -21,16 +21,16 @@ function Subjects() {
   const [form3Subjects, setForm3Subjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { isLoaded, isSignedIn, user } = useUser();
+  // const { isLoaded, isSignedIn, user } = useUser();
 
-  if (isSignedIn && isLoaded) {
-    store.set("username", user.username);
-    store.set("stripeId", user.id)
-    store.set("firstName", user.firstName);
-    store.set("lastName", user.lastName);
-  }  {
-    store.set("username", "student");
-  }
+  // if (isSignedIn) {
+  //   store.set("username", user.username);
+  //   store.set("stripeId", user.id)
+  //   store.set("firstName", user.firstName);
+  //   store.set("lastName", user.lastName);
+  // }  {
+  //   store.set("username", "student");
+  // }
   
  
 
@@ -39,7 +39,7 @@ function Subjects() {
       try {
         const form4Data = await getForm4class();
         const form3Data = await getForm3class();
-        const student = await postStudentData(user);
+        // const student = await postStudentData(user);
         
         // store student id 
         store.set("user_id", student._id)
