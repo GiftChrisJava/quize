@@ -84,7 +84,7 @@ function Subjects() {
             Form 4 Subjects
           </h4>
 
-          {(storedForm4Subjects.length) ? ( <div
+          {(storedForm4Subjects) ? ( <div
             data-aos="slide-right"
             className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
           >

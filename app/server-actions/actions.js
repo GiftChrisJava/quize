@@ -104,15 +104,14 @@ export async function getForm4class() {
 
   try {
     const response = await fetch(`http://localhost:8000/api/v1/class/${form4ClassId}`);
-
+    
     const data = await response.json();
-
     const { userId } = auth();
 
     const user = await currentUser();
-
+   
     await postStudentData(user); // call this guy
-
+  
     return data;
   } catch (error) {
     console.error("Error getting form 4 subjects : ", error);
