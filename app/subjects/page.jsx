@@ -18,14 +18,15 @@ import { getForm3class, getForm4class, postStudentData } from "../server-actions
 
 function Subjects() {
   const { isLoaded, isSignedIn, user } = useUser();
-  console.log(isSignedIn)
 
-  if (isSignedIn) {
+  if (isSignedIn && isLoaded) {
     store.set("username", user.username);
     store.set("stripeId", user.id)
     store.set("firstName", user.firstName);
     store.set("lastName", user.lastName);
-  } 
+  }  {
+    store.set("username", "student");
+  }
   
   const [form4Subjects, setForm4Subjects] = useState([]);
   const [form3Subjects, setForm3Subjects] = useState([]);
