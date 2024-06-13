@@ -47,7 +47,7 @@ const StudentPerformanceChart = ({ scores }) => {
   };
 
   return (
-    <div style={{ overflowX: 'scroll' }} className='mt-4 px-12'>
+    <div style={{ overflowX: 'scroll' }} className='mt-12 px-12  '>
       <h2 className='text-center font-bold text-md text-gray-700'>Student Quiz Performance</h2>
       <p className='mt-8 font-bold text-2xl text-gray-700 text-center'>Average Grade: {calculateAverage(scores)}</p>
       <div style={{ width: '2000px', height: '500px' }}>
