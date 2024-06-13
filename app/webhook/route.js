@@ -22,6 +22,7 @@ exports.POST = async function (req) {
     // charge.succeeded
     // payment_intent.succeeded
     // payment_intent.created
+    // true
 
     console.log(
       res?.data?.object?.billing_details?.email, // email
