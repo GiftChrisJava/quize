@@ -1,13 +1,6 @@
 "use server";
 
-// Import node-localstorage
-const LocalStorage = require("node-localstorage").LocalStorage;
 import { auth, currentUser } from "@clerk/nextjs/server";
-
-
- // Create a new node-localstorage instance
- const localStorage = new LocalStorage("./scratch");
-
 
 // Define a function to check the internet connection
 export async function checkInternet() {
@@ -16,7 +9,7 @@ export async function checkInternet() {
     if (response.ok) {
       return true;
     } else {
-      return false;
+      return false
     }
   } catch (error) {
     return false;
@@ -29,12 +22,8 @@ export async function getAllTutors() {
     const response = await fetch(`https://meep-app-api.onrender.com/api/v1/tutor/`);
 
     const data = await response.json();
-       
-    const user_id = JSON.parse(localStorage.getItem("user_id"));
-
-    const username = JSON.parse(localStorage.getItem("username"));
-
-    return {data, user_id, username};
+      
+    return {data};
   } catch (error) {
     console.error("Error getting user progress:", error);
   }
@@ -63,7 +52,7 @@ export async function getSubjectById(subjectId) {
 
     const user = await currentUser();
 
-    await postStudentData(user); // call this guy
+    await postStudentData(user);
 
     return data;
   } catch (error) {
@@ -193,12 +182,7 @@ export async function getTestById(testId) {
     
     const data = await response.json();
     
-    const user_id = JSON.parse(localStorage.getItem("user_id"));
-
-    const username = JSON.parse(localStorage.getItem("username"));
-
-
-    return {data, user_id, username};
+    return {data};
   
   } catch (error) {
     console.error("Error in getting test by id:", error);
@@ -230,18 +214,8 @@ export async function postStudentData(user) {
     if (data.error) {
       console.log(data);
     } else {
-    // Store the username in node-localstorage
-    localStorage.setItem("username", JSON.stringify(user.username));
-
-     // Store the username in node-localstorage
-     localStorage.setItem("firstName", JSON.stringify(user.firstName));
-
-    // Store the user_id in node-localstorage
-    localStorage.setItem("user_id", JSON.stringify(data._id));
+       // do nothing
     }
-
-    // Retrieve the user_id from node-localstorage
-    //  user_id = JSON.parse(localStorage.getItem("user_id"));
     return data;
   } catch (error) {
     console.error("Error posting student data:", error);
