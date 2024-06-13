@@ -286,3 +286,42 @@ export async function getTestScore(studentId, testId) {
     throw error;
   }
 }
+
+// Function to post payment data
+export async function postPayment(paymentData) {
+  try {
+    const response = await fetch(`http://localhost:8000/api/v1/payments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(paymentData),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error posting payment:", error);
+    throw error;
+  }
+}
+
+
+// Function to update payment data by student and topic IDs
+export async function updatePayment(studentId, topicId, paymentData) {
+  try {
+    const response = await fetch(`http://localhost:8000/api/v1/payments/${studentId}/${topicId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(paymentData),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error updating payment:", error);
+    throw error;
+  }
+}
