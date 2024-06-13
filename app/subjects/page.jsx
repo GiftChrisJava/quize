@@ -1,6 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { Loader } from "lucide-react";
 import store from "store2";
+import { getForm4class, getForm3class } from "./path/to/actions";
 
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
@@ -13,10 +16,50 @@ import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 import SubjectBottomNav from "./_components/SubjectBottomNav";
 
 function Subjects() {
-  let storedForm4Subjects = store.get("form4subjects") || [];
-  let storedForm3Subjects = store.get("form3subjects") || [];
+  const form4subjectId = "6669b010ddfade1a22cd7b1c";
+  const form3SubjectId = "6669b04bddfade1a22cd7b20";
+  
+  const [form4Subjects, setForm4Subjects] = useState([]);
+  const [form3Subjects, setForm3Subjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  console.log(storedForm4Subjects);
+  useEffect(() => {
+    const fetchSubjects = async () => {
+      try {
+        const form4Data = await getForm4class(form4subjectId);
+        const form3Data = await getForm3class(form3SubjectId);
+
+        store.set("form4subjects", form4Data);
+        store.set("form3subjects", form3Data);
+
+        setForm4Subjects(form4Data);
+        setForm3Subjects(form3Data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSubjects();
+  }, [form4subjectId, form3SubjectId]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader className="animate-spin" size={48} />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-red-500">{error.message}</p>
+      </div>
+    );
+  }
 
   return (
     <main className="">
@@ -84,12 +127,12 @@ function Subjects() {
             Form 4 Subjects
           </h4>
 
-          {storedForm4Subjects.length > 0 ? (
+          {form4Subjects.length > 0 ? (
             <div
               data-aos="slide-right"
               className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
             >
-              {storedForm4Subjects.map((subject) => (
+              {form4Subjects.map((subject) => (
                 <div key={subject.id}>
                   <FormFourSubjectCard
                     className="flex "
@@ -117,12 +160,12 @@ function Subjects() {
           </h4>
           {/* form 3 subjects */}
 
-          {storedForm3Subjects.length > 0 ? (
+          {form3Subjects.length > 0 ? (
             <div
               data-aos="slide-right"
               className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
             >
-              {storedForm3Subjects.map((subject) => (
+              {form3Subjects.map((subject) => (
                 <div key={subject.id}>
                   <SubjectCard
                     className="flex"
