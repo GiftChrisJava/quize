@@ -24,6 +24,8 @@ exports.POST = async function (req) {
     // payment_intent.created
 
     // something cool
+      // something cool
+      // something cool
 
     console.log(
       res?.data?.object?.billing_details?.email, // email
