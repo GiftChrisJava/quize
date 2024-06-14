@@ -119,9 +119,9 @@ function Questions({ params }) {
                  </button>
                </article>
             ) : (
-                <div className="font-bold justify-center ml-14 ">Not Yet Uploaded.. </div>
+                <div className="font-bold justify-center ml-14">Not Yet Uploaded</div>
             )}
-            {testQuestions.length > 0 && (
+            {!submitted && (
                 <h5 className="text-center text-sm text-gray-800 mb-8 mt-8">
                     Click on the question to write an answer.{" "}
                     <span className="font-bold">
