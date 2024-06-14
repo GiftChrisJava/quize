@@ -47,7 +47,7 @@ function Videos({ params }) {
   topic = store.get("topic");
 
   return (
-    <main className="h-full">
+    <main className="h-[80vh]">
       <hr />
       <div className="max-container p-4 flex flex-col justify-center items-center">
         <article className="mb-8">

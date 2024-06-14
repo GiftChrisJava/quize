@@ -46,7 +46,7 @@ function Subject({ params }) {
   }
 
   return (
-    <div className="flex flex-row justify-between pb-6">
+    <div className="flex flex-row justify-between pb-6 h-[80vh]">
       <section className="flex-3 max-container">
         <article data-aos="slide-up">
           <h4 className="font-semibold text-3xl text-gray-500 text-center pt-3">
