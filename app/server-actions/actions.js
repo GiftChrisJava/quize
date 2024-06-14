@@ -83,7 +83,7 @@ export async function getTopicById(topicId) {
 
 // write a function that gets a form 4 class
 export async function getForm4class() {
-  const form4ClassId = "6669b010ddfade1a22cd7b1c";
+  const form4ClassId = "666bbcfd0ddf861bc3606b04";
 
   try {
     const response = await fetch(`https://meep-app-api.onrender.com/api/v1/class/${form4ClassId}`);
@@ -97,7 +97,7 @@ export async function getForm4class() {
 
 // write a function that gets a form 3 class
 export async function getForm3class() {
-  const form3ClassId = "6669b04bddfade1a22cd7b20";
+  const form3ClassId = "666bbd7b0ddf861bc3606b09";
 
   try {
     const response = await fetch(`https://meep-app-api.onrender.com/api/v1/class/${form3ClassId}`);
