@@ -47,7 +47,7 @@ function VideoIntro({ params }) {
 
   const notes = subtopic.notes[0];
   return (
-    <div className="max-container px-4 h-[80vh]">
+    <div className="max-container px-4 h-full">
       <section>
         <h2 className="font-bold text-2xl text-gray-800 py-2 ml-3 text-center mt-2">
           {subtopic.foundSubtopic.subtopic_name}
