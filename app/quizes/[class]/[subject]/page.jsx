@@ -17,7 +17,7 @@ function QuizList({ params }) {
     userClass = "Form_four";
   }
    
-  const subjectData = store.get("subjectData");
+  const subjectData = store.get("subject");
   
   // Replace %20 with space in params.subject
   const formattedSubject = params.subject.replace(/%20/g, " ");
