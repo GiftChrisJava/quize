@@ -4,15 +4,30 @@ import store from "store2";
 import { Loader } from "lucide-react";
 import StudentPerformanceChart from "./StudentPerformanceChart";
 import { getTestScore } from "@/app/server-actions/actions";
+import { useUser } from "@clerk/nextjs";
+
 
 function Results({ params }) {
+
+  const { isLoaded, isSignedIn, user } = useUser();
+
+  
+    store.set("username", user.username);
+    store.set("stripeId", user.id)
+    store.set("firstName", user.firstName);
+    store.set("lastName", user.lastName);
+  
+  
   const topic_id = params.topic_id;
-  const studentId = store.get("studentId");
+  // const studentId = store.get("studentId");
+  const studentId = "666bcbe60ddf861bc3606cb8"
+  
   const testId = store.get("testId");
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [studentIdentity, setstudentIdentity] = useState("")
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,10 +39,19 @@ function Results({ params }) {
       } finally {
         setLoading(false);
       }
+
+
+      const student = await postStudentData(user);
+        
+      setstudentIdentity(student._id)
+
     };
 
     fetchData();
   }, [studentId, testId]);
+
+
+  studentId = studentIdentity;
 
   if (loading) {
     return (
