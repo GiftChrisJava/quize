@@ -99,16 +99,6 @@ function Questions({ params }) {
             <h1 className="text-center text-2xl text-gray-600 font-bold">
                 {topic ? `${topic.name} Test` : "Loading..."}
             </h1>
-
-            <article className="flex flex-row justify-center items-center mt-5 mb-5">
-              <button
-                  className="mt-1 rounded px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 text-gray-200 w-38"
-              >
-                <Link href={`/subjects/${subject_id}/${topic_id}/questions/results`} >View Test Results</Link>
-                
-              </button>
-            </article>
-
             {(testQuestions.length > 0) ? (
                  <article className="flex flex-row justify-center items-center mt-5 mb-5">
                  <button
