@@ -14,7 +14,11 @@ import SubjectCard from "./_components/SubjectCard";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
 
 import SubjectBottomNav from "./_components/SubjectBottomNav";
-import { getForm3class, getForm4class, postStudentData } from "../server-actions/actions";
+import {
+  getForm3class,
+  getForm4class,
+  postStudentData,
+} from "../server-actions/actions";
 
 function Subjects() {
   const [form4Subjects, setForm4Subjects] = useState([]);
@@ -31,8 +35,6 @@ function Subjects() {
   // }  {
   //   store.set("username", "student");
   // }
-  
- 
 
   useEffect(() => {
     const fetchSubjects = async () => {
@@ -40,8 +42,8 @@ function Subjects() {
         const form4Data = await getForm4class();
         const form3Data = await getForm3class();
         // const student = await postStudentData(user);
-        
-        // store student id 
+
+        // store student id
         // store.set("user_id", student._id)
 
         store.set("form4subjects", form4Data.subjects);
@@ -184,8 +186,8 @@ function Subjects() {
                   <SubjectCard
                     className="flex"
                     name={subject.name}
-                    image={subject.image}
-                    subject_id={subject.id}
+                    image={subject.image_url}
+                    subject_id={subject._id}
                   />
                 </div>
               ))}
