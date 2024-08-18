@@ -49,7 +49,7 @@ function TopicCard({ name, image, topic_id, subject_id, premium }) {
               className="group justify-center flex gap-3 leading-normal items-center mt-2"
             >
               <p className=" text-md text-gray-500 hover:text-green-600">
-                Questions
+                Exam Questions
               </p>
             </Link>
           </div>
