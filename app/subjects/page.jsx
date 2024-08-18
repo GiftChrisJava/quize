@@ -100,21 +100,16 @@ function Subjects() {
               topics and connect with experienced tutors for personalized
               support.
             </h4>
-            <h4 className="text-md text-gray-800 mt-2 md:items-center md:justify-center">
-              Start your educational journey today by selecting your current
-              class and exploring the subjects below.
+            <h4 className="text-md text-gray-800 mt-4 md:items-center md:justify-center">
+              Start your educational journey today by selecting your class and
+              exploring the available subjects to enhance your understanding.
             </h4>
-
-            <h2 className="text-gray-600 py-4 mt-5 sm:text-md text-md">
-              Choose a subject below to begin learning and enhancing your
-              understanding.
-            </h2>
 
             <a
               href="#subject_cards"
               className="text-blue-600 hover:text-blue-800 underline mt-4"
             >
-              Explore Subjects
+              Explore Subjects Now!
             </a>
           </section>
           <section className="flex-1 ml-10">
