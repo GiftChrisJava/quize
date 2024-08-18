@@ -84,31 +84,38 @@ function Subjects() {
       </section>
 
       <hr />
-      <section className="bg-white">
+      <section className="bg-white h-screen">
         <article className="max-container flex flex-row sm:gap-8 items-center justify-center mb-16">
           <section className="flex flex-2 sm:flex-1 flex-col p-4 ">
-            <h2 className="font-extrabold flex-start sm:text-2xl md:text-4xl text-gray-900 ">
+            <h2 className="font-extrabold sm:text-2xl md:text-4xl text-gray-900">
               <span className="text-green-600">MALAWI</span> EDUCATION
               ENHANCEMENT
               <span className="text-red-600"> PLATFORM</span>
             </h2>
-            <h4 className="text-md text-gray-500 mt-4 mb-4 text-left md:items-center md:justify-center">
-              Online learning you can access anywhere easily
+            <h4 className="text-md text-gray-500 mt-4 mb-4 md:items-center md:justify-center">
+              Access quality online learning anytime, anywhere
             </h4>
             <h4 className="text-md text-gray-600 mt-4">
-              A solution to help you understand the most challenging and complex
-              topics in MSCE level classes and find tutors for further help
+              Empowering students with resources to master challenging MSCE
+              topics and connect with experienced tutors for personalized
+              support.
             </h4>
-
             <h4 className="text-md text-gray-800 mt-2 md:items-center md:justify-center">
-              Begin your journey of learning by just clicking on the subject
-              below depending on your secondary school level
+              Start your educational journey today by selecting your current
+              class and exploring the subjects below.
             </h4>
 
             <h2 className="text-gray-600 py-4 mt-5 sm:text-md text-md">
-              Select a subject below begin your learning based on your current
-              class
+              Choose a subject below to begin learning and enhancing your
+              understanding.
             </h2>
+
+            <a
+              href="#subject_cards"
+              className="text-blue-600 hover:text-blue-800 underline mt-4"
+            >
+              Explore Subjects
+            </a>
           </section>
           <section className="flex-1 ml-10">
             <Image
@@ -122,12 +129,12 @@ function Subjects() {
         </article>
 
         <article className="md:min-container max-container pb-10 flex flex-row sm:gap-8 items-center justify-center">
-          {/* deleted */}
+          {/* additional content can go here */}
         </article>
       </section>
 
       {/* form 4 subjects */}
-      <section className="max-container">
+      <section id="subject_cards" className="max-container">
         <article className="sm:4 p-1 mt-4">
           <h4 className="text-center md:text-left font-bold text-lg mt-4 text-red-600">
             Form 4 Subjects
