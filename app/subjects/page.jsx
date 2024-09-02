@@ -3,12 +3,11 @@
 import { useState, useEffect } from "react";
 import { Loader } from "lucide-react";
 import store from "store2";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/clerk-react";
 
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
 import boy from "../../public/boy.jpg";
-import books from "../../public/books.jpg";
 
 import SubjectCard from "./_components/SubjectCard";
 import FormFourSubjectCard from "./_components/FormFourSubjectCard";
@@ -25,26 +24,34 @@ function Subjects() {
   const [form3Subjects, setForm3Subjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // const { isLoaded, isSignedIn, user } = useUser();
 
-  // if (isSignedIn) {
-  //   store.set("username", user.username);
-  //   store.set("stripeId", user.id)
-  //   store.set("firstName", user.firstName);
-  //   store.set("lastName", user.lastName);
-  // }  {
-  //   store.set("username", "student");
-  // }
+  const { isSignedIn, user, isLoaded } = useUser();
+
+  // store student data
+  if (isSignedIn && isLoaded) {
+    store.set("username", user.username);
+    store.set("stripeId", user.id);
+    store.set("firstName", user.firstName);
+    store.set("lastName", user.lastName);
+  }
 
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
         const form4Data = await getForm4class();
         const form3Data = await getForm3class();
-        // const student = await postStudentData(user);
 
-        // store student id
-        // store.set("user_id", student._id)
+        if (isSignedIn && isLoaded) {
+          const student = await postStudentData(
+            user.username,
+            user.id,
+            user.firstName,
+            user.lastName
+          );
+
+          // store student id
+          store.set("user_id", student._id);
+        }
 
         store.set("form4subjects", form4Data.subjects);
         store.set("form3subjects", form3Data.subjects);
@@ -77,6 +84,7 @@ function Subjects() {
     );
   }
 
+  console.log("student id is : ", store.get("user_id"));
   return (
     <main className="">
       <section className="">
@@ -140,8 +148,8 @@ function Subjects() {
               data-aos="slide-right"
               className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
             >
-              {form4Subjects.map((subject) => (
-                <div key={subject.id}>
+              {form4Subjects.map((subject, index) => (
+                <div key={index}>
                   <FormFourSubjectCard
                     className="flex "
                     name={subject.name}
@@ -173,8 +181,8 @@ function Subjects() {
               data-aos="slide-right"
               className="grid md:grid-cols-4 gap-1 sm:grid-cols-3 sm:gap-4 grid-cols-1"
             >
-              {form3Subjects.map((subject) => (
-                <div key={subject.id}>
+              {form3Subjects.map((subject, index) => (
+                <div key={index}>
                   <SubjectCard
                     className="flex"
                     name={subject.name}

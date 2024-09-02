@@ -1,7 +1,5 @@
 "use client";
 
-// import { auth, currentUser } from "@clerk/nextjs/server";
-
 // Define a function to check the internet connection
 export async function checkInternet() {
   try {
@@ -194,14 +192,30 @@ export async function getTestById(testId) {
 }
 
 // Function to post student data
-export async function postStudentData(user) {
-  console.log("called and username is " + user.username);
+
+export async function postStudentData(username, id, firstName, lastName) {
+  console.log("postStudentData function invoked");
+
+  // Log the incoming parameters
+  console.log("Username:", username);
+  console.log("ID:", id);
+  console.log("First Name:", firstName);
+  console.log("Last Name:", lastName);
+
+  // Verify all parameters are valid before proceeding
+  if (!username || !id || !firstName || !lastName) {
+    console.error("Missing required parameters!");
+    return;
+  }
+
   const studentData = {
-    stripe_student_id: user.id,
-    username: user.username,
-    firstname: user.firstName,
-    lastname: user.lastName,
+    stripe_student_id: id,
+    username: username,
+    firstname: firstName,
+    lastname: lastName,
   };
+
+  console.log("Student data to be posted:", studentData);
 
   try {
     const response = await fetch(
@@ -216,12 +230,12 @@ export async function postStudentData(user) {
     );
 
     const data = await response.json();
+    console.log("Response from API:", data);
 
     if (data.error) {
-      console.log(data);
-    } else {
-      // do nothing
+      console.log("Error in response:", data);
     }
+
     return data;
   } catch (error) {
     console.error("Error posting student data:", error);
