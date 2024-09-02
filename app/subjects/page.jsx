@@ -27,8 +27,9 @@ function Subjects() {
 
   const { isSignedIn, user, isLoaded } = useUser();
 
+  console.log("is in ", isSignedIn);
   // store student data
-  if (isSignedIn && isLoaded) {
+  if (isSignedIn) {
     store.set("username", user.username);
     store.set("stripeId", user.id);
     store.set("firstName", user.firstName);
@@ -41,7 +42,7 @@ function Subjects() {
         const form4Data = await getForm4class();
         const form3Data = await getForm3class();
 
-        if (isSignedIn && isLoaded) {
+        if (isSignedIn) {
           const student = await postStudentData(
             user.username,
             user.id,
