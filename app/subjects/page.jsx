@@ -27,7 +27,6 @@ function Subjects() {
 
   const { isSignedIn, user, isLoaded } = useUser();
 
-  console.log("is in ", isSignedIn);
   // store student data
   if (isSignedIn) {
     store.set("username", user.username);
@@ -38,11 +37,13 @@ function Subjects() {
 
   useEffect(() => {
     const fetchSubjects = async () => {
-      try {
-        const form4Data = await getForm4class();
-        const form3Data = await getForm3class();
+      if (isSignedIn) {
+        console.log("is inside ", isSignedIn);
 
-        if (isSignedIn) {
+        try {
+          const form4Data = await getForm4class();
+          const form3Data = await getForm3class();
+
           const student = await postStudentData(
             user.username,
             user.id,
@@ -52,17 +53,17 @@ function Subjects() {
 
           // store student id
           store.set("user_id", student._id);
+
+          store.set("form4subjects", form4Data.subjects);
+          store.set("form3subjects", form3Data.subjects);
+
+          setForm4Subjects(form4Data.subjects);
+          setForm3Subjects(form3Data.subjects);
+        } catch (error) {
+          setError(error);
+        } finally {
+          setLoading(false);
         }
-
-        store.set("form4subjects", form4Data.subjects);
-        store.set("form3subjects", form3Data.subjects);
-
-        setForm4Subjects(form4Data.subjects);
-        setForm3Subjects(form3Data.subjects);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
       }
     };
 

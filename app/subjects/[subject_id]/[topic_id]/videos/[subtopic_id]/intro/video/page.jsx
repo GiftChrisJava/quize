@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowDownNarrowWideIcon, LockIcon, UnlinkIcon, Unlock } from "lucide-react";
+import {
+  ArrowDownNarrowWideIcon,
+  LockIcon,
+  UnlinkIcon,
+  Unlock,
+} from "lucide-react";
 import Link from "next/link";
 import VideoComponent from "./_components/VideoComponent";
 import FormModel from "./_components/FormModel";
@@ -21,6 +26,7 @@ function VideoPlayer({ params }) {
 
   // State for the selected video index
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
+  store.set("selectedVideoid", selectedVideo._id);
 
   const onClose = () => {
     setshowModel(false);
@@ -31,6 +37,7 @@ function VideoPlayer({ params }) {
       setSelectedVideo(video);
       setSelectedVideoIndex(index);
       store.set("video", selectedVideo);
+      store.set("selectedVideoid", selectedVideo.id);
     }
   };
 
@@ -40,14 +47,20 @@ function VideoPlayer({ params }) {
     <main className="flex flex-row justify-between pb-6">
       <section className="md:w-[320px] md:block hidden sm:ml-2">
         <ul className="p-2 sticky bg-white shadow-lg border rounded-md md:mr-2 mt-16">
-          <p className="font-semibold text-green-600 text-xl">Available Videos</p>
+          <p className="font-semibold text-green-600 text-xl">
+            Available Videos
+          </p>
           <hr className="mt-3" />
           {subtopic.videos.map((video, index) => (
             <li
               className={`group p-1 flex gap-3 mt-2 text-[18px] items-center 
               ${
                 !video.isLocked
-                  ? `cursor-pointer ${selectedVideoIndex === index ? 'text-gray-800 font-bold' : 'text-gray-500'}`
+                  ? `cursor-pointer ${
+                      selectedVideoIndex === index
+                        ? "text-gray-800 font-bold"
+                        : "text-gray-500"
+                    }`
                   : "text-gray-300 cursor-not-allowed"
               }`}
               key={index}
@@ -61,7 +74,9 @@ function VideoPlayer({ params }) {
                 )}
                 <h2
                   className={`text-sm md:text-lg ${
-                    !video.isLocked && selectedVideoIndex !== index ? "hover:text-green-600" : ""
+                    !video.isLocked && selectedVideoIndex !== index
+                      ? "hover:text-green-600"
+                      : ""
                   }`}
                 >
                   {video.title}
@@ -116,7 +131,9 @@ function VideoPlayer({ params }) {
                           key={video._id}
                           href="#"
                           className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                            video.isLocked ? "cursor-not-allowed opacity-50" : ""
+                            video.isLocked
+                              ? "cursor-not-allowed opacity-50"
+                              : ""
                           }`}
                           role="menuitem"
                           tabIndex="-1"
@@ -161,15 +178,14 @@ function VideoPlayer({ params }) {
           </div>
 
           <div className="mt-14 flex flex-row justify-center items-center">
-            {(!topic.isPaidFor && topic.isPremium) && (
+            {!topic.isPaidFor && topic.isPremium && (
               <Link href="https://buy.stripe.com/test_aEUg1WbZL9S69SE9AB">
                 <button className="mt-1 px-3 py-2 font-semibold text-sm bg-slate-600 hover:text-green-600 rounded-md text-white w-38">
                   <span className="text-lg">UNLOCK VIDEOS</span>
                 </button>
               </Link>
             )}
-       </div>
-
+          </div>
 
           <FormModel isVisible={showModel} onClose={onClose} />
         </article>

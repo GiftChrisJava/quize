@@ -161,6 +161,20 @@ export async function getCustomerFeedbackByTutorId(tutorId) {
   }
 }
 
+// Function to get notes by video ID
+export async function getNotesByVideoId(videoId) {
+  try {
+    const response = await fetch(
+      `https://meep-app-api.onrender.com/api/v1/notes/video/${videoId}`
+    );
+    const data = await response.json();
+    console.log("notes are ", data);
+    return data;
+  } catch (error) {
+    console.error("Error getting notes by video ID:", error);
+  }
+}
+
 // Function to get subject by class ID and subject name
 export async function getSubjectWithSubtopics(classId, subjectName) {
   try {
