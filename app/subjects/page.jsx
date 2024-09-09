@@ -5,7 +5,7 @@ import { Loader } from "lucide-react";
 import store from "store2";
 import { useUser } from "@clerk/clerk-react";
 
-/* eslint-disable jsx-a11y/alt-text _id */
+/* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
 import boy from "../../public/boy.jpg";
 
