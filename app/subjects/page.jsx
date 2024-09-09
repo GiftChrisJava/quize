@@ -5,7 +5,7 @@ import { Loader } from "lucide-react";
 import store from "store2";
 import { useUser } from "@clerk/clerk-react";
 
-/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/alt-text _id */
 import Image from "next/image";
 import boy from "../../public/boy.jpg";
 
@@ -52,7 +52,7 @@ function Subjects() {
           );
 
           // store student id
-          store.set("user_id", student._id);
+          store.set("user_id", student.id);
 
           store.set("form4subjects", form4Data.subjects);
           store.set("form3subjects", form3Data.subjects);
